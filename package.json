@@ -52,6 +52,7 @@
     "babel-preset-stage-0": "^6.16.0",
     "babelify": "^7.3.0",
     "browserify": "^13.3.0",
+    "coveralls": "^2.11.15",
     "css-modulesify": "^0.27.1",
     "cz-conventional-changelog": "^1.2.0",
     "enzyme": "^2.7.0",
