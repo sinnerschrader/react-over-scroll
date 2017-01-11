@@ -1,0 +1,103 @@
+{
+  "name": "react-over-scroll",
+  "version": "1.0.0",
+  "description": "A scroll based slideshow with wings",
+  "main": "index.js",
+  "scripts": {
+    "babel": "babel src --out-dir lib",
+    "build": "node ./scripts/build",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "docs": "rm -rf docs/api && mkdir docs/api && jsdoc -c jsdoc.json",
+    "lint": "eslint .",
+    "prebuild": "NODE_ENV=production",
+    "prepush": "jest --no-cache",
+    "prerelease": "npm run babel; npm test",
+    "posttest": "npm run lint",
+    "release": "standard-version --no-verify",
+    "server": "cd docs && http-server",
+    "start": "npm run build && npm run server",
+    "test": "jest --no-cache --coverage",
+    "watch": "NODE_ENV=development node ./scripts/watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pixelass/react-over-scroll.git"
+  },
+  "keywords": ["scroll", "slideshow", "snap", "scroll-snap", "react", "slides", "tracking"],
+  "author": "Gregor Adams <greg@pixelass.com> (http://pixelass.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pixelass/react-over-scroll/issues"
+  },
+  "homepage": "https://github.com/pixelass/react-over-scroll#readme",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+   "devDependencies": {
+    "abcq": "^0.2.2",
+    "babel-cli": "^6.18.0",
+    "babel-jest": "^18.0.0",
+    "babel-plugin-react-transform": "^2.0.2",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.1",
+    "css-modulesify": "^0.26.0",
+    "cz-conventional-changelog": "^1.2.0",
+    "enzyme": "^2.7.0",
+    "errorify": "^0.3.1",
+    "eslint": "^3.12.2",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-react": "^6.8.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "glob": "^7.1.1",
+    "hopsdoc": "^0.1.7",
+    "http-server": "^0.9.0",
+    "husky": "^0.12.0",
+    "jest": "^18.1.0",
+    "jest-css-modules": "^1.1.0",
+    "jsdoc": "^3.4.3",
+    "livereactload": "^3.1.1",
+    "lodash.debounce": "^4.0.8",
+    "log": "^1.4.0",
+    "postcss-cssnext": "^2.9.0",
+    "react-addons-test-utils": "^15.4.1",
+    "react-proxy": "^1.1.8",
+    "react-scroll": "^1.4.4",
+    "sinon": "^1.17.7",
+    "standard-version": "^4.0.0",
+    "uglifyify": "^3.0.4",
+    "watchify": "^3.8.0"
+  },
+  "browserify": {
+    "transform": [
+      "babelify",
+      [
+        "babelify",
+        {
+          "presets": [
+            "react",
+            "es2015",
+            "stage-0"
+          ]
+        }
+      ]
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "jest": {
+    "transform": {
+      ".*": "<rootDir>/node_modules/jest-css-modules"
+    },
+    "testRegex": ".*/src/(.*/)?spec/.*\\.js$"
+  }
+}
