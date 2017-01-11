@@ -3,5 +3,17 @@
     "react",
     "es2015",
     "stage-0"
-  ]
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        ["react-transform", {
+          "transforms": [{
+            "transform": "livereactload/babel-transform",
+            "imports": ["react"]
+          }]
+        }]
+      ]
+    }
+  }
 }

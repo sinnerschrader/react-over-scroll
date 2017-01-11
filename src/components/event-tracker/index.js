@@ -1,6 +1,11 @@
 import {Component, PropTypes} from 'react'
 
 class EventTracker extends Component {
+  /**
+   * A simple tracker for `window.scrollY`
+   * @param {Object} props
+   * @param {Function} props.onScroll - eventListener
+   */
   constructor (props) {
     super(props)
     this.state = {}

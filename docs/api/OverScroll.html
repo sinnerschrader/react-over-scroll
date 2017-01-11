@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OverScroll - Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="css/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav class="main-nav">
+    <header class="nav-header"><h2><a href="index.html">Home</a></h2></header><header class="nav-header"><h3><span>Classes</span></h3></header><ul><li><a href="EventTracker.html">EventTracker</a></li><li><a href="OverScroll.html">OverScroll</a><ul class='methods'><li class='nav-type-header'>Methods</li><li data-type='method'><a href="OverScroll.html#updateScroll">updateScroll</a></li></ul></li></ul><header class="nav-header"><h3><a href="global.html">Global</a></h3></header>
+</nav>
+
+<main id="main" class="main-content">
+    <section>
+    <h1 class="page-title">OverScroll</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2 class="section-title">
+        OverScroll
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+<article class="card card__class" id="OverScroll">
+
+
+<section class="code-source">
+  <div class="link-box">
+    
+    <a href="index.js.html">index.js</a> <a href="index.js.html#line16">line 16</a>
+    
+  </div>
+</section>
+
+
+    
+      <h2 >OverScroll</h2>
+    
+    
+        
+
+        <h4 class="name"><span class="type-signature"></span>new OverScroll<span class="signature">(props)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+    
+    <div class="description">
+        <p>a scroll based slideshow with wings</p>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+<div class="table-scroll">
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="__tag param-type param-type-object"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank">Object</a>
+
+</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+<div class="table-scroll">
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>className</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="__tag param-type param-type-string"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">String</a>
+
+</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>children</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="__tag param-type param-type-render"><a href="global.html#render">render</a></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>render function for children</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>slides</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="__tag param-type param-type-number"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">Number</a>
+
+</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>number of slides</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>factor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="__tag param-type param-type-number"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">Number</a>
+
+</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    <span class="__tag attr attr-optional">optional</span><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+
+            <td class="description last"><p>scroll factor defines how many viewport heights page
+ have to be scrolled to trigger the next page</p>
+<ul>
+<li>1 = 100vh</li>
+<li>2 = 200vh</li>
+</ul></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</div>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</div>
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </article>
+
+    
+    </div>
+    
+
+    
+
+    
+
+     
+
+    
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+<article class="card card__function" id="updateScroll">
+
+
+<section class="code-source">
+  <div class="link-box">
+    
+    <a href="index.js.html">index.js</a> <a href="index.js.html#line52">line 52</a>
+    
+  </div>
+</section>
+
+
+    
+      <h2 >updateScroll</h2>
+    
+    
+        
+
+        <h4 class="name"><span class="type-signature"></span>updateScroll<span class="signature">(scrollY)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+    
+    <div class="description">
+        <p>checks for the current position and translates the scroll to index and percent</p>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+<div class="table-scroll">
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>scrollY</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="__tag param-type param-type-number"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">Number</a>
+
+</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>window.scrollY</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</div>
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </article>
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    </section>
+</main>
+
+
+<footer class="main-footer">
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Wed Jan 11 2017 22:49:24 GMT+0100 (CET)
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
