@@ -39,7 +39,7 @@ const renderSlide = (slide, percent) => (
   </div>
 )
 // Usage
-// <OverScroll slides={10} children={renderPage} />
+// <OverScroll slides={10} children={renderSlide} />
 ```
 
 ### Example 2
