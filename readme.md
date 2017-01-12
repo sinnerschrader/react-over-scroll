@@ -2,29 +2,29 @@
 
 A scroll based slideshow with wings.
 
-[API Documentation](https://pixelass.github.io/react-over-scroll/api/)  
-[Demo](https://pixelass.github.io/react-over-scroll/)
+[API Documentation](https://sinnerschrader.github.io/react-over-scroll/api/)  
+[Demo](https://sinnerschrader.github.io/react-over-scroll/)
 
 [![npm](https://img.shields.io/npm/v/react-over-scroll.svg)](https://www.npmjs.com/package/react-over-scroll)
-[![Coveralls branch](https://img.shields.io/coveralls/pixelass/react-over-scroll.svg)](https://coveralls.io/github/pixelass/react-over-scroll)
-[![bitHound Overall Score](https://www.bithound.io/github/pixelass/react-over-scroll/badges/score.svg)](https://www.bithound.io/github/pixelass/react-over-scroll)
+[![Coveralls branch](https://img.shields.io/coveralls/sinnerschrader/react-over-scroll.svg)](https://coveralls.io/github/sinnerschrader/react-over-scroll)
+[![bitHound Overall Score](https://www.bithound.io/github/sinnerschrader/react-over-scroll/badges/score.svg)](https://www.bithound.io/github/sinnerschrader/react-over-scroll)
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/conventional-changelog/standard-version)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)  
-[![Travis](https://img.shields.io/travis/pixelass/react-over-scroll.svg)](https://travis-ci.org/pixelass/react-over-scroll)
-[![David](https://img.shields.io/david/pixelass/react-over-scroll.svg)](https://david-dm.org/pixelass/react-over-scroll)
-[![David](https://img.shields.io/david/dev/pixelass/react-over-scroll.svg)](https://david-dm.org/pixelass/react-over-scroll#info=devDependencies&view=table)  
-[![GitHub license](https://img.shields.io/github/license/pixelass/react-over-scroll.svg)](https://github.com/pixelass/react-over-scroll/blob/master/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/pixelass/react-over-scroll.svg)](https://github.com/pixelass/react-over-scroll/issues)
-[![GitHub forks](https://img.shields.io/github/forks/pixelass/react-over-scroll.svg)](https://github.com/pixelass/react-over-scroll/network)
-[![GitHub stars](https://img.shields.io/github/stars/pixelass/react-over-scroll.svg)](https://github.com/pixelass/react-over-scroll/stargazers)
+[![Travis](https://img.shields.io/travis/sinnerschrader/react-over-scroll.svg)](https://travis-ci.org/sinnerschrader/react-over-scroll)
+[![David](https://img.shields.io/david/sinnerschrader/react-over-scroll.svg)](https://david-dm.org/sinnerschrader/react-over-scroll)
+[![David](https://img.shields.io/david/dev/sinnerschrader/react-over-scroll.svg)](https://david-dm.org/sinnerschrader/react-over-scroll#info=devDependencies&view=table)  
+[![GitHub license](https://img.shields.io/github/license/sinnerschrader/react-over-scroll.svg)](https://github.com/sinnerschrader/react-over-scroll/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/sinnerschrader/react-over-scroll.svg)](https://github.com/sinnerschrader/react-over-scroll/issues)
+[![GitHub forks](https://img.shields.io/github/forks/sinnerschrader/react-over-scroll.svg)](https://github.com/sinnerschrader/react-over-scroll/network)
+[![GitHub stars](https://img.shields.io/github/stars/sinnerschrader/react-over-scroll.svg)](https://github.com/sinnerschrader/react-over-scroll/stargazers)
 
 ```
 npm install react-over-scroll
 ```
 
 ## Description
-OverScroll is a slide-show or content-slider, call it what you want. It is a full-screen/viewport element that snaps into fixed mode when it reaches the viewports top edge. Scrolling is now translated to paging, switching the content each time a predefined scroll amount has been reached. During an active slide two values are available. (See [Render](https://github.com/pixelass/react-over-scroll/#render) for more information). Take a look at the [Demo](https://pixelass.github.io/react-over-scroll/) to get a better understanding of the behavior.
+OverScroll is a slide-show or content-slider, call it what you want. It is a full-screen/viewport element that snaps into fixed mode when it reaches the viewports top edge. Scrolling is now translated to paging, switching the content each time a predefined scroll amount has been reached. During an active slide two values are available. (See [Render](https://github.com/sinnerschrader/react-over-scroll/#render) for more information). Take a look at the [Demo](https://sinnerschrader.github.io/react-over-scroll/) to get a better understanding of the behavior.
 
 ## Render
 
