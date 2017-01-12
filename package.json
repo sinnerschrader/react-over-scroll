@@ -2,7 +2,7 @@
   "name": "react-over-scroll",
   "version": "1.0.0",
   "description": "A scroll based slideshow with wings",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "babel": "babel src --out-dir lib",
     "build": "node ./scripts/build",
