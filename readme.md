@@ -6,7 +6,7 @@ A scroll based slideshow with wings.
 [Demo](https://sinnerschrader.github.io/react-over-scroll/)
 
 [![npm](https://img.shields.io/npm/v/react-over-scroll.svg)](https://www.npmjs.com/package/react-over-scroll)
-[![Coveralls branch](https://img.shields.io/coveralls/sinnerschrader/react-over-scroll.svg)](https://coveralls.io/github/sinnerschrader/react-over-scroll)
+[![Coveralls branch](https://img.shields.io/coveralls/pixelass/react-over-scroll.svg)](https://coveralls.io/github/pixelass/react-over-scroll)
 [![bitHound Overall Score](https://www.bithound.io/github/sinnerschrader/react-over-scroll/badges/score.svg)](https://www.bithound.io/github/sinnerschrader/react-over-scroll)
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/conventional-changelog/standard-version)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
