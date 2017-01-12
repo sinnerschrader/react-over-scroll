@@ -4,21 +4,43 @@ import Slider from '../src'
 import styles from './styles.css'
 
 const pages = [
-  <h3>Hello</h3>,
-  <h3>Hello World</h3>,
-  <h3>Hello Kitty</h3>,
-  <h3>Cute Kitty</h3>,
-  <h3>Awwwww!!!</h3>
+  progress => ( // eslint-disable-line react/display-name
+    <div>
+      <h1>OverScroll</h1>
+      <h2>A simple scroll based content-slider</h2>
+    </div>
+  ),
+  progress => ( // eslint-disable-line react/display-name
+    <div>
+      <h1>{~~(progress)}% scrolled</h1>
+      <h2>Know when the slide changes</h2>
+      <h3>work with the progress</h3>
+    </div>
+  ),
+  progress => ( // eslint-disable-line react/display-name
+    <div>
+      <div className={styles.spinner}
+           style={{
+             color: `hsl(${progress}, 100%, 20%)`,
+             transform: `translate(${progress * -2}%, ${progress * 2}%) rotate(${progress / 100 * 360 - 45}deg) scale(${progress / 100 + 1})`
+           }} />
+    </div>
+  )
 ]
+
+pages.forEach((page, index) => {
+  page.displayName = `page${index}`
+})
 
 const renderPages = (page, progress) => (
   <div className={styles.page}>
-    <div className={styles.pageInner}>
-      <h2>Page: {page + 1}</h2>
-      {pages[page]}
+    <header className={styles.pageHeader}><h4>OverScroll</h4></header>
+    <section className={styles.pageContent}
+             children={pages[page](progress)} />
+    <footer className={styles.pageFooter}>
       <div className={styles.progress}
          style={{width: `${progress}%`}}></div>
-    </div>
+    </footer>
   </div>
 )
 
@@ -27,7 +49,7 @@ const App = props => {
     <div>
       <header className={styles.header}>
         <h1>OverScroll</h1>
-        <h2>A scroll based slide-show</h2>
+        <h2>A scroll based content-slider</h2>
       </header>
       <main className={styles.main}>
         <div>
@@ -50,5 +72,7 @@ const App = props => {
     </div>
   )
 }
+
+App.displayName = 'App'
 
 render(<App/>, document.getElementById('mountPoint'))

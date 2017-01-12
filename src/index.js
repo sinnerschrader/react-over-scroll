@@ -68,7 +68,7 @@ class OverScroll extends Component {
     if (touchedTop && !touchedEnd) {
       fixed = true
       counter = ~~(top * (-1 / this.props.factor) / window.innerHeight)
-      scrollOffset = top * -1 % (window.innerHeight * this.props.factor) / window.innerHeight / this.props.factor * 101
+      scrollOffset = top * -1 % (window.innerHeight * this.props.factor) / window.innerHeight / this.props.factor * 100
     } else if (touchedEnd) {
       bottom = true
       counter = this.props.slides - 1
