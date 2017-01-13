@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>components/event-tracker/index.js - Documentation</title>
+    <title>components/css-supports/index.js - Documentation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -26,7 +26,7 @@
 
 <main id="main" class="main-content">
     <section>
-    <h1 class="page-title">components/event-tracker/index.js</h1>
+    <h1 class="page-title">components/css-supports/index.js</h1>
     
 
     
@@ -36,44 +36,41 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import {Component, PropTypes} from 'react'
+            <pre class="prettyprint source linenums"><code>/**
+ * a list of vendor prefixes to use for css-feature testing
+ * @type {Array}
+ */
+var vendorPrefixes = ['webkit', 'moz', 'ms']
 
-class EventTracker extends Component {
-  /**
-   * A simple tracker for `window.scrollY`
-   * @param {Object} props
-   * @param {Function} props.onScroll - eventListener
-   */
-  constructor (props) {
-    super(props)
-    this.state = {}
-    this.trackScroll = this.trackScroll.bind(this)
-  }
-
-  static propTypes () {
-    return {
-      onScroll: PropTypes.func.isRequired
+/**
+ * tests if a value is supported on a property
+ * @param  {String} prop  property to test for value support
+ * @param  {String} value unprefixed value to test
+ * @return {String|Boolean}       returns the supported value or `false`
+ */
+const cssSupportsValue = (prop, value) => {
+  var div = document.createElement('div')
+  const values = vendorPrefixes.map(prefix => `-${prefix}-${value}`)
+  values.unshift(value)
+  for (let i = 0; i &lt; values.length; i++) {
+    div.style[prop] = values[i]
+    if (values[i] === div.style[prop]) {
+      // value is supported
+      div.remove()
+      return values[i]
     }
   }
-
-  trackScroll () {
-    this.props.onScroll(window.scrollY)
-  }
-
-  componentWillMount () {
-    window.addEventListener('scroll', this.trackScroll)
-  }
-
-  componentWillUnmount () {
-    window.removeEventListener('scroll', this.trackScroll)
-  }
-
-  render () {
-    return null
-  }
+  // no supported value found
+  div.remove()
+  return false
 }
 
-export default EventTracker
+const position = {
+  sticky: cssSupportsValue('position', 'sticky')
+}
+
+export {position}
+export default {position}
 </code></pre>
         </article>
     </section>

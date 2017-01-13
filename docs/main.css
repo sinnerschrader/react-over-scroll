@@ -1,17 +1,18 @@
 body {
   margin: 0;
   font-family: sans-serif;
-  background: #444;
-  color: #fff;
+  background: #fff;
+  color: #000;
 }
 
 .👻 {
-  height: 1em;
-  background: currentcolor;
-  opacity: 0.3;
+  height: .5em;
+  margin: 1em 0 0;
+  background: #4602d9;
 }
 
 .🦄 {
+  overflow: hidden;
   position: absolute;
   top: 0;
   right: 0;
@@ -24,62 +25,185 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: #fff;
-  color: #111;
-  font-size: 4em;
+  background: #000;
+  color: #fff;
+  font-size: 4vw;
 }
 
-
 .🍀 {
-  padding: 2em 20px;
-  background: #fff;
-  color: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+  padding: 0 30px;
+  background: #4602d9;
+  color: #fff;
 }
 
 .👾 {
   padding: 2em 20px;
   margin: 1em auto;
   max-width: 900px;
-  background: #fff;
-  color: #000;
+  background: #ddd;
+  color: #333;
 }
 
 .👻👻 {
   padding: 4em 20px;
   height: 20em;
-  margin: 2em 0 0;
-  background: #fff;
-  color: #000;
+  margin: 0;
+  background: #4602d9;
+  color: #fff;
 }
+
 .👻🦄 {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   text-align: center;
+  text-transform: uppercase;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
+
 .👻🍀 {
   font-size: 16px;
   font-size: 1rem;
-  padding: 20px;
-  background: #444;
-  color: #FFFF0B;
+  padding: 0 30px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  background: #000;
+  color: #fff;
+  position: relative;
+  z-index: 2
+}
+
+.👻🍀 h4 {
+  margin: 0;
 }
 
 .👻👾 {
   font-size: 16px;
   font-size: 1rem;
-  padding: 20px;
-  background: #444;
-  color: #FFFF0B;
+  background: #000;
+  color: #fff;
+  padding: 1em 0 0 ;
+  text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .🦄👻 {
+  text-transform: none;
+  text-transform: initial;
+  font-size: 2vw;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  width: 100%
+}
+
+.🦄👻 h1,
+  .🦄👻 h2,
+  .🦄👻 h3 {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.🦄👻::after {
+  content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 1em;
-  width: 1em;
-  margin: -.5em;
-  background: currentcolor;
-  border-radius: 50% 0 50% 50%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.🦄🦄 {
+  position: relative
+}
+
+.🦄🦄::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.🦄🍀 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+}
+
+.🦄👾 {
+  height: 100vh;
+  width: 100vw;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100vw;
+          flex: 0 0 100vw;
+  background-size: cover;
+}
+
+.🍀👻 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.🍀🦄 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
 }
