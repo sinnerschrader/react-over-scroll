@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import Tracker from './components/event-tracker'
+import {position} from './components/css-supports'
 
 class OverScroll extends Component {
   /**
@@ -51,7 +52,7 @@ class OverScroll extends Component {
    */
   updateScroll (scrollY) {
     let fixed
-    let bottom
+    let snapToBottom
     let counter = 0
     let scrollOffset = 0
 
@@ -62,43 +63,57 @@ class OverScroll extends Component {
     // get the offset and check if the top or bottom have been reached
     // top activates the snap mode
     // bottom deactivates the snap mode
-    const {top, height} = this.tracker.getBoundingClientRect()
+    const {top, bottom} = this.tracker.getBoundingClientRect()
+    const innerHeight = window.innerHeight || 0
     const touchedTop = top <= 0
-    const touchedEnd = top <= height * -1
+    const touchedEnd = bottom <= innerHeight
     if (touchedTop && !touchedEnd) {
       fixed = true
-      counter = ~~(top * (-1 / this.props.factor) / window.innerHeight)
-      scrollOffset = top * -1 % (window.innerHeight * this.props.factor) / window.innerHeight / this.props.factor * 100
+      counter = Math.max(0, Math.min(this.props.slides - 1, ~~(top * (-1 / this.props.factor) / innerHeight)))
+      scrollOffset = Math.max(0, Math.min(100, top * -1 % (innerHeight * this.props.factor) / innerHeight / this.props.factor * 100))
     } else if (touchedEnd) {
-      bottom = true
+      snapToBottom = true
       counter = this.props.slides - 1
       scrollOffset = 100
     }
-
     this.setState({
       scrollY,
       fixed,
       counter,
       scrollOffset,
-      bottom
+      bottom: snapToBottom
     })
   }
 
+  /**
+   * the frame is used to define the scrollable height.
+   * It works as a `position: sticky` wrapper
+   * @return {Object} returns a style object
+   */
   get frameStyle () {
+    const slideCount = this.props.slides
+    const factor = this.props.factor || 1
+    const vh = slideCount * 100 * factor + 100
     return {
-      height: `${this.props.slides * 100 * (this.props.factor || 1)}vh`,
+      height: `${vh}vh`,
       position: 'relative',
-      marginBottom: '100vh'
+      margin: 0
     }
   }
 
+  /**
+   * a polyfilled `position: sticky` helper.
+   * uses the prefixed `position: sticky` style and offers a fallback with
+   * `position: fixed`. The fallback requires to manually snap the box to the top and bottom
+   * @return {Object} returns a position sticky polyfill
+   */
   get overlayStyle () {
     return {
-      position: this.state.fixed ? 'fixed' : 'absolute',
-      top: this.state.bottom ? 'auto' : 0,
+      position: position.sticky || (this.state.fixed ? 'fixed' : 'absolute'),
+      top: position.sticky ? 0 : this.state.bottom ? 'auto' : 0,
+      bottom: 0,
       left: 0,
       right: 0,
-      bottom: !this.state.bottom ? 'auto' : '-100vh',
       height: '100vh'
     }
   }
