@@ -19,46 +19,141 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
 }
 
-var pages = [function (progress) {
-  return (// eslint-disable-line react/display-name
-    _react2.default.createElement('div', null, _react2.default.createElement('h1', null, 'OverScroll'), _react2.default.createElement('h2', null, 'A simple scroll based content-slider'))
-  );
-}, function (progress) {
-  return (// eslint-disable-line react/display-name
-    _react2.default.createElement('div', null, _react2.default.createElement('h1', null, ~~progress, '% scrolled'), _react2.default.createElement('h2', null, 'Know when the slide changes'), _react2.default.createElement('h3', null, 'work with the progress'))
-  );
-}, function (progress) {
-  return (// eslint-disable-line react/display-name
-    _react2.default.createElement('div', null, _react2.default.createElement('div', { className: _styles2.default.spinner,
-      style: {
-        color: 'hsl(' + progress + ', 100%, 20%)',
-        transform: 'translate(' + progress * -2 + '%, ' + progress * 2 + '%) rotate(' + (progress / 100 * 360 - 45) + 'deg) scale(' + (progress / 100 + 1) + ')'
-      } }))
-  );
-}];
+var s2Logo = _react2.default.createElement('svg', { viewBox: '0 0 133.68 18', width: 134, fill: 'currentcolor' }, _react2.default.createElement('path', { d: 'M4.39 18C1.55 18 .08 16.48.01 13.41c0-.15.05-.26.21-.28l2.17-.36a.22.22 0 0 1 .28.23c.08 1.86.62 2.58 1.81 2.58s1.65-.59 1.65-2.5-.36-2.5-1.73-3l-1.06-.41c-2.42-1-3.15-2.22-3.15-5C.19 1.67 1.56 0 4.44 0s4.15 1.55 4.31 4.28c0 .15-.08.23-.23.28l-2.06.31c-.15 0-.28-.05-.28-.21-.05-1.44-.52-2.24-1.65-2.24s-1.6.67-1.6 2.11c0 1.62.31 2.11 1.7 2.66l1.06.41c2.3.9 3.2 2.14 3.2 5.13C8.85 16.2 7.71 18 4.39 18zM9.7.49a.24.24 0 0 1 .26-.26h2.24a.24.24 0 0 1 .26.26v17a.24.24 0 0 1-.26.26H9.96a.24.24 0 0 1-.26-.26zM13.9.49a.24.24 0 0 1 .26-.26h2.69a.32.32 0 0 1 .36.26l3.25 12.12h.13V.49a.24.24 0 0 1 .26-.26h1.91a.24.24 0 0 1 .26.26v17a.24.24 0 0 1-.26.26h-2.51a.32.32 0 0 1-.36-.26l-3.4-12.12h-.15v12.14a.24.24 0 0 1-.26.26h-1.91a.24.24 0 0 1-.26-.26zM24.5.49a.24.24 0 0 1 .26-.26h2.73a.32.32 0 0 1 .36.26l3.25 12.12h.13V.49a.24.24 0 0 1 .26-.26h1.91a.24.24 0 0 1 .26.26v17a.24.24 0 0 1-.26.26h-2.55a.32.32 0 0 1-.36-.26l-3.4-12.12h-.15v12.14a.24.24 0 0 1-.26.26h-1.91a.24.24 0 0 1-.26-.26zM35.1.49a.24.24 0 0 1 .26-.26h7.19a.24.24 0 0 1 .26.26v2a.24.24 0 0 1-.26.26h-4.54a.14.14 0 0 0-.15.15v4.62a.14.14 0 0 0 .15.15h3.92a.24.24 0 0 1 .26.26v2a.24.24 0 0 1-.26.26h-3.92a.14.14 0 0 0-.15.15v4.79a.14.14 0 0 0 .15.15h4.54a.24.24 0 0 1 .26.26v2a.24.24 0 0 1-.26.26h-7.19a.24.24 0 0 1-.26-.26zM50.85 17.77a.26.26 0 0 1-.28-.18l-2.14-7h-1.32a.14.14 0 0 0-.15.15v6.76a.24.24 0 0 1-.26.26h-2.24a.24.24 0 0 1-.26-.26V.5a.24.24 0 0 1 .26-.26h3.53c3.12 0 5 1.37 5 5.21 0 2.3-.77 3.74-2.09 4.49l2.48 7.58c.05.13 0 .26-.13.26zm-.62-12.33c0-2.06-.67-2.71-2.22-2.71h-.9a.14.14 0 0 0-.15.15v5.11a.14.14 0 0 0 .15.15h.9c1.51-.01 2.18-.61 2.18-2.7zM58.44 18c-2.84 0-4.31-1.52-4.38-4.59 0-.15.05-.26.21-.28l2.17-.36a.22.22 0 0 1 .28.23c.08 1.86.62 2.58 1.81 2.58s1.65-.59 1.65-2.5-.36-2.5-1.73-3l-1.06-.41c-2.42-1-3.15-2.22-3.15-5 0-3 1.37-4.67 4.25-4.67s4.15 1.55 4.31 4.28c0 .15-.08.23-.23.28l-2.06.31c-.15 0-.28-.05-.28-.21-.05-1.44-.52-2.24-1.65-2.24s-1.6.67-1.6 2.11c0 1.62.31 2.11 1.7 2.66l1.06.41c2.3.9 3.2 2.14 3.2 5.13-.01 3.47-1.17 5.27-4.5 5.27zM63.96 9c0-4.87.1-5.6.34-6.32a3.77 3.77 0 0 1 4-2.68c2.5 0 4.07 1.29 4.23 4.2 0 .15 0 .28-.18.31l-2.09.36a.22.22 0 0 1-.28-.23c-.08-1.5-.59-2.14-1.6-2.14a1.29 1.29 0 0 0-1.39 1c-.13.41-.18.77-.18 5.52s.05 5.11.18 5.52a1.29 1.29 0 0 0 1.39 1c1 0 1.52-.64 1.6-2.14a.22.22 0 0 1 .28-.23l2.09.36c.15 0 .21.15.18.31-.15 2.91-1.73 4.2-4.23 4.2a3.77 3.77 0 0 1-4-2.68c-.24-.76-.34-1.48-.34-6.36zM73.99.49a.24.24 0 0 1 .26-.26h2.24a.24.24 0 0 1 .26.26V7.4a.14.14 0 0 0 .15.15h3a.14.14 0 0 0 .15-.15V.49a.24.24 0 0 1 .26-.26h2.24a.24.24 0 0 1 .26.26v17a.24.24 0 0 1-.26.26h-2.24a.24.24 0 0 1-.26-.26v-7.3a.14.14 0 0 0-.15-.15h-3a.14.14 0 0 0-.15.15v7.3a.24.24 0 0 1-.26.26h-2.24a.24.24 0 0 1-.26-.26zM90.85 17.77a.26.26 0 0 1-.28-.18l-2.14-7h-1.32a.14.14 0 0 0-.16.15v6.76a.24.24 0 0 1-.26.26h-2.24a.24.24 0 0 1-.26-.26V.5a.24.24 0 0 1 .26-.26h3.53c3.12 0 5 1.37 5 5.21 0 2.3-.77 3.74-2.09 4.49l2.48 7.58c.05.13 0 .26-.13.26zm-.62-12.33c0-2.06-.67-2.71-2.22-2.71h-.9a.14.14 0 0 0-.16.15v5.11a.14.14 0 0 0 .16.15h.9c1.58-.01 2.25-.61 2.25-2.7zM97.95.49c.05-.15.13-.26.28-.26h2.17a.28.28 0 0 1 .28.26l3.71 17a.2.2 0 0 1-.21.26h-2.19a.26.26 0 0 1-.28-.26l-.7-3.53h-3.48l-.7 3.53a.27.27 0 0 1-.28.26h-2.19a.2.2 0 0 1-.21-.26zm2.63 11.17l-1.24-6.53h-.08l-1.29 6.52zM105.3.49a.24.24 0 0 1 .26-.26h4c2.3 0 3.64.93 4.26 2.81.31 1 .44 2.14.44 6s-.13 5-.44 6c-.62 1.88-2 2.81-4.26 2.81h-4a.24.24 0 0 1-.26-.26zm2.91 14.78h1.11a1.73 1.73 0 0 0 1.86-1.26c.21-.64.31-1.5.31-5s-.1-4.36-.31-5a1.73 1.73 0 0 0-1.86-1.26h-1.11a.14.14 0 0 0-.15.15v12.23a.14.14 0 0 0 .15.14zM115.43.49a.24.24 0 0 1 .26-.26h7.16a.24.24 0 0 1 .26.26v2a.24.24 0 0 1-.26.26h-4.5a.14.14 0 0 0-.16.15v4.62a.14.14 0 0 0 .16.15h3.92a.24.24 0 0 1 .26.26v2a.24.24 0 0 1-.26.26h-3.92a.14.14 0 0 0-.16.15v4.79a.14.14 0 0 0 .16.15h4.5a.24.24 0 0 1 .26.26v2a.24.24 0 0 1-.26.26h-7.19a.24.24 0 0 1-.26-.26zM131.14 17.77a.26.26 0 0 1-.28-.18l-2.14-7h-1.32a.14.14 0 0 0-.15.15v6.76a.24.24 0 0 1-.26.26h-2.24a.24.24 0 0 1-.26-.26V.5a.24.24 0 0 1 .26-.26h3.53c3.12 0 5 1.37 5 5.21 0 2.3-.77 3.74-2.09 4.49l2.48 7.58c.05.13 0 .26-.13.26zm-.62-12.33c0-2.06-.67-2.71-2.22-2.71h-.9a.14.14 0 0 0-.15.15v5.11a.14.14 0 0 0 .15.15h.9c1.55-.01 2.22-.61 2.22-2.7z' }));
+var center = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  maxWidth: '100%'
+};
 
-pages.forEach(function (page, index) {
-  page.displayName = 'page' + index;
-});
+var Intro = function Intro(props) {
+  return _react2.default.createElement('div', null, _react2.default.createElement('h1', null, 'OverScroll'), _react2.default.createElement('h2', null, 'A simple scroll based content-slider'));
+};
+
+var Page2 = function Page2(props) {
+  return _react2.default.createElement('div', null, _react2.default.createElement('h1', null, ~~props.progress, '%'), _react2.default.createElement('h2', null, 'Know when the content changes'), _react2.default.createElement('h3', null, 'Work with the progress'));
+};
+var images = ['//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-3/module_01_hero_palm_tuifly_r.jpg', '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-2/module_01_hero_palm_curved_r.jpg', '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-4/module_01_hero_palm_maxblue_r.jpg', '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-6/module_01_hero_palm_raumfeld_r.jpg', '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-7/module_01_hero_palm_epguide_r.jpg'];
+
+var headlines = ['We navigate into the future of aviation.', 'We transformed content marketing.', 'We pioneer online trading services.', 'We make music move to your groove.', 'We enhance the theme park experience.'];
+
+var subheadlines = ['TUIfly, from flight booking to smart travel.', 'CURVED turns content into a fast-growing business.', 'The answer to the questions of the FinTech world: maxblue', 'Raumfeld, enriching the way consumers listen to music at home.', 'Having fun at Europa-Park even without rollercoasters.'];
+
+var backgrounds = ['#03ffb7', '#4502da', '#ff0354', '#03ffb7', '#03ffb7'];
+
+var ImageSlider = function ImageSlider(props) {
+  var index = Math.min(images.length - 1, ~~(props.progress / 100 * images.length));
+  var background = {
+    background: backgrounds[index]
+  };
+  return _react2.default.createElement('div', { className: _styles2.default.imageSlider, style: background }, _react2.default.createElement('div', null, images.map(function (src, index) {
+    return _react2.default.createElement('img', { key: index, src: src, style: { display: 'none' } });
+  })), _react2.default.createElement('div', { className: _styles2.default.fullscreenImg, style: { backgroundImage: 'url(' + images[index] + ')' } }), _react2.default.createElement('h1', { children: headlines[index] }), _react2.default.createElement('h2', { children: subheadlines[index] }), _react2.default.createElement('h3', null, index + 1, ' / ', images.length));
+};
+
+var VerticalScroll = function VerticalScroll(props) {
+  var style = {
+    transform: 'translate3d(-' + props.progress / images.length * (images.length - 1) + '%, 0, 0)'
+  };
+  return _react2.default.createElement('div', { className: _styles2.default.verticalScroll }, _react2.default.createElement('div', { className: _styles2.default.verticalScrollInner, style: style }, images.map(function (src, index) {
+    var background = {
+      backgroundColor: backgrounds[index]
+    };
+    return _react2.default.createElement('div', { key: index,
+      className: _styles2.default.imageBlend,
+      style: background }, _react2.default.createElement('div', { className: _styles2.default.verticalScrollSlide,
+      style: { backgroundImage: 'url(' + src + ')' } }));
+  })));
+};
+
+var StaticImage = function StaticImage(props) {
+  return _react2.default.createElement('div', { className: _styles2.default.verticalScrollInner }, _react2.default.createElement('div', { className: _styles2.default.imageBlend,
+    style: { backgroundColor: backgrounds[0], opacity: props.progress / 100 } }, _react2.default.createElement('div', { className: _styles2.default.verticalScrollSlide,
+    style: { backgroundImage: 'url(' + images[0] + ')' } })));
+};
+var StaticImage2 = function StaticImage2(props) {
+  return _react2.default.createElement('div', { className: _styles2.default.verticalScrollInner }, _react2.default.createElement('div', { className: _styles2.default.imageBlend,
+    style: { backgroundColor: backgrounds[backgrounds.length - 1], opacity: 1 - props.progress / 100 } }, _react2.default.createElement('div', { className: _styles2.default.verticalScrollSlide,
+    style: { backgroundImage: 'url(' + images[images.length - 1] + ')' } })));
+};
+
+var Logo = function Logo(props) {
+  var size = window.innerWidth * 1.5;
+  var style = {
+    width: '80vw',
+    fill: 'none',
+    stroke: '#4602d9',
+    strokeDasharray: size + ', ' + size / 2,
+    strokeWidth: 1,
+    strokeDashoffset: size - props.progress / 100 * size,
+    overflow: 'visible'
+  };
+  return _react2.default.createElement('div', { style: center }, _react2.default.createElement('svg', { style: style,
+    viewBox: '0 0 133.68 18' }, _react2.default.createElement('path', { vectorEffect: 'non-scaling-stroke', d: 'M4.39 18C1.55 18 .08 16.48.01 13.41c0-.15.05-.26.21-.28l2.17-.36a.22.22 0 0 1 .28.23c.08 1.86.62 2.58 1.81 2.58s1.65-.59 1.65-2.5-.36-2.5-1.73-3l-1.06-.41c-2.42-1-3.15-2.22-3.15-5C.19 1.67 1.56 0 4.44 0s4.15 1.55 4.31 4.28c0 .15-.08.23-.23.28l-2.06.31c-.15 0-.28-.05-.28-.21-.05-1.44-.52-2.24-1.65-2.24s-1.6.67-1.6 2.11c0 1.62.31 2.11 1.7 2.66l1.06.41c2.3.9 3.2 2.14 3.2 5.13C8.85 16.2 7.71 18 4.39 18zM9.7.49a.24.24 0 0 1 .26-.26h2.24a.24.24 0 0 1 .26.26v17a.24.24 0 0 1-.26.26H9.96a.24.24 0 0 1-.26-.26zM13.9.49a.24.24 0 0 1 .26-.26h2.69a.32.32 0 0 1 .36.26l3.25 12.12h.13V.49a.24.24 0 0 1 .26-.26h1.91a.24.24 0 0 1 .26.26v17a.24.24 0 0 1-.26.26h-2.51a.32.32 0 0 1-.36-.26l-3.4-12.12h-.15v12.14a.24.24 0 0 1-.26.26h-1.91a.24.24 0 0 1-.26-.26zM24.5.49a.24.24 0 0 1 .26-.26h2.73a.32.32 0 0 1 .36.26l3.25 12.12h.13V.49a.24.24 0 0 1 .26-.26h1.91a.24.24 0 0 1 .26.26v17a.24.24 0 0 1-.26.26h-2.55a.32.32 0 0 1-.36-.26l-3.4-12.12h-.15v12.14a.24.24 0 0 1-.26.26h-1.91a.24.24 0 0 1-.26-.26zM35.1.49a.24.24 0 0 1 .26-.26h7.19a.24.24 0 0 1 .26.26v2a.24.24 0 0 1-.26.26h-4.54a.14.14 0 0 0-.15.15v4.62a.14.14 0 0 0 .15.15h3.92a.24.24 0 0 1 .26.26v2a.24.24 0 0 1-.26.26h-3.92a.14.14 0 0 0-.15.15v4.79a.14.14 0 0 0 .15.15h4.54a.24.24 0 0 1 .26.26v2a.24.24 0 0 1-.26.26h-7.19a.24.24 0 0 1-.26-.26zM50.85 17.77a.26.26 0 0 1-.28-.18l-2.14-7h-1.32a.14.14 0 0 0-.15.15v6.76a.24.24 0 0 1-.26.26h-2.24a.24.24 0 0 1-.26-.26V.5a.24.24 0 0 1 .26-.26h3.53c3.12 0 5 1.37 5 5.21 0 2.3-.77 3.74-2.09 4.49l2.48 7.58c.05.13 0 .26-.13.26zm-.62-12.33c0-2.06-.67-2.71-2.22-2.71h-.9a.14.14 0 0 0-.15.15v5.11a.14.14 0 0 0 .15.15h.9c1.51-.01 2.18-.61 2.18-2.7zM58.44 18c-2.84 0-4.31-1.52-4.38-4.59 0-.15.05-.26.21-.28l2.17-.36a.22.22 0 0 1 .28.23c.08 1.86.62 2.58 1.81 2.58s1.65-.59 1.65-2.5-.36-2.5-1.73-3l-1.06-.41c-2.42-1-3.15-2.22-3.15-5 0-3 1.37-4.67 4.25-4.67s4.15 1.55 4.31 4.28c0 .15-.08.23-.23.28l-2.06.31c-.15 0-.28-.05-.28-.21-.05-1.44-.52-2.24-1.65-2.24s-1.6.67-1.6 2.11c0 1.62.31 2.11 1.7 2.66l1.06.41c2.3.9 3.2 2.14 3.2 5.13-.01 3.47-1.17 5.27-4.5 5.27zM63.96 9c0-4.87.1-5.6.34-6.32a3.77 3.77 0 0 1 4-2.68c2.5 0 4.07 1.29 4.23 4.2 0 .15 0 .28-.18.31l-2.09.36a.22.22 0 0 1-.28-.23c-.08-1.5-.59-2.14-1.6-2.14a1.29 1.29 0 0 0-1.39 1c-.13.41-.18.77-.18 5.52s.05 5.11.18 5.52a1.29 1.29 0 0 0 1.39 1c1 0 1.52-.64 1.6-2.14a.22.22 0 0 1 .28-.23l2.09.36c.15 0 .21.15.18.31-.15 2.91-1.73 4.2-4.23 4.2a3.77 3.77 0 0 1-4-2.68c-.24-.76-.34-1.48-.34-6.36zM73.99.49a.24.24 0 0 1 .26-.26h2.24a.24.24 0 0 1 .26.26V7.4a.14.14 0 0 0 .15.15h3a.14.14 0 0 0 .15-.15V.49a.24.24 0 0 1 .26-.26h2.24a.24.24 0 0 1 .26.26v17a.24.24 0 0 1-.26.26h-2.24a.24.24 0 0 1-.26-.26v-7.3a.14.14 0 0 0-.15-.15h-3a.14.14 0 0 0-.15.15v7.3a.24.24 0 0 1-.26.26h-2.24a.24.24 0 0 1-.26-.26zM90.85 17.77a.26.26 0 0 1-.28-.18l-2.14-7h-1.32a.14.14 0 0 0-.16.15v6.76a.24.24 0 0 1-.26.26h-2.24a.24.24 0 0 1-.26-.26V.5a.24.24 0 0 1 .26-.26h3.53c3.12 0 5 1.37 5 5.21 0 2.3-.77 3.74-2.09 4.49l2.48 7.58c.05.13 0 .26-.13.26zm-.62-12.33c0-2.06-.67-2.71-2.22-2.71h-.9a.14.14 0 0 0-.16.15v5.11a.14.14 0 0 0 .16.15h.9c1.58-.01 2.25-.61 2.25-2.7zM97.95.49c.05-.15.13-.26.28-.26h2.17a.28.28 0 0 1 .28.26l3.71 17a.2.2 0 0 1-.21.26h-2.19a.26.26 0 0 1-.28-.26l-.7-3.53h-3.48l-.7 3.53a.27.27 0 0 1-.28.26h-2.19a.2.2 0 0 1-.21-.26zm2.63 11.17l-1.24-6.53h-.08l-1.29 6.52zM105.3.49a.24.24 0 0 1 .26-.26h4c2.3 0 3.64.93 4.26 2.81.31 1 .44 2.14.44 6s-.13 5-.44 6c-.62 1.88-2 2.81-4.26 2.81h-4a.24.24 0 0 1-.26-.26zm2.91 14.78h1.11a1.73 1.73 0 0 0 1.86-1.26c.21-.64.31-1.5.31-5s-.1-4.36-.31-5a1.73 1.73 0 0 0-1.86-1.26h-1.11a.14.14 0 0 0-.15.15v12.23a.14.14 0 0 0 .15.14zM115.43.49a.24.24 0 0 1 .26-.26h7.16a.24.24 0 0 1 .26.26v2a.24.24 0 0 1-.26.26h-4.5a.14.14 0 0 0-.16.15v4.62a.14.14 0 0 0 .16.15h3.92a.24.24 0 0 1 .26.26v2a.24.24 0 0 1-.26.26h-3.92a.14.14 0 0 0-.16.15v4.79a.14.14 0 0 0 .16.15h4.5a.24.24 0 0 1 .26.26v2a.24.24 0 0 1-.26.26h-7.19a.24.24 0 0 1-.26-.26zM131.14 17.77a.26.26 0 0 1-.28-.18l-2.14-7h-1.32a.14.14 0 0 0-.15.15v6.76a.24.24 0 0 1-.26.26h-2.24a.24.24 0 0 1-.26-.26V.5a.24.24 0 0 1 .26-.26h3.53c3.12 0 5 1.37 5 5.21 0 2.3-.77 3.74-2.09 4.49l2.48 7.58c.05.13 0 .26-.13.26zm-.62-12.33c0-2.06-.67-2.71-2.22-2.71h-.9a.14.14 0 0 0-.15.15v5.11a.14.14 0 0 0 .15.15h.9c1.55-.01 2.22-.61 2.22-2.7z' })));
+};
+
+Intro.displayName = 'Intro';
+Intro.propTypes = {
+  progress: _react.PropTypes.number.isRequired
+};
+Page2.displayName = 'Page2';
+Page2.propTypes = {
+  progress: _react.PropTypes.number.isRequired
+};
+Logo.displayName = 'Logo';
+Logo.propTypes = {
+  progress: _react.PropTypes.number.isRequired
+};
+StaticImage.displayName = 'StaticImage';
+StaticImage.propTypes = {
+  progress: _react.PropTypes.number.isRequired
+};
+VerticalScroll.displayName = 'VerticalScroll';
+VerticalScroll.propTypes = {
+  progress: _react.PropTypes.number.isRequired
+};
+StaticImage2.displayName = 'StaticImage2';
+StaticImage2.propTypes = {
+  progress: _react.PropTypes.number.isRequired
+};
+ImageSlider.displayName = 'ImageSlider';
+ImageSlider.propTypes = {
+  progress: _react.PropTypes.number.isRequired
+};
+
+var pages = [Intro, Page2];
+var pages2 = [Logo, StaticImage, VerticalScroll, StaticImage2, Logo, ImageSlider, Logo];
 
 var renderPages = function renderPages(page, progress) {
-  return _react2.default.createElement('div', { className: _styles2.default.page }, _react2.default.createElement('header', { className: _styles2.default.pageHeader }, _react2.default.createElement('h4', null, 'OverScroll')), _react2.default.createElement('section', { className: _styles2.default.pageContent,
-    children: pages[page](progress) }), _react2.default.createElement('footer', { className: _styles2.default.pageFooter }, _react2.default.createElement('div', { className: _styles2.default.progress,
+  var Content = pages[page] || function (x) {
+    return null;
+  };
+  return _react2.default.createElement('div', { className: _styles2.default.page }, _react2.default.createElement('header', { className: _styles2.default.pageHeader }, _react2.default.createElement('h4', null, 'OverScroll')), _react2.default.createElement('div', { className: _styles2.default.pageContent }, _react2.default.createElement(Content, { progress: progress })), _react2.default.createElement('footer', { className: _styles2.default.pageFooter }, _react2.default.createElement('div', null, page + 1, ' / ', pages.length), _react2.default.createElement('div', { className: _styles2.default.progress,
+    style: { width: progress + '%' } })));
+};
+
+var renderPages2 = function renderPages2(page, progress) {
+  var Content = typeof pages2[page] === 'function' ? pages2[page] : pages2[pages2.length - 1];
+  return _react2.default.createElement('div', { className: _styles2.default.page }, _react2.default.createElement('header', { className: _styles2.default.pageHeader }, s2Logo), _react2.default.createElement('div', { className: _styles2.default.pageContent }, _react2.default.createElement(Content, { progress: progress })), _react2.default.createElement('footer', { className: _styles2.default.pageFooter }, _react2.default.createElement('div', null, page + 1, ' / ', pages2.length), _react2.default.createElement('div', { className: _styles2.default.progress,
     style: { width: progress + '%' } })));
 };
 
 var App = function App(props) {
-  return _react2.default.createElement('div', null, _react2.default.createElement('header', { className: _styles2.default.header }, _react2.default.createElement('h1', null, 'OverScroll'), _react2.default.createElement('h2', null, 'A scroll based content-slider')), _react2.default.createElement('main', { className: _styles2.default.main }, _react2.default.createElement('div', null, _react2.default.createElement('h3', null, 'Demo page for Overscroll'), _react2.default.createElement('p', null, 'OverScroll is a slide-show or content-slider, call it what you want. It is a full-screen/viewport element that snaps into fixed mode when it reaches the viewports top edge. Scrolling is now translated to paging, switching the content each time a predefined scroll amount has been reached.'), _react2.default.createElement('p', null, 'Scroll along this page or press the spacebar to see the content below change.'))), _react2.default.createElement(_src2.default, { factor: 1,
+  return _react2.default.createElement('div', null, _react2.default.createElement('header', { className: _styles2.default.header }, s2Logo), _react2.default.createElement('main', { className: _styles2.default.main }, _react2.default.createElement('div', null, _react2.default.createElement('h3', null, 'Demo page for Overscroll'), _react2.default.createElement('p', null, 'OverScroll is a slide-show or content-slider, call it what you want. It is a full-screen/viewport element that snaps into fixed mode when it reaches the viewports top edge. Scrolling is now translated to paging, switching the content each time a predefined scroll amount has been reached.'), _react2.default.createElement('p', null, 'Scroll along this page or press the spacebar to see the content below change.'))), _react2.default.createElement(_src2.default, { factor: 0.5,
     slides: pages.length,
-    children: renderPages }), _react2.default.createElement('footer', { className: _styles2.default.footer }));
+    children: renderPages }), _react2.default.createElement('div', { className: _styles2.default.main }, _react2.default.createElement('h2', null, 'Create impressive scroll aware webpages'), _react2.default.createElement('h3', null, 'Animate your content'), _react2.default.createElement('p', null, 'With the help of the progress variable you can easily control nested slideshows or other elements.')), _react2.default.createElement(_src2.default, { factor: 2,
+    slides: pages2.length,
+    children: renderPages2 }), _react2.default.createElement('footer', { className: _styles2.default.footer }));
 };
 
 App.displayName = 'App';
 
 (0, _reactDom.render)(_react2.default.createElement(App, null), document.getElementById('mountPoint'));
 
-},{"../src":335,"./styles.css":2,"react":333,"react-dom":176}],2:[function(require,module,exports){
-module.exports = {"progress":"👻","page":"🦄","header":"🍀","main":"👾","footer":"👻👻","pageContent":"👻🦄","pageHeader":"👻🍀","pageFooter":"👻👾","spinner":"🦄👻"}
+},{"../src":336,"./styles.css":2,"react":333,"react-dom":176}],2:[function(require,module,exports){
+module.exports = {"progress":"👻","page":"🦄","header":"🍀","main":"👾","footer":"👻👻","pageContent":"👻🦄","pageHeader":"👻🍀","pageFooter":"👻👾","imageSlider":"🦄👻","imageBlend":"🦄🦄","fullscreenImg":"🦄🍀","verticalScrollSlide":"🦄👾","verticalScroll":"🍀👻","verticalScrollInner":"🍀🦄"}
 },{}],3:[function(require,module,exports){
 (function (process){
 'use strict';
@@ -25598,6 +25693,50 @@ module.exports = require('./lib/React');
 },{"./lib/React":311}],334:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/**
+ * a list of vendor prefixes to use for css-feature testing
+ * @type {Array}
+ */
+var vendorPrefixes = ['webkit', 'moz', 'ms'];
+
+/**
+ * tests if a value is supported on a property
+ * @param  {String} prop  property to test for value support
+ * @param  {String} value unprefixed value to test
+ * @return {String|Boolean}       returns the supported value or `false`
+ */
+var cssSupportsValue = function cssSupportsValue(prop, value) {
+  var div = document.createElement('div');
+  var values = vendorPrefixes.map(function (prefix) {
+    return '-' + prefix + '-' + value;
+  });
+  values.unshift(value);
+  for (var i = 0; i < values.length; i++) {
+    div.style[prop] = values[i];
+    if (values[i] === div.style[prop]) {
+      // value is supported
+      div.remove();
+      return values[i];
+    }
+  }
+  // no supported value found
+  div.remove();
+  return false;
+};
+
+var position = {
+  sticky: cssSupportsValue('position', 'sticky')
+};
+
+exports.position = position;
+exports.default = { position: position };
+
+},{}],335:[function(require,module,exports){
+'use strict';
+
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 Object.defineProperty(exports, "__esModule", {
@@ -25715,7 +25854,7 @@ var EventTracker = _wrapComponent('EventTracker')(function (_Component) {
 
 exports.default = EventTracker;
 
-},{"livereactload/babel-transform":26,"react":333}],335:[function(require,module,exports){
+},{"livereactload/babel-transform":26,"react":333}],336:[function(require,module,exports){
 'use strict';
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -25745,6 +25884,8 @@ var _createClass = function () {
 var _eventTracker = require('./components/event-tracker');
 
 var _eventTracker2 = _interopRequireDefault(_eventTracker);
+
+var _cssSupports = require('./components/css-supports');
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -25831,7 +25972,7 @@ var OverScroll = _wrapComponent('OverScroll')(function (_Component) {
      */
     value: function updateScroll(scrollY) {
       var fixed = void 0;
-      var bottom = void 0;
+      var snapToBottom = void 0;
       var counter = 0;
       var scrollOffset = 0;
 
@@ -25845,28 +25986,35 @@ var OverScroll = _wrapComponent('OverScroll')(function (_Component) {
 
       var _tracker$getBoundingC = this.tracker.getBoundingClientRect(),
           top = _tracker$getBoundingC.top,
-          height = _tracker$getBoundingC.height;
+          bottom = _tracker$getBoundingC.bottom;
 
+      var innerHeight = window.innerHeight || 0;
       var touchedTop = top <= 0;
-      var touchedEnd = top <= height * -1;
+      var touchedEnd = bottom <= innerHeight;
       if (touchedTop && !touchedEnd) {
         fixed = true;
-        counter = ~~(top * (-1 / this.props.factor) / window.innerHeight);
-        scrollOffset = top * -1 % (window.innerHeight * this.props.factor) / window.innerHeight / this.props.factor * 100;
+        counter = Math.max(0, Math.min(this.props.slides - 1, ~~(top * (-1 / this.props.factor) / innerHeight)));
+        scrollOffset = Math.max(0, Math.min(100, top * -1 % (innerHeight * this.props.factor) / innerHeight / this.props.factor * 100));
       } else if (touchedEnd) {
-        bottom = true;
+        snapToBottom = true;
         counter = this.props.slides - 1;
         scrollOffset = 100;
       }
-
       this.setState({
         scrollY: scrollY,
         fixed: fixed,
         counter: counter,
         scrollOffset: scrollOffset,
-        bottom: bottom
+        bottom: snapToBottom
       });
     }
+
+    /**
+     * the frame is used to define the scrollable height.
+     * It works as a `position: sticky` wrapper
+     * @return {Object} returns a style object
+     */
+
   }, {
     key: 'render',
     value: function render() {
@@ -25880,21 +26028,32 @@ var OverScroll = _wrapComponent('OverScroll')(function (_Component) {
   }, {
     key: 'frameStyle',
     get: function get() {
+      var slideCount = this.props.slides;
+      var factor = this.props.factor || 1;
+      var vh = slideCount * 100 * factor + 100;
       return {
-        height: this.props.slides * 100 * (this.props.factor || 1) + 'vh',
+        height: vh + 'vh',
         position: 'relative',
-        marginBottom: '100vh'
+        margin: 0
       };
     }
+
+    /**
+     * a polyfilled `position: sticky` helper.
+     * uses the prefixed `position: sticky` style and offers a fallback with
+     * `position: fixed`. The fallback requires to manually snap the box to the top and bottom
+     * @return {Object} returns a position sticky polyfill
+     */
+
   }, {
     key: 'overlayStyle',
     get: function get() {
       return {
-        position: this.state.fixed ? 'fixed' : 'absolute',
-        top: this.state.bottom ? 'auto' : 0,
+        position: _cssSupports.position.sticky || (this.state.fixed ? 'fixed' : 'absolute'),
+        top: _cssSupports.position.sticky ? 0 : this.state.bottom ? 'auto' : 0,
+        bottom: 0,
         left: 0,
         right: 0,
-        bottom: !this.state.bottom ? 'auto' : '-100vh',
         height: '100vh'
       };
     }
@@ -25922,4 +26081,4 @@ var OverScroll = _wrapComponent('OverScroll')(function (_Component) {
 
 exports.default = OverScroll;
 
-},{"./components/event-tracker":334,"livereactload/babel-transform":26,"react":333}]},{},[1]);
+},{"./components/css-supports":334,"./components/event-tracker":335,"livereactload/babel-transform":26,"react":333}]},{},[1]);

@@ -1,17 +1,18 @@
 body {
   margin: 0;
   font-family: sans-serif;
-  background: #444;
-  color: #fff;
+  background: #fff;
+  color: #000;
 }
 
 .progress {
-  height: 1em;
-  background: currentcolor;
-  opacity: 0.3;
+  height: .5em;
+  margin: 1em 0 0;
+  background: #4602d9;
 }
 
 .page {
+  overflow: hidden;
   position: absolute;
   top: 0;
   right: 0;
@@ -19,58 +20,149 @@ body {
   left: 0;
   display: flex;
   flex-direction: column;
-  background: #fff;
-  color: #111;
-  font-size: 4em;
+  background: #000;
+  color: #fff;
+  font-size: 4vw;
 }
 
-
 .header {
-  padding: 2em 20px;
-  background: #fff;
-  color: #000;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 50px;
+  padding: 0 30px;
+  background: #4602d9;
+  color: #fff;
 }
 
 .main {
   padding: 2em 20px;
   margin: 1em auto;
   max-width: 900px;
-  background: #fff;
-  color: #000;
+  background: #ddd;
+  color: #333;
 }
 
 .footer {
   padding: 4em 20px;
   height: 20em;
-  margin: 2em 0 0;
-  background: #fff;
-  color: #000;
+  margin: 0;
+  background: #4602d9;
+  color: #fff;
 }
+
 .pageContent {
   flex: 1;
   text-align: center;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  align-content: center;
 }
+
 .pageHeader {
   font-size: 1rem;
-  padding: 20px;
-  background: #444;
-  color: #FFFF0B;
+  padding: 0 30px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  background: #000;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+  & h4 {
+    margin: 0;
+  }
 }
 
 .pageFooter {
   font-size: 1rem;
-  padding: 20px;
-  background: #444;
-  color: #FFFF0B;
+  background: #000;
+  color: #fff;
+  padding: 1em 0 0 ;
+  text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
-.spinner {
+.imageSlider {
+  text-transform: initial;
+  font-size: 2vw;
+  color: white;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  & h1,
+  & h2,
+  & h3 {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+}
+
+.imageBlend {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+}
+
+.fullscreenImg {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 1em;
-  width: 1em;
-  margin: -.5em;
-  background: currentcolor;
-  border-radius: 50% 0 50% 50%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+}
+
+.verticalScrollSlide {
+  height: 100vh;
+  width: 100vw;
+  flex: 0 0 100vw;
+  background-size: cover;
+}
+
+.verticalScroll {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.verticalScrollInner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  overflow: hidden;
 }
