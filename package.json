@@ -1,6 +1,6 @@
 {
   "name": "react-over-scroll",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A scroll based slideshow with wings",
   "main": "lib/index.js",
   "scripts": {
