@@ -1,5 +1,7 @@
 # react over-scroll
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/sinnerschrader/react-over-scroll.svg)](https://greenkeeper.io/)
+
 A scroll based slideshow with wings.
 
 [API Documentation](https://sinnerschrader.github.io/react-over-scroll/api/)  
