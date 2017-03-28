@@ -1,14 +1,14 @@
 body {
   margin: 0;
   font-family: sans-serif;
-  background: #fff;
-  color: #000;
+  background: #4602d9;
+  color: #fff;
 }
 
 .progress {
   height: .5em;
   margin: 1em 0 0;
-  background: #4602d9;
+  background: #fff;
 }
 
 .page {
@@ -20,7 +20,7 @@ body {
   left: 0;
   display: flex;
   flex-direction: column;
-  background: #000;
+  background: #4602d9;
   color: #fff;
   font-size: 4vw;
 }
@@ -39,8 +39,8 @@ body {
   padding: 2em 20px;
   margin: 1em auto;
   max-width: 900px;
-  background: #ddd;
-  color: #333;
+  background: #fff;
+  color: #000;
 }
 
 .footer {
@@ -52,6 +52,7 @@ body {
 }
 
 .pageContent {
+  position: relative;
   flex: 1;
   text-align: center;
   text-transform: uppercase;
@@ -67,8 +68,6 @@ body {
   display: flex;
   align-items: center;
   align-content: center;
-  background: #000;
-  color: #fff;
   position: relative;
   z-index: 2;
   & h4 {
@@ -78,8 +77,6 @@ body {
 
 .pageFooter {
   font-size: 1rem;
-  background: #000;
-  color: #fff;
   padding: 1em 0 0 ;
   text-align: center;
   position: relative;
@@ -89,7 +86,7 @@ body {
 .imageSlider {
   text-transform: initial;
   font-size: 2vw;
-  color: white;
+  color: #fff;
   display: flex;
   align-items: center;
   align-content: center;
@@ -163,6 +160,37 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  bottom: 0;
   display: flex;
   overflow: hidden;
+}
+
+.pagers {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pager {
+  font-size: 20px;
+  height: 1em;
+  width: 1em;
+  margin: 0.5em;
+  border-radius: 50%;
+  border: 2px solid;
+  color: currentcolor;
+
+  &:hover {
+    background: currentcolor;
+  }
+
+  &.active {
+    background: currentcolor;
+    border-color: transparent;
+  }
 }

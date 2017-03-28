@@ -30,66 +30,77 @@ const Page2 = props => (
     <h3>Work with the progress</h3>
   </div>
 )
-const images = [
-  '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-3/module_01_hero_palm_tuifly_r.jpg',
-  '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-2/module_01_hero_palm_curved_r.jpg',
-  '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-4/module_01_hero_palm_maxblue_r.jpg',
-  '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-6/module_01_hero_palm_raumfeld_r.jpg',
-  '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-7/module_01_hero_palm_epguide_r.jpg'
-]
 
-const headlines = [
-  'We navigate into the future of aviation.',
-  'We transformed content marketing.',
-  'We pioneer online trading services.',
-  'We make music move to your groove.',
-  'We enhance the theme park experience.'
-]
+const Page3 = props => (
+  <div>
+    <h1>{~~(props.progress)}%</h1>
+    <h2>Use anchors to jump to pages</h2>
+    <h3>⬅︎ Try it here</h3>
+  </div>
+)
 
-const subheadlines = [
-  'TUIfly, from flight booking to smart travel.',
-  'CURVED turns content into a fast-growing business.',
-  'The answer to the questions of the FinTech world: maxblue',
-  'Raumfeld, enriching the way consumers listen to music at home.',
-  'Having fun at Europa-Park even without rollercoasters.'
-]
+const sliderData = {
+  images: [
+    '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-3/module_01_hero_palm_tuifly_r.jpg',
+    '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-2/module_01_hero_palm_curved_r.jpg',
+    '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-4/module_01_hero_palm_maxblue_r.jpg',
+    '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-6/module_01_hero_palm_raumfeld_r.jpg',
+    '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-7/module_01_hero_palm_epguide_r.jpg'
+  ],
 
-const backgrounds = [
-  '#03ffb7',
-  '#4502da',
-  '#ff0354',
-  '#03ffb7',
-  '#03ffb7'
-]
+  headlines: [
+    'We navigate into the future of aviation.',
+    'We transformed content marketing.',
+    'We pioneer online trading services.',
+    'We make music move to your groove.',
+    'We enhance the theme park experience.'
+  ],
+
+  subheadlines: [
+    'TUIfly, from flight booking to smart travel.',
+    'CURVED turns content into a fast-growing business.',
+    'The answer to the questions of the FinTech world: maxblue',
+    'Raumfeld, enriching the way consumers listen to music at home.',
+    'Having fun at Europa-Park even without rollercoasters.'
+  ],
+
+  backgrounds: [
+    '#03ffb7',
+    '#4502da',
+    '#ff0354',
+    '#03ffb7',
+    '#03ffb7'
+  ]
+}
 
 const ImageSlider = props => {
-  const index = Math.min(images.length - 1, ~~(props.progress / 100 * (images.length)))
+  const index = Math.min(sliderData.images.length - 1, ~~(props.progress / 100 * (sliderData.images.length)))
   const background = {
-    background: backgrounds[index]
+    background: sliderData.backgrounds[index]
   }
   return (
     <div className={styles.imageSlider} style={background}>
       <div>
-        {images.map((src, index) => <img key={index} src={src} style={{display: 'none'}}/>)}
+        {sliderData.images.map((src, index) => <img key={index} src={src} style={{display: 'none'}}/>)}
       </div>
-      <div className={styles.fullscreenImg} style={{backgroundImage: `url(${images[index]})`}}/>
-      <h1 children={headlines[index]}/>
-      <h2 children={subheadlines[index]}/>
-      <h3>{index + 1} / {images.length}</h3>
+      <div className={styles.fullscreenImg} style={{backgroundImage: `url(${sliderData.images[index]})`}}/>
+      <h1 children={sliderData.headlines[index]}/>
+      <h2 children={sliderData.subheadlines[index]}/>
+      <h3>{index + 1} / {sliderData.images.length}</h3>
     </div>
   )
 }
 
 const VerticalScroll = props => {
   const style = {
-    transform: `translate3d(-${props.progress / images.length * (images.length - 1)}%, 0, 0)`
+    transform: `translate3d(-${props.progress / sliderData.images.length * (sliderData.images.length - 1)}%, 0, 0)`
   }
   return (
     <div className={styles.verticalScroll}>
       <div className={styles.verticalScrollInner} style={style}>
-        {images.map((src, index) => {
+        {sliderData.images.map((src, index) => {
           const background = {
-            backgroundColor: backgrounds[index]
+            backgroundColor: sliderData.backgrounds[index]
           }
           return (
             <div key={index}
@@ -110,18 +121,18 @@ const VerticalScroll = props => {
 const StaticImage = props => (
   <div className={styles.verticalScrollInner}>
     <div className={styles.imageBlend}
-         style={{backgroundColor: backgrounds[0], opacity: props.progress / 100}}>
+         style={{backgroundColor: sliderData.backgrounds[0], opacity: props.progress / 100}}>
       <div className={styles.verticalScrollSlide}
-           style={{backgroundImage: `url(${images[0]})`}}/>
+           style={{backgroundImage: `url(${sliderData.images[0]})`}}/>
     </div>
   </div>
 )
 const StaticImage2 = props => (
   <div className={styles.verticalScrollInner}>
     <div className={styles.imageBlend}
-         style={{backgroundColor: backgrounds[backgrounds.length - 1], opacity: 1 - props.progress / 100}}>
+         style={{backgroundColor: sliderData.backgrounds[sliderData.backgrounds.length - 1], opacity: 1 - props.progress / 100}}>
       <div className={styles.verticalScrollSlide}
-         style={{backgroundImage: `url(${images[images.length - 1]})`}}/>
+         style={{backgroundImage: `url(${sliderData.images[sliderData.images.length - 1]})`}}/>
   </div>
   </div>
 )
@@ -131,9 +142,9 @@ const Logo = props => {
   const style = {
     width: '80vw',
     fill: 'none',
-    stroke: '#4602d9',
+    stroke: 'currentcolor',
     strokeDasharray: `${size}, ${size / 2}`,
-    strokeWidth: 1,
+    strokeWidth: 2,
     strokeDashoffset: size - props.progress / 100 * size,
     overflow: 'visible'
   }
@@ -153,6 +164,10 @@ Intro.propTypes = {
 }
 Page2.displayName = 'Page2'
 Page2.propTypes = {
+  progress: PropTypes.number.isRequired
+}
+Page3.displayName = 'Page3'
+Page3.propTypes = {
   progress: PropTypes.number.isRequired
 }
 Logo.displayName = 'Logo'
@@ -176,15 +191,42 @@ ImageSlider.propTypes = {
   progress: PropTypes.number.isRequired
 }
 
-const pages = [Intro, Page2]
+const Pagers = props => {
+  const anchors = []
+  for (let i = 0; i < props.pages; i++) {
+    const id = `${props.prefix}/${i + 1}`
+    const attrs = {
+      href: `#${id}`,
+      key: id,
+      className: styles.pager + (i === props.page ? ` ${styles.active}` : '')
+    }
+    anchors.push(
+      <a {...attrs}/>
+    )
+  }
+  return (
+    <div className={styles.pagers}>{anchors}</div>
+  )
+}
+
+Pagers.displayName = 'Pagers'
+Pagers.propTypes = {
+  prefix: PropTypes.string.isRequired,
+  pages: PropTypes.number.isRequired,
+  page: PropTypes.number.isRequired
+}
+
+const pages = [Intro, Page2, Page3]
 const pages2 = [Logo, StaticImage, VerticalScroll, StaticImage2, Logo, ImageSlider, Logo]
 
-const renderPages = (page, progress) => {
+const renderPages = (page, progress, prefix) => {
   const Content = pages[page] || (x => null)
+
   return (
     <div className={styles.page}>
       <header className={styles.pageHeader}><h4>OverScroll</h4></header>
       <div className={styles.pageContent}>
+        <Pagers prefix={prefix} pages={pages.length} page={page}/>
         <Content progress={progress}/>
       </div>
       <footer className={styles.pageFooter}>
@@ -196,12 +238,13 @@ const renderPages = (page, progress) => {
   )
 }
 
-const renderPages2 = (page, progress) => {
+const renderPages2 = (page, progress, prefix) => {
   const Content = typeof pages2[page] === 'function' ? pages2[page] : pages2[pages2.length - 1]
   return (
     <div className={styles.page}>
       <header className={styles.pageHeader}>{s2Logo}</header>
       <div className={styles.pageContent}>
+        <Pagers prefix={prefix} pages={pages2.length} page={page}/>
         <Content progress={progress}/>
       </div>
       <footer className={styles.pageFooter}>
@@ -235,7 +278,8 @@ const App = props => {
       </main>
       <Slider factor={0.5}
               slides={pages.length}
-              children={renderPages}/>
+              children={renderPages}
+              anchors='!/intro'/>
       <div className={styles.main}>
         <h2>Create impressive scroll aware webpages</h2>
         <h3>Animate your content</h3>
@@ -246,7 +290,8 @@ const App = props => {
       </div>
       <Slider factor={2}
               slides={pages2.length}
-              children={renderPages2}/>
+              children={renderPages2}
+              anchors='!/works'/>
       <footer className={styles.footer}/>
     </div>
   )

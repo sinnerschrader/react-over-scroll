@@ -5,9 +5,12 @@ import {position} from './components/css-supports'
 class OverScroll extends Component {
   /**
    * a scroll based slideshow with wings
-   * @param  {Object} props
+   * @param {Object} props
    * @param {String} props.className
    * @param {render} props.children - render function for children
+   * @param {string} props.anchors - allow navigation via pagers
+   *                                 (`anchors='!/works'` will create a url hashbang `#!/works/[1,2,3...]``)
+   *                                 (`anchors='works'` will create a url hash `#works/[1,2,3...]``)
    * @param {Number} props.slides - number of slides
    * @param {Number} [props.factor = 1] - scroll factor defines how many viewport heights page
    *  have to be scrolled to trigger the next page
@@ -28,13 +31,14 @@ class OverScroll extends Component {
    * @type Function
    * @param {Number} index - currently active index
    * @param {Number} percent - percent of active slide scrolled
-   * @return {ReactElement} - returns a reactDOM element
+   * @return {ReactNode} - returns a reactDOM element
    */
 
   static propTypes () {
     return {
       className: PropTypes.string,
       children: PropTypes.func.isRequired,
+      anchors: PropTypes.string,
       slides: PropTypes.number.isRequired,
       factor: PropTypes.number.isRequired
     }
@@ -118,14 +122,54 @@ class OverScroll extends Component {
     }
   }
 
+  /**
+   * allow to use deeplinks and clickable pagers to navigate
+   * to speciffic pages inside the slider. Paging is done by simply jumpimg
+   * to the correct id.
+   * @return {null|ReactNode} returns a div with elements that have an id
+   */
+  get anchors () {
+    if (!this.props.anchors) {
+      return null
+    }
+    const anchorStyle = {
+      position: 'absolute',
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+    }
+    const vh = 100 * (this.props.factor || 1)
+    const anchors = []
+    for (let i = 0; i < this.props.slides; i++) {
+      const id = `${this.props.anchors}/${i + 1}`
+      const props = {
+        id,
+        key: id,
+        style: {
+          display: 'block',
+          marginTop: i > 0 ? '1px' : 0,
+          height: i > 0 ? `calc(${vh}vh - 1px)` : `${vh}vh`
+        }
+      }
+      anchors.push(
+        <span {...props}/>
+      )
+    }
+    return (
+      <div style={anchorStyle}>{anchors}</div>
+    )
+  }
+
   render () {
     return (
       <div className={this.props.className}>
         <Tracker onScroll={this.updateScroll}/>
         <div style={this.frameStyle}
              ref={x => { this.tracker = x }}>
+          {this.anchors}
           <div style={this.overlayStyle}>
-            {this.props.children(this.state.counter, (this.state.scrollOffset))}
+            {this.props.children(this.state.counter, this.state.scrollOffset, this.props.anchors)}
           </div>
         </div>
       </div>

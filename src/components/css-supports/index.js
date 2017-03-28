@@ -12,8 +12,7 @@ var vendorPrefixes = ['webkit', 'moz', 'ms']
  */
 const cssSupportsValue = (prop, value) => {
   var div = document.createElement('div')
-  const values = vendorPrefixes.map(prefix => `-${prefix}-${value}`)
-  values.unshift(value)
+  const values = [value, ...vendorPrefixes.map(prefix => `-${prefix}-${value}`)]
   for (let i = 0; i < values.length; i++) {
     div.style[prop] = values[i]
     if (values[i] === div.style[prop]) {
