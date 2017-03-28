@@ -35,31 +35,38 @@ var Intro = function Intro(props) {
 var Page2 = function Page2(props) {
   return _react2.default.createElement('div', null, _react2.default.createElement('h1', null, ~~props.progress, '%'), _react2.default.createElement('h2', null, 'Know when the content changes'), _react2.default.createElement('h3', null, 'Work with the progress'));
 };
-var images = ['//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-3/module_01_hero_palm_tuifly_r.jpg', '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-2/module_01_hero_palm_curved_r.jpg', '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-4/module_01_hero_palm_maxblue_r.jpg', '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-6/module_01_hero_palm_raumfeld_r.jpg', '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-7/module_01_hero_palm_epguide_r.jpg'];
 
-var headlines = ['We navigate into the future of aviation.', 'We transformed content marketing.', 'We pioneer online trading services.', 'We make music move to your groove.', 'We enhance the theme park experience.'];
+var Page3 = function Page3(props) {
+  return _react2.default.createElement('div', null, _react2.default.createElement('h1', null, ~~props.progress, '%'), _react2.default.createElement('h2', null, 'Use anchors to jump to pages'), _react2.default.createElement('h3', null, '\u2B05\uFE0E Try it here'));
+};
 
-var subheadlines = ['TUIfly, from flight booking to smart travel.', 'CURVED turns content into a fast-growing business.', 'The answer to the questions of the FinTech world: maxblue', 'Raumfeld, enriching the way consumers listen to music at home.', 'Having fun at Europa-Park even without rollercoasters.'];
+var sliderData = {
+  images: ['//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-3/module_01_hero_palm_tuifly_r.jpg', '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-2/module_01_hero_palm_curved_r.jpg', '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-4/module_01_hero_palm_maxblue_r.jpg', '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-6/module_01_hero_palm_raumfeld_r.jpg', '//raw.githubusercontent.com/sinnerschrader/sinnerschrader-website/6bd65a6b4c2838d7955dfe0da1e682d5eee558f7/static/images/backgrounds/module_02_teaser-7/module_01_hero_palm_epguide_r.jpg'],
 
-var backgrounds = ['#03ffb7', '#4502da', '#ff0354', '#03ffb7', '#03ffb7'];
+  headlines: ['We navigate into the future of aviation.', 'We transformed content marketing.', 'We pioneer online trading services.', 'We make music move to your groove.', 'We enhance the theme park experience.'],
+
+  subheadlines: ['TUIfly, from flight booking to smart travel.', 'CURVED turns content into a fast-growing business.', 'The answer to the questions of the FinTech world: maxblue', 'Raumfeld, enriching the way consumers listen to music at home.', 'Having fun at Europa-Park even without rollercoasters.'],
+
+  backgrounds: ['#03ffb7', '#4502da', '#ff0354', '#03ffb7', '#03ffb7']
+};
 
 var ImageSlider = function ImageSlider(props) {
-  var index = Math.min(images.length - 1, ~~(props.progress / 100 * images.length));
+  var index = Math.min(sliderData.images.length - 1, ~~(props.progress / 100 * sliderData.images.length));
   var background = {
-    background: backgrounds[index]
+    background: sliderData.backgrounds[index]
   };
-  return _react2.default.createElement('div', { className: _styles2.default.imageSlider, style: background }, _react2.default.createElement('div', null, images.map(function (src, index) {
+  return _react2.default.createElement('div', { className: _styles2.default.imageSlider, style: background }, _react2.default.createElement('div', null, sliderData.images.map(function (src, index) {
     return _react2.default.createElement('img', { key: index, src: src, style: { display: 'none' } });
-  })), _react2.default.createElement('div', { className: _styles2.default.fullscreenImg, style: { backgroundImage: 'url(' + images[index] + ')' } }), _react2.default.createElement('h1', { children: headlines[index] }), _react2.default.createElement('h2', { children: subheadlines[index] }), _react2.default.createElement('h3', null, index + 1, ' / ', images.length));
+  })), _react2.default.createElement('div', { className: _styles2.default.fullscreenImg, style: { backgroundImage: 'url(' + sliderData.images[index] + ')' } }), _react2.default.createElement('h1', { children: sliderData.headlines[index] }), _react2.default.createElement('h2', { children: sliderData.subheadlines[index] }), _react2.default.createElement('h3', null, index + 1, ' / ', sliderData.images.length));
 };
 
 var VerticalScroll = function VerticalScroll(props) {
   var style = {
-    transform: 'translate3d(-' + props.progress / images.length * (images.length - 1) + '%, 0, 0)'
+    transform: 'translate3d(-' + props.progress / sliderData.images.length * (sliderData.images.length - 1) + '%, 0, 0)'
   };
-  return _react2.default.createElement('div', { className: _styles2.default.verticalScroll }, _react2.default.createElement('div', { className: _styles2.default.verticalScrollInner, style: style }, images.map(function (src, index) {
+  return _react2.default.createElement('div', { className: _styles2.default.verticalScroll }, _react2.default.createElement('div', { className: _styles2.default.verticalScrollInner, style: style }, sliderData.images.map(function (src, index) {
     var background = {
-      backgroundColor: backgrounds[index]
+      backgroundColor: sliderData.backgrounds[index]
     };
     return _react2.default.createElement('div', { key: index,
       className: _styles2.default.imageBlend,
@@ -70,13 +77,13 @@ var VerticalScroll = function VerticalScroll(props) {
 
 var StaticImage = function StaticImage(props) {
   return _react2.default.createElement('div', { className: _styles2.default.verticalScrollInner }, _react2.default.createElement('div', { className: _styles2.default.imageBlend,
-    style: { backgroundColor: backgrounds[0], opacity: props.progress / 100 } }, _react2.default.createElement('div', { className: _styles2.default.verticalScrollSlide,
-    style: { backgroundImage: 'url(' + images[0] + ')' } })));
+    style: { backgroundColor: sliderData.backgrounds[0], opacity: props.progress / 100 } }, _react2.default.createElement('div', { className: _styles2.default.verticalScrollSlide,
+    style: { backgroundImage: 'url(' + sliderData.images[0] + ')' } })));
 };
 var StaticImage2 = function StaticImage2(props) {
   return _react2.default.createElement('div', { className: _styles2.default.verticalScrollInner }, _react2.default.createElement('div', { className: _styles2.default.imageBlend,
-    style: { backgroundColor: backgrounds[backgrounds.length - 1], opacity: 1 - props.progress / 100 } }, _react2.default.createElement('div', { className: _styles2.default.verticalScrollSlide,
-    style: { backgroundImage: 'url(' + images[images.length - 1] + ')' } })));
+    style: { backgroundColor: sliderData.backgrounds[sliderData.backgrounds.length - 1], opacity: 1 - props.progress / 100 } }, _react2.default.createElement('div', { className: _styles2.default.verticalScrollSlide,
+    style: { backgroundImage: 'url(' + sliderData.images[sliderData.images.length - 1] + ')' } })));
 };
 
 var Logo = function Logo(props) {
@@ -84,9 +91,9 @@ var Logo = function Logo(props) {
   var style = {
     width: '80vw',
     fill: 'none',
-    stroke: '#4602d9',
+    stroke: 'currentcolor',
     strokeDasharray: size + ', ' + size / 2,
-    strokeWidth: 1,
+    strokeWidth: 2,
     strokeDashoffset: size - props.progress / 100 * size,
     overflow: 'visible'
   };
@@ -100,6 +107,10 @@ Intro.propTypes = {
 };
 Page2.displayName = 'Page2';
 Page2.propTypes = {
+  progress: _react.PropTypes.number.isRequired
+};
+Page3.displayName = 'Page3';
+Page3.propTypes = {
   progress: _react.PropTypes.number.isRequired
 };
 Logo.displayName = 'Logo';
@@ -123,29 +134,53 @@ ImageSlider.propTypes = {
   progress: _react.PropTypes.number.isRequired
 };
 
-var pages = [Intro, Page2];
+var Pagers = function Pagers(props) {
+  var anchors = [];
+  for (var i = 0; i < props.pages; i++) {
+    var id = props.prefix + '/' + (i + 1);
+    var attrs = {
+      href: '#' + id,
+      key: id,
+      className: _styles2.default.pager + (i === props.page ? ' ' + _styles2.default.active : '')
+    };
+    anchors.push(_react2.default.createElement('a', attrs));
+  }
+  return _react2.default.createElement('div', { className: _styles2.default.pagers }, anchors);
+};
+
+Pagers.displayName = 'Pagers';
+Pagers.propTypes = {
+  prefix: _react.PropTypes.string.isRequired,
+  pages: _react.PropTypes.number.isRequired,
+  page: _react.PropTypes.number.isRequired
+};
+
+var pages = [Intro, Page2, Page3];
 var pages2 = [Logo, StaticImage, VerticalScroll, StaticImage2, Logo, ImageSlider, Logo];
 
-var renderPages = function renderPages(page, progress) {
+var renderPages = function renderPages(page, progress, prefix) {
   var Content = pages[page] || function (x) {
     return null;
   };
-  return _react2.default.createElement('div', { className: _styles2.default.page }, _react2.default.createElement('header', { className: _styles2.default.pageHeader }, _react2.default.createElement('h4', null, 'OverScroll')), _react2.default.createElement('div', { className: _styles2.default.pageContent }, _react2.default.createElement(Content, { progress: progress })), _react2.default.createElement('footer', { className: _styles2.default.pageFooter }, _react2.default.createElement('div', null, page + 1, ' / ', pages.length), _react2.default.createElement('div', { className: _styles2.default.progress,
+
+  return _react2.default.createElement('div', { className: _styles2.default.page }, _react2.default.createElement('header', { className: _styles2.default.pageHeader }, _react2.default.createElement('h4', null, 'OverScroll')), _react2.default.createElement('div', { className: _styles2.default.pageContent }, _react2.default.createElement(Pagers, { prefix: prefix, pages: pages.length, page: page }), _react2.default.createElement(Content, { progress: progress })), _react2.default.createElement('footer', { className: _styles2.default.pageFooter }, _react2.default.createElement('div', null, page + 1, ' / ', pages.length), _react2.default.createElement('div', { className: _styles2.default.progress,
     style: { width: progress + '%' } })));
 };
 
-var renderPages2 = function renderPages2(page, progress) {
+var renderPages2 = function renderPages2(page, progress, prefix) {
   var Content = typeof pages2[page] === 'function' ? pages2[page] : pages2[pages2.length - 1];
-  return _react2.default.createElement('div', { className: _styles2.default.page }, _react2.default.createElement('header', { className: _styles2.default.pageHeader }, s2Logo), _react2.default.createElement('div', { className: _styles2.default.pageContent }, _react2.default.createElement(Content, { progress: progress })), _react2.default.createElement('footer', { className: _styles2.default.pageFooter }, _react2.default.createElement('div', null, page + 1, ' / ', pages2.length), _react2.default.createElement('div', { className: _styles2.default.progress,
+  return _react2.default.createElement('div', { className: _styles2.default.page }, _react2.default.createElement('header', { className: _styles2.default.pageHeader }, s2Logo), _react2.default.createElement('div', { className: _styles2.default.pageContent }, _react2.default.createElement(Pagers, { prefix: prefix, pages: pages2.length, page: page }), _react2.default.createElement(Content, { progress: progress })), _react2.default.createElement('footer', { className: _styles2.default.pageFooter }, _react2.default.createElement('div', null, page + 1, ' / ', pages2.length), _react2.default.createElement('div', { className: _styles2.default.progress,
     style: { width: progress + '%' } })));
 };
 
 var App = function App(props) {
   return _react2.default.createElement('div', null, _react2.default.createElement('header', { className: _styles2.default.header }, s2Logo), _react2.default.createElement('main', { className: _styles2.default.main }, _react2.default.createElement('div', null, _react2.default.createElement('h3', null, 'Demo page for Overscroll'), _react2.default.createElement('p', null, 'OverScroll is a slide-show or content-slider, call it what you want. It is a full-screen/viewport element that snaps into fixed mode when it reaches the viewports top edge. Scrolling is now translated to paging, switching the content each time a predefined scroll amount has been reached.'), _react2.default.createElement('p', null, 'Scroll along this page or press the spacebar to see the content below change.'))), _react2.default.createElement(_src2.default, { factor: 0.5,
     slides: pages.length,
-    children: renderPages }), _react2.default.createElement('div', { className: _styles2.default.main }, _react2.default.createElement('h2', null, 'Create impressive scroll aware webpages'), _react2.default.createElement('h3', null, 'Animate your content'), _react2.default.createElement('p', null, 'With the help of the progress variable you can easily control nested slideshows or other elements.')), _react2.default.createElement(_src2.default, { factor: 2,
+    children: renderPages,
+    anchors: '!/intro' }), _react2.default.createElement('div', { className: _styles2.default.main }, _react2.default.createElement('h2', null, 'Create impressive scroll aware webpages'), _react2.default.createElement('h3', null, 'Animate your content'), _react2.default.createElement('p', null, 'With the help of the progress variable you can easily control nested slideshows or other elements.')), _react2.default.createElement(_src2.default, { factor: 2,
     slides: pages2.length,
-    children: renderPages2 }), _react2.default.createElement('footer', { className: _styles2.default.footer }));
+    children: renderPages2,
+    anchors: '!/works' }), _react2.default.createElement('footer', { className: _styles2.default.footer }));
 };
 
 App.displayName = 'App';
@@ -153,7 +188,7 @@ App.displayName = 'App';
 (0, _reactDom.render)(_react2.default.createElement(App, null), document.getElementById('mountPoint'));
 
 },{"../src":336,"./styles.css":2,"react":333,"react-dom":176}],2:[function(require,module,exports){
-module.exports = {"progress":"👻","page":"🦄","header":"🍀","main":"👾","footer":"👻👻","pageContent":"👻🦄","pageHeader":"👻🍀","pageFooter":"👻👾","imageSlider":"🦄👻","imageBlend":"🦄🦄","fullscreenImg":"🦄🍀","verticalScrollSlide":"🦄👾","verticalScroll":"🍀👻","verticalScrollInner":"🍀🦄"}
+module.exports = {"progress":"👻","page":"🦄","header":"🍀","main":"👾","footer":"👻👻","pageContent":"👻🦄","pageHeader":"👻🍀","pageFooter":"👻👾","imageSlider":"🦄👻","imageBlend":"🦄🦄","fullscreenImg":"🦄🍀","verticalScrollSlide":"🦄👾","verticalScroll":"🍀👻","verticalScrollInner":"🍀🦄","pagers":"🍀🍀","pager":"🍀👾","active":"👾👻"}
 },{}],3:[function(require,module,exports){
 (function (process){
 'use strict';
@@ -25696,6 +25731,17 @@ module.exports = require('./lib/React');
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+function _toConsumableArray(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
+    }return arr2;
+  } else {
+    return Array.from(arr);
+  }
+}
+
 /**
  * a list of vendor prefixes to use for css-feature testing
  * @type {Array}
@@ -25710,10 +25756,9 @@ var vendorPrefixes = ['webkit', 'moz', 'ms'];
  */
 var cssSupportsValue = function cssSupportsValue(prop, value) {
   var div = document.createElement('div');
-  var values = vendorPrefixes.map(function (prefix) {
+  var values = [value].concat(_toConsumableArray(vendorPrefixes.map(function (prefix) {
     return '-' + prefix + '-' + value;
-  });
-  values.unshift(value);
+  })));
   for (var i = 0; i < values.length; i++) {
     div.style[prop] = values[i];
     if (values[i] === div.style[prop]) {
@@ -25933,9 +25978,12 @@ var OverScroll = _wrapComponent('OverScroll')(function (_Component) {
 
   /**
    * a scroll based slideshow with wings
-   * @param  {Object} props
+   * @param {Object} props
    * @param {String} props.className
    * @param {render} props.children - render function for children
+   * @param {string} props.anchors - allow navigation via pagers
+   *                                 (`anchors='!/works'` will create a url hashbang `#!/works/[1,2,3...]``)
+   *                                 (`anchors='works'` will create a url hash `#works/[1,2,3...]``)
    * @param {Number} props.slides - number of slides
    * @param {Number} [props.factor = 1] - scroll factor defines how many viewport heights page
    *  have to be scrolled to trigger the next page
@@ -25960,7 +26008,7 @@ var OverScroll = _wrapComponent('OverScroll')(function (_Component) {
    * @type Function
    * @param {Number} index - currently active index
    * @param {Number} percent - percent of active slide scrolled
-   * @return {ReactElement} - returns a reactDOM element
+   * @return {ReactNode} - returns a reactDOM element
    */
 
   _createClass(OverScroll, [{
@@ -26023,7 +26071,7 @@ var OverScroll = _wrapComponent('OverScroll')(function (_Component) {
       return _react3.default.createElement('div', { className: this.props.className }, _react3.default.createElement(_eventTracker2.default, { onScroll: this.updateScroll }), _react3.default.createElement('div', { style: this.frameStyle,
         ref: function ref(x) {
           _this2.tracker = x;
-        } }, _react3.default.createElement('div', { style: this.overlayStyle }, this.props.children(this.state.counter, this.state.scrollOffset))));
+        } }, this.anchors, _react3.default.createElement('div', { style: this.overlayStyle }, this.props.children(this.state.counter, this.state.scrollOffset, this.props.anchors))));
     }
   }, {
     key: 'frameStyle',
@@ -26057,12 +26105,51 @@ var OverScroll = _wrapComponent('OverScroll')(function (_Component) {
         height: '100vh'
       };
     }
+
+    /**
+     * allow to use deeplinks and clickable pagers to navigate
+     * to speciffic pages inside the slider. Paging is done by simply jumpimg
+     * to the correct id.
+     * @return {null|ReactNode} returns a div with elements that have an id
+     */
+
+  }, {
+    key: 'anchors',
+    get: function get() {
+      if (!this.props.anchors) {
+        return null;
+      }
+      var anchorStyle = {
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0
+      };
+      var vh = 100 * (this.props.factor || 1);
+      var anchors = [];
+      for (var i = 0; i < this.props.slides; i++) {
+        var id = this.props.anchors + '/' + (i + 1);
+        var props = {
+          id: id,
+          key: id,
+          style: {
+            display: 'block',
+            marginTop: i > 0 ? '1px' : 0,
+            height: i > 0 ? 'calc(' + vh + 'vh - 1px)' : vh + 'vh'
+          }
+        };
+        anchors.push(_react3.default.createElement('span', props));
+      }
+      return _react3.default.createElement('div', { style: anchorStyle }, anchors);
+    }
   }], [{
     key: 'propTypes',
     value: function propTypes() {
       return {
         className: _react2.PropTypes.string,
         children: _react2.PropTypes.func.isRequired,
+        anchors: _react2.PropTypes.string,
         slides: _react2.PropTypes.number.isRequired,
         factor: _react2.PropTypes.number.isRequired
       };

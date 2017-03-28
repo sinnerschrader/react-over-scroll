@@ -1,14 +1,14 @@
 body {
   margin: 0;
   font-family: sans-serif;
-  background: #fff;
-  color: #000;
+  background: #4602d9;
+  color: #fff;
 }
 
 .👻 {
   height: .5em;
   margin: 1em 0 0;
-  background: #4602d9;
+  background: #fff;
 }
 
 .🦄 {
@@ -25,7 +25,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: #000;
+  background: #4602d9;
   color: #fff;
   font-size: 4vw;
 }
@@ -49,8 +49,8 @@ body {
   padding: 2em 20px;
   margin: 1em auto;
   max-width: 900px;
-  background: #ddd;
-  color: #333;
+  background: #fff;
+  color: #000;
 }
 
 .👻👻 {
@@ -62,6 +62,7 @@ body {
 }
 
 .👻🦄 {
+  position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -90,8 +91,6 @@ body {
           align-items: center;
   -ms-flex-line-pack: center;
       align-content: center;
-  background: #000;
-  color: #fff;
   position: relative;
   z-index: 2
 }
@@ -103,8 +102,6 @@ body {
 .👻👾 {
   font-size: 16px;
   font-size: 1rem;
-  background: #000;
-  color: #fff;
   padding: 1em 0 0 ;
   text-align: center;
   position: relative;
@@ -115,7 +112,7 @@ body {
   text-transform: none;
   text-transform: initial;
   font-size: 2vw;
-  color: white;
+  color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -202,8 +199,46 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   overflow: hidden;
+}
+
+.🍀🍀 {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.🍀👾 {
+  font-size: 20px;
+  height: 1em;
+  width: 1em;
+  margin: 0.5em;
+  border-radius: 50%;
+  border: 2px solid;
+  color: currentcolor
+}
+
+.🍀👾:hover {
+  background: currentcolor;
+}
+
+.🍀👾.👾👻 {
+  background: currentcolor;
+  border-color: transparent;
 }
