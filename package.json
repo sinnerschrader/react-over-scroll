@@ -5,11 +5,10 @@
   "main": "lib/index.js",
   "scripts": {
     "babel": "babel src --out-dir lib",
-    "build": "node ./scripts/build",
+    "build": "cross-env NODE_ENV=production node ./scripts/build",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "docs": "rm -rf docs/api && mkdir docs/api && jsdoc -c jsdoc.json",
     "lint": "eslint .",
-    "prebuild": "NODE_ENV=production",
     "prepush": "jest --no-cache",
     "prerelease": "npm run babel; npm test",
     "posttest": "npm run lint",
@@ -17,7 +16,7 @@
     "server": "cd docs && http-server",
     "start": "npm run build && npm run server",
     "test": "jest --no-cache --coverage",
-    "watch": "NODE_ENV=development node ./scripts/watch"
+    "watch": "cross-env NODE_ENV=development node ./scripts/watch"
   },
   "repository": {
     "type": "git",
@@ -53,6 +52,7 @@
     "babelify": "^7.3.0",
     "browserify": "^13.3.0",
     "coveralls": "^2.11.15",
+    "cross-env": "^5.0.1",
     "css-modulesify": "^0.27.1",
     "cz-conventional-changelog": "^1.2.0",
     "enzyme": "^2.7.0",
