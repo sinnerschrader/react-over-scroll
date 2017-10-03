@@ -4,7 +4,7 @@
   "description": "A scroll based slideshow with wings",
   "main": "lib/index.js",
   "scripts": {
-    "babel": "babel src --out-dir lib",
+    "babel": "NODE_ENV=production babel src --out-dir lib",
     "build": "node ./scripts/build",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "docs": "rm -rf docs/api && mkdir docs/api && jsdoc -c jsdoc.json",
