@@ -34,8 +34,9 @@ class EventTracker extends Component {
   componentWillMount () {
     // store so we can unbind properly in unmount
     this.throttledCallback = this.trackScroll
-    if (this.props.throttleRate > 0)
+    if (this.props.throttleRate > 0) {
       this.throttledCallback = throttle(this.trackScroll, this.props.throttleRate)
+    }
 
     window.addEventListener('scroll', this.throttledCallback)
   }
