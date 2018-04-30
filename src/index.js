@@ -16,6 +16,8 @@ class OverScroll extends Component {
    *  have to be scrolled to trigger the next page
    *  - 1 = 100vh
    *  - 2 = 200vh
+   * @param {Number} props.throttleRate = 0 - rate in milliseconds to throttle events
+   *  - defaults to no throttling
    */
   constructor (props) {
     super(props)
