@@ -1,4 +1,17 @@
-body {
+.🍀👾.👾👻 {
+    background: currentcolor;
+    border-color: transparent;
+}.🦄👻::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+}body {
   margin: 0;
   font-family: sans-serif;
   background: #4602d9;
@@ -18,27 +31,22 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+      flex-direction: column;
   background: #4602d9;
   color: #fff;
   font-size: 4vw;
 }
 
 .🍀 {
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-line-pack: center;
       align-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
   height: 50px;
   padding: 0 30px;
   background: #4602d9;
@@ -63,17 +71,14 @@ body {
 
 .👻🦄 {
   position: relative;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -ms-flex: 1;
+      flex: 1;
   text-align: center;
   text-transform: uppercase;
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
   -ms-flex-line-pack: center;
       align-content: center;
 }
@@ -83,12 +88,10 @@ body {
   font-size: 1rem;
   padding: 0 30px;
   height: 50px;
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
   -ms-flex-line-pack: center;
       align-content: center;
   position: relative;
@@ -96,7 +99,7 @@ body {
 }
 
 .👻🍀 h4 {
-  margin: 0;
+    margin: 0;
 }
 
 .👻👾 {
@@ -113,21 +116,16 @@ body {
   text-transform: initial;
   font-size: 2vw;
   color: #fff;
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
   -ms-flex-line-pack: center;
       align-content: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
   height: 100%;
   width: 100%
 }
@@ -135,21 +133,9 @@ body {
 .🦄👻 h1,
   .🦄👻 h2,
   .🦄👻 h3 {
-  width: 100%;
-  position: relative;
-  z-index: 2;
-}
-
-.🦄👻::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: inherit;
-  pointer-events: none;
-  mix-blend-mode: multiply;
+    width: 100%;
+    position: relative;
+    z-index: 2;
 }
 
 .🦄🦄 {
@@ -157,15 +143,15 @@ body {
 }
 
 .🦄🦄::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: inherit;
-  pointer-events: none;
-  mix-blend-mode: multiply;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    pointer-events: none;
+    mix-blend-mode: multiply;
 }
 
 .🦄🍀 {
@@ -180,9 +166,8 @@ body {
 .🦄👾 {
   height: 100vh;
   width: 100vw;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 100vw;
-          flex: 0 0 100vw;
+  -ms-flex: 0 0 100vw;
+      flex: 0 0 100vw;
   background-size: cover;
 }
 
@@ -200,7 +185,6 @@ body {
   top: 0;
   left: 0;
   bottom: 0;
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   overflow: hidden;
@@ -212,16 +196,12 @@ body {
   top: 0;
   left: 0;
   bottom: 0;
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
 }
 
 .🍀👾 {
@@ -235,10 +215,5 @@ body {
 }
 
 .🍀👾:hover {
-  background: currentcolor;
-}
-
-.🍀👾.👾👻 {
-  background: currentcolor;
-  border-color: transparent;
+    background: currentcolor;
 }

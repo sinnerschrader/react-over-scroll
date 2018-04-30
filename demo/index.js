@@ -279,7 +279,8 @@ const App = props => {
       <Slider factor={0.5}
               slides={pages.length}
               children={renderPages}
-              anchors='!/intro'/>
+              anchors='!/intro'
+              throttleRate={30}/>
       <div className={styles.main}>
         <h2>Create impressive scroll aware webpages</h2>
         <h3>Animate your content</h3>
@@ -291,7 +292,8 @@ const App = props => {
       <Slider factor={2}
               slides={pages2.length}
               children={renderPages2}
-              anchors='!/works'/>
+              anchors='!/works'
+              throttleRate={30}/>
       <footer className={styles.footer}/>
     </div>
   )

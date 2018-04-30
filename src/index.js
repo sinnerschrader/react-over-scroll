@@ -40,13 +40,15 @@ class OverScroll extends Component {
       children: PropTypes.func.isRequired,
       anchors: PropTypes.string,
       slides: PropTypes.number.isRequired,
-      factor: PropTypes.number.isRequired
+      factor: PropTypes.number.isRequired,
+      throttleRate: PropTypes.number
     }
   }
 
   static defaultProps () {
     return {
-      factor: 1
+      factor: 1,
+      throttleRate: 0
     }
   }
 
@@ -164,7 +166,9 @@ class OverScroll extends Component {
   render () {
     return (
       <div className={this.props.className}>
-        <Tracker onScroll={this.updateScroll}/>
+        <Tracker
+          onScroll={this.updateScroll}
+          throttleRate={this.props.throttleRate} />
         <div style={this.frameStyle}
              ref={x => { this.tracker = x }}>
           {this.anchors}

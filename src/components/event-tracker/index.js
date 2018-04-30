@@ -1,10 +1,12 @@
 import {Component, PropTypes} from 'react'
+import throttle from 'lodash.throttle'
 
 class EventTracker extends Component {
   /**
    * A simple tracker for `window.scrollY`
    * @param {Object} props
    * @param {Function} props.onScroll - eventListener
+   * @param {Number} props.throttleRate=0 - throttling rate in milliseconds
    */
   constructor (props) {
     super(props)
@@ -14,7 +16,14 @@ class EventTracker extends Component {
 
   static propTypes () {
     return {
-      onScroll: PropTypes.func.isRequired
+      onScroll: PropTypes.func.isRequired,
+      throttleRate: PropTypes.number
+    }
+  }
+
+  static defaultProps () {
+    return {
+      throttleRate: 0
     }
   }
 
@@ -23,11 +32,16 @@ class EventTracker extends Component {
   }
 
   componentWillMount () {
-    window.addEventListener('scroll', this.trackScroll)
+    // store so we can unbind properly in unmount
+    this.throttledCallback = this.trackScroll
+    if (this.props.throttleRate > 0)
+      this.throttledCallback = throttle(this.trackScroll, this.props.throttleRate)
+
+    window.addEventListener('scroll', this.throttledCallback)
   }
 
   componentWillUnmount () {
-    window.removeEventListener('scroll', this.trackScroll)
+    window.removeEventListener('scroll', this.throttledCallback)
   }
 
   render () {

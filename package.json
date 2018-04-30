@@ -39,6 +39,7 @@
   },
   "homepage": "https://github.com/pixelass/react-over-scroll#readme",
   "dependencies": {
+    "lodash.throttle": "^4.1.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
