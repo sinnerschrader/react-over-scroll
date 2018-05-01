@@ -183,4 +183,7 @@ class OverScroll extends Component {
   }
 }
 
-export default OverScroll
+export {
+  OverScroll as default,
+  Tracker as EventTracker
+}
