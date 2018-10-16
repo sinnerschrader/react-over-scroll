@@ -1,3 +1,5 @@
+import root from 'window-or-global'
+
 /**
  * a list of vendor prefixes to use for css-feature testing
  * @type {Array}
@@ -11,7 +13,11 @@ var vendorPrefixes = ['webkit', 'moz', 'ms']
  * @return {String|Boolean}       returns the supported value or `false`
  */
 const cssSupportsValue = (prop, value) => {
-  var div = document.createElement('div')
+  if (!root.document) {
+    return false
+  }
+
+  var div = root.document.createElement('div')
   const values = [value, ...vendorPrefixes.map(prefix => `-${prefix}-${value}`)]
   for (let i = 0; i < values.length; i++) {
     div.style[prop] = values[i]
