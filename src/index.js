@@ -7,6 +7,8 @@ class OverScroll extends Component {
    * a scroll based slideshow with wings
    * @param {Object} props
    * @param {String} props.className
+   * @param {Number} props.initialPage - the index of the initial page to show
+   * @param {Function} props.onPageChange - triggered when a page is changed
    * @param {render} props.children - render function for children
    * @param {string} props.anchors - allow navigation via pagers
    *                                 (`anchors='!/works'` will create a url hashbang `#!/works/[1,2,3...]``)
@@ -21,7 +23,7 @@ class OverScroll extends Component {
     super(props)
     this.state = {
       scrollY: window.scrollY,
-      counter: 0,
+      counter: Math.min(Math.max(props.initialPage, 0), props.slides && props.slides.length - 1),
       scrollOffset: 0
     }
     this.updateScroll = this.updateScroll.bind(this)
@@ -40,13 +42,18 @@ class OverScroll extends Component {
       children: PropTypes.func.isRequired,
       anchors: PropTypes.string,
       slides: PropTypes.number.isRequired,
-      factor: PropTypes.number.isRequired
+      factor: PropTypes.number.isRequired,
+      initialPage: PropTypes.number,
+      onPageChange: PropTypes.func
     }
   }
 
+  // TODO: React 16 doesn't pick these up?
   static defaultProps () {
     return {
-      factor: 1
+      factor: 1,
+      initialPage: 0,
+      onPageChange: function () {}
     }
   }
 
@@ -80,6 +87,11 @@ class OverScroll extends Component {
       counter = this.props.slides - 1
       scrollOffset = 100
     }
+
+    if (this.state.counter !== counter) {
+      this.props.onPageChange && this.props.onPageChange(counter)
+    }
+
     this.setState({
       scrollY,
       fixed,

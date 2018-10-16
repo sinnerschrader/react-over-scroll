@@ -279,6 +279,7 @@ const App = props => {
       <Slider factor={0.5}
               slides={pages.length}
               children={renderPages}
+              onPageChange={page => console.log(`Page changed to ${page}.`)}
               anchors='!/intro'/>
       <div className={styles.main}>
         <h2>Create impressive scroll aware webpages</h2>

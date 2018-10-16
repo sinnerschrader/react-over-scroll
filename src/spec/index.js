@@ -20,4 +20,23 @@ describe('<OverScroll />', () => {
     wrapper.setProps({ className: 'changed' })
     expect(wrapper.props().className).toEqual('changed')
   })
+  it('allows to pass initial page', () => {
+    const initialPage = 1
+    const render = (page) => <div className={`page-${page}`} />
+    const wrapper = mount(<OverScroll children={render} factor={1} initialPage={initialPage} slides={[0, 1, 2]} />)
+    expect(wrapper.contains(<div className={`page-${initialPage}`}/>)).toEqual(true)
+  })
+  it('clamps initial page to zero', () => {
+    const initialPage = -1
+    const render = (page) => <div className={`page-${page}`} />
+    const wrapper = mount(<OverScroll children={render} factor={1} initialPage={initialPage} slides={[0, 1, 2]} />)
+    expect(wrapper.contains(<div className={`page-0`}/>)).toEqual(true)
+  })
+  it('clamps initial page to maximum', () => {
+    const initialPage = 10
+    const render = (page) => <div className={`page-${page}`} />
+    const wrapper = mount(<OverScroll children={render} factor={1} initialPage={initialPage} slides={[0, 1, 2]} />)
+    expect(wrapper.contains(<div className={`page-2`}/>)).toEqual(true)
+  })
+  // TODO: Trigger onPageChange and test it
 })
