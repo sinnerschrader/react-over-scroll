@@ -23,19 +23,19 @@ describe('<OverScroll />', () => {
   it('allows to pass initial page', () => {
     const initialPage = 1
     const render = (page) => <div className={`page-${page}`} />
-    const wrapper = mount(<OverScroll children={render} factor={1} initialPage={initialPage} slides={[0, 1, 2]} />)
+    const wrapper = mount(<OverScroll children={render} factor={1} initialPage={initialPage} slides={3} />)
     expect(wrapper.contains(<div className={`page-${initialPage}`}/>)).toEqual(true)
   })
   it('clamps initial page to zero', () => {
     const initialPage = -1
     const render = (page) => <div className={`page-${page}`} />
-    const wrapper = mount(<OverScroll children={render} factor={1} initialPage={initialPage} slides={[0, 1, 2]} />)
+    const wrapper = mount(<OverScroll children={render} factor={1} initialPage={initialPage} slides={3} />)
     expect(wrapper.contains(<div className={`page-0`}/>)).toEqual(true)
   })
   it('clamps initial page to maximum', () => {
     const initialPage = 10
     const render = (page) => <div className={`page-${page}`} />
-    const wrapper = mount(<OverScroll children={render} factor={1} initialPage={initialPage} slides={[0, 1, 2]} />)
+    const wrapper = mount(<OverScroll children={render} factor={1} initialPage={initialPage} slides={3} />)
     expect(wrapper.contains(<div className={`page-2`}/>)).toEqual(true)
   })
   // TODO: Trigger onPageChange and test it

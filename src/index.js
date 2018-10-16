@@ -23,7 +23,7 @@ class OverScroll extends Component {
     super(props)
     this.state = {
       scrollY: window.scrollY,
-      counter: Math.min(Math.max(props.initialPage, 0), props.slides && props.slides.length - 1),
+      counter: Math.min(Math.max(props.initialPage, 0), props.slides - 1),
       scrollOffset: 0
     }
     this.updateScroll = this.updateScroll.bind(this)
@@ -59,7 +59,9 @@ class OverScroll extends Component {
 
   componentWillReceiveProps (nextProps) {
     if (this.props.initialPage !== nextProps.initialPage) {
-      this.setState({ counter: nextProps.initialPage })
+      this.setState({
+        counter: Math.min(Math.max(nextProps.initialPage, 0), nextProps.slides - 1)
+      })
     }
   }
 
