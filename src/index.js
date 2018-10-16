@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react'
+import root from 'window-or-global'
 import Tracker from './components/event-tracker'
 import {position} from './components/css-supports'
 
@@ -20,7 +21,7 @@ class OverScroll extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      scrollY: window.scrollY,
+      scrollY: root.scrollY,
       counter: 0,
       scrollOffset: 0
     }
@@ -68,7 +69,7 @@ class OverScroll extends Component {
     // top activates the snap mode
     // bottom deactivates the snap mode
     const {top, bottom} = this.tracker.getBoundingClientRect()
-    const innerHeight = window.innerHeight || 0
+    const innerHeight = root.innerHeight || 0
     const touchedTop = top <= 0
     const touchedEnd = bottom <= innerHeight
     if (touchedTop && !touchedEnd) {

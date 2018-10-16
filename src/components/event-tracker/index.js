@@ -1,4 +1,5 @@
 import {Component, PropTypes} from 'react'
+import root from 'window-or-global'
 
 class EventTracker extends Component {
   /**
@@ -19,15 +20,15 @@ class EventTracker extends Component {
   }
 
   trackScroll () {
-    this.props.onScroll(window.scrollY)
+    this.props.onScroll(root.scrollY)
   }
 
   componentWillMount () {
-    window.addEventListener('scroll', this.trackScroll)
+    root.addEventListener('scroll', this.trackScroll)
   }
 
   componentWillUnmount () {
-    window.removeEventListener('scroll', this.trackScroll)
+    root.removeEventListener('scroll', this.trackScroll)
   }
 
   render () {
