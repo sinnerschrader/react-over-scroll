@@ -57,6 +57,12 @@ class OverScroll extends Component {
     }
   }
 
+  componentWillReceiveProps (nextProps) {
+    if (this.props.initialPage !== nextProps.initialPage) {
+      this.setState({ counter: nextProps.initialPage })
+    }
+  }
+
   /**
    * checks for the current position and translates the scroll to index and percent
    * @param  {Number} scrollY - window.scrollY
