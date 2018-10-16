@@ -24,11 +24,11 @@ class EventTracker extends Component {
   }
 
   componentWillMount () {
-    root.document.addEventListener('scroll', this.trackScroll)
+    root.document && root.document.addEventListener('scroll', this.trackScroll)
   }
 
   componentWillUnmount () {
-    root.document.removeEventListener('scroll', this.trackScroll)
+    root.document && root.document.removeEventListener('scroll', this.trackScroll)
   }
 
   render () {
