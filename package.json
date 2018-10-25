@@ -26,7 +26,7 @@
 		"lint:ts": "tslint-config-prettier-check ./tslint.json",
 		"package": "yarn clean:package && yarn babel; yarn types",
 		"posttest": "yarn lint",
-		"prerelease": "yarn babel; yarn test",
+		"prerelease": "yarn babel; yarn types; yarn test",
 		"release": "standard-version --no-verify",
 		"start": "serve docs",
 		"test": "yarn bundlesize",

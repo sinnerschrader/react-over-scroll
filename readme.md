@@ -28,39 +28,43 @@ OverScroll allows the usage of a child function or a render property.
 ### Example 1
 
 ```jsx
-import OverScroll from "react-over-scroll";
-import React from "react";
-
-export const Example = () => (
-	<OverScroll pages={5}>
-		{({page, progress}) => (
-			<div>
-				<ul>
-					<li>progress: {progress}</li>
-					<li>page: {page}</li>
-				</ul>
-			</div>
-		)}
-	</OverScroll>
-);
+const renderSlide = (slide, progress) => (
+  <div>
+    <div>You are on Slide {slide + 1}</div>
+    <div>{progress * 100}% of this slide has been scrolled</div>
+  </div>
+)
+// Usage
+// <OverScroll slides={10} children={renderSlide} />
 ```
 
 ### Example 2
 
 ```jsx
-import OverScroll from "react-over-scroll";
-import React from "react";
-
-const renderPages = ({page, progress}) => (
-	<div>
-		<ul>
-			<li>progress: {progress}</li>
-			<li>page: {page}</li>
-		</ul>
-	</div>
-);
-
-export const Example = () => <OverScroll pages={5} render={renderPages} />;
+const pages = [<div>Hello</div>,<div>World</div>]
+const slider = (
+  <OverScroll slides={pages.length}>
+    {(page, progress) => (
+      <div>
+        <section>
+          {pages[page]}
+        </section>
+        <footer>
+          <div>Page {page + 1}</div>
+          <div>
+            <span style={{
+              width: `${progress * 100}%`,
+              height: 10,
+              background: 'currentcolor'
+            }}/>
+          </div>
+        </footer>
+      </div>
+    )}
+  </OverScroll>
+)
+// Usage
+// {slider}
 ```
 
 ## Configuration
