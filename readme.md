@@ -19,7 +19,6 @@ yarn add react-over-scroll
 ```
 
 ## Description
-
 OverScroll is a slide-show or content-slider, call it what you want. It is a full-screen/viewport element that snaps into fixed mode when it reaches the viewports top edge. Scrolling is now translated to paging, switching the content each time a predefined scroll amount has been reached. During an active slide two values are available. (See [Render](https://github.com/pixelass/react-over-scroll/#render) for more information). Take a look at the [Demo](https://pixelass.github.io/react-over-scroll/) to get a better understanding of the behavior.
 
 ## Render
@@ -102,15 +101,12 @@ should follow the steps listed below.
 
 ### Setup
 
-```bash
+```shell
 yarn
 ```
 
 ### Run dev server
 
-```bash
-## builds package and adds itself as dev dependency
-yarn refresh
-## start dev server
+```shell
 yarn dev
 ```
