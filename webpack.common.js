@@ -14,7 +14,7 @@ module.exports = (env, argv) => {
 		output: {
 			path: OUT_DIR,
 			filename: "[name].js",
-			publicPath: "/",
+			publicPath: "./",
 			libraryTarget: "umd"
 		},
 		resolve: {
