@@ -27,10 +27,10 @@ The children of OverScroll expect a function which is called with two arguments.
 
 ### Example 1
 ```jsx
-const renderSlide = (slide, percent) => (
+const renderSlide = (slide, progress) => (
   <div>
     <div>You are on Slide {slide + 1}</div>
-    <div>{percent}% of this slide has been scrolled</div>
+    <div>{progress * 100}% of this slide has been scrolled</div>
   </div>
 )
 // Usage
@@ -51,7 +51,7 @@ const slider = (
           <div>Page {page + 1}</div>
           <div>
             <span style={{
-              width: `${progress}%`,
+              width: `${progress * 100}%`,
               height: 10,
               background: 'currentcolor'
             }}/>
