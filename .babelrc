@@ -13,9 +13,6 @@
 		]
 	],
 	"env": {
-		"test": {
-			"presets": ["minify"]
-		},
 		"development": {
 			"plugins": [
 				"react-hot-loader/babel",
