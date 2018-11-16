@@ -1,24 +1,28 @@
 import throttle from "lodash.throttle";
 import React from "react";
 
-type TScrollHandler = (scrollY: number) => void;
+export type TScrollHandler = (scrollY: number) => void;
 
-interface IEventTrackerProps {
+export interface IEventTrackerProps {
 	onScroll?: TScrollHandler;
 	throttle?: number;
 }
+
 class Tracker extends React.PureComponent<IEventTrackerProps> {
 	private eventHandler;
 
 	public componentDidMount(): void {
-		const eventHandler = this.props.throttle ? throttle(this.trackScroll, this.props.throttle) : this.trackScroll;
-		this.eventHandler = document.addEventListener("scroll", eventHandler, {
-			passive: true
-		});
+		this.addHandler();
+	}
+
+	public componentDidUpdate(oldProps): void {
+		if (oldProps.throttle !== this.props.throttle) {
+			this.updateHandler();
+		}
 	}
 
 	public componentWillUnmount(): void {
-		document.removeEventListener("scroll", this.eventHandler);
+		this.removeHandler();
 	}
 
 	public render(): null {
@@ -28,6 +32,24 @@ class Tracker extends React.PureComponent<IEventTrackerProps> {
 	protected trackScroll = (): void => {
 		this.props.onScroll(window.scrollY);
 	};
+
+	private addHandler() {
+		const eventHandler = this.props.throttle
+			? throttle(this.trackScroll, this.props.throttle)
+			: this.trackScroll;
+		this.eventHandler = document.addEventListener("scroll", eventHandler, {
+			passive: true
+		});
+	}
+
+	private removeHandler() {
+		document.removeEventListener("scroll", this.eventHandler);
+	}
+
+	private updateHandler() {
+		this.removeHandler();
+		this.addHandler();
+	}
 }
 
 export default Tracker;
