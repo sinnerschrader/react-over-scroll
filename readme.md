@@ -64,6 +64,37 @@ const renderPages = ({page, progress}) => (
 export const Example = () => <OverScroll pages={5} render={renderPages} />;
 ```
 
+## Configuration
+
+* `anchors: ?string`: Use anchors to allow deep-links and browser history.
+* `factor: ?number`: Change the factor that translates scroll offset to progress.
+* `pages: number`: The number of pages. Each page has its own progress scope.
+
+```jsx
+import OverScroll from "react-over-scroll";
+import React from "react";
+
+export const Example = () => (
+	<OverScroll pages={5} anchors="!/example" factor{2}>
+		{({page, progress, anchors}) => (
+			<div>
+				<ul>
+					<li>progress: {progress}</li>
+					<li>page: {page}</li>
+					{Array(5).fill(Boolean).map((x, i) => {
+						// Add links to for each page
+						return (
+							<li key={i}>
+								<a href={`${anchors}/i + 1`}>Go to Page {i + 1}</a>
+							</li>
+						)
+					})}
+				</ul>
+			</div>
+		)}
+	</OverScroll>
+);
+```
 ## Development
 
 If you want to build this module from source or contribute to this project you
@@ -71,12 +102,15 @@ should follow the steps listed below.
 
 ### Setup
 
-```shell
+```bash
 yarn
 ```
 
 ### Run dev server
 
-```shell
+```bash
+## builds package and adds itself as dev dependency
+yarn refresh
+## start dev server
 yarn dev
 ```
