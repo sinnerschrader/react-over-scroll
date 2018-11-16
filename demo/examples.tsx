@@ -1,11 +1,11 @@
 import {circInOut} from "@popmotion/easing";
 import React from "react";
 import OverScroll, {progressable, TRenderer} from "react-over-scroll";
-import styled, {StyledComponentClass} from "styled-components";
+import styled, {StyledComponent} from "styled-components";
 import {Column, Content, Copy, Dd, Dl, Dt, Headline, Inner, Link, Row} from "./elements";
 import {Pagers} from "./pager";
 
-const DebugBox: StyledComponentClass<any, any> = styled.p`
+const DebugBox: StyledComponent<any, any> = styled.p`
 	height: 2rem;
 	width: 100%;
 	margin: 1rem auto;
