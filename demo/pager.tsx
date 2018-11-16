@@ -129,7 +129,7 @@ export const PagerBase: React.SFC<IPagerBaseProps> = props => {
 		// Attempted to implement smooth scrolling if the page changes by one position.
 		// The page jumps in several state changes
 		// @todo Fix unless a browser bug exists.
-		// const index = parseInt(id.split("/").reverse()[0], 10) - 1;
+		// const index = parseInt(hash.split("/").reverse()[0], 10) - 1;
 		// const diff = Math.abs(index - props.page);
 		// document.documentElement.style["scroll-behavior"] = diff > 1 ? "auto" : "smooth";
 
