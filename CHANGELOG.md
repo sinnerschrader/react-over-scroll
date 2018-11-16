@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.1.2"></a>
+## [3.1.2](https://github.com/pixelass/react-over-scroll/compare/v3.1.1...v3.1.2) (2018-11-16)
+
+
+### Bug Fixes
+
+* add missng types, use production build for releases ([c39a9e4](https://github.com/pixelass/react-over-scroll/commit/c39a9e4))
+
+
+
 <a name="3.1.1"></a>
 ## [3.1.1](https://github.com/pixelass/react-over-scroll/compare/v3.1.0...v3.1.1) (2018-11-16)
 
