@@ -1,113 +1,115 @@
 {
-	"name": "react-over-scroll",
-	"version": "3.0.2",
-	"description": "A scroll based slideshow with wings",
-	"keywords": [
-		"accessible",
-		"a11y",
-		"android",
-		"animation",
-		"content scroller",
-		"fullscreen",
-		"ios",
-		"parallax",
-		"react",
-		"responsive",
-		"scroll",
-		"scroll-snap",
-		"slides",
-		"styled-components",
-		"slideshow",
-		"snap",
-		"sticky",
-		"timeline",
-		"tracking"
-	],
-	"homepage": "https://github.com/pixelass/react-over-scroll#readme",
-	"bugs": {
-		"url": "https://github.com/pixelass/react-over-scroll/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/pixelass/react-over-scroll.git"
-	},
-	"license": "MIT",
-	"author": "Gregor Adams <greg@pixelass.com> (http://pixelass.com)",
-	"files": ["lib/*"],
-	"main": "./lib/src/index.js",
-	"types": "./lib/src/index.d.ts",
-	"scripts": {
-		"build": "cross-env NODE_ENV=production imhotep build",
-		"clean": "imhotep clean",
-		"dev": "imhotep dev",
-		"format": "imhotep format",
-		"lint": "imhotep lint",
-		"prerelease": "yarn package; yarn test",
-		"release": "imhotep release",
-		"package": "imhotep pack",
-		"pretest": "cross-env BABEL_ENV=test imhotep pack",
-		"test": "imhotep test",
-		"posttest": "imhotep lint; bundlesize"
-	},
-	"dependencies": {
-		"lodash.throttle": "^4.1.1",
-		"tslib": "1.9.3"
-	},
-	"devDependencies": {
-		"@popmotion/easing": "^1.0.1",
-		"@types/react": "16.7.6",
-		"@types/react-dom": "16.0.9",
-		"@types/styled-components": "^4.1.0",
-		"ava": "^0.25.0",
-		"babel-plugin-styled-components": "^1.8.0",
-		"babel-preset-minify": "^0.5.0",
-		"bundlesize": "^0.17.0",
-		"cross-env": "5.2.0",
-		"imhotep": "^1.0.1",
-		"react": "^16.6.3",
-		"react-dom": "^16.6.3",
-		"styled-components": "^4.1.1",
-		"stylelint-config-styled-components": "^0.1.1",
-		"stylelint-processor-styled-components": "^1.5.0"
-	},
-	"peerDependencies": {
-		"react": "^16.6.3",
-		"react-dom": "^16.6.3"
-	},
-	"optionalDependencies": {
-		"styled-components": "^4.1.1"
-	},
-	"browserslist": [
-		"last 2 Chrome versions",
-		"last 2 Firefox versions",
-		"last 2 Safari versions",
-		"last 2 Edge versions"
-	],
-	"bundlesize": [
-		{
-			"path": "./lib/src/context.js",
-			"maxSize": "250B"
-		},
-		{
-			"path": "./lib/src/index.js",
-			"maxSize": "500B"
-		},
-		{
-			"path": "./lib/src/progressable.js",
-			"maxSize": "500B"
-		},
-		{
-			"path": "./lib/src/tracker.js",
-			"maxSize": "500B"
-		},
-		{
-			"path": "./lib/src/overscroll.js",
-			"maxSize": "2KB"
-		}
-	],
-	"sideEffects": false,
-	"directories": {
-		"lib": "lib",
-		"test": "test"
-	}
+  "name": "react-over-scroll",
+  "version": "3.1.0",
+  "description": "A scroll based slideshow with wings",
+  "keywords": [
+    "accessible",
+    "a11y",
+    "android",
+    "animation",
+    "content scroller",
+    "fullscreen",
+    "ios",
+    "parallax",
+    "react",
+    "responsive",
+    "scroll",
+    "scroll-snap",
+    "slides",
+    "styled-components",
+    "slideshow",
+    "snap",
+    "sticky",
+    "timeline",
+    "tracking"
+  ],
+  "homepage": "https://github.com/pixelass/react-over-scroll#readme",
+  "bugs": {
+    "url": "https://github.com/pixelass/react-over-scroll/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pixelass/react-over-scroll.git"
+  },
+  "license": "MIT",
+  "author": "Gregor Adams <greg@pixelass.com> (http://pixelass.com)",
+  "files": [
+    "lib/*"
+  ],
+  "main": "./lib/src/index.js",
+  "types": "./lib/src/index.d.ts",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production imhotep build",
+    "clean": "imhotep clean",
+    "dev": "imhotep dev",
+    "format": "imhotep format",
+    "lint": "imhotep lint",
+    "prerelease": "yarn package; yarn test",
+    "release": "imhotep release",
+    "package": "imhotep pack",
+    "pretest": "cross-env BABEL_ENV=test imhotep pack",
+    "test": "imhotep test",
+    "posttest": "imhotep lint; bundlesize"
+  },
+  "dependencies": {
+    "lodash.throttle": "^4.1.1",
+    "tslib": "1.9.3"
+  },
+  "devDependencies": {
+    "@popmotion/easing": "^1.0.1",
+    "@types/react": "16.7.6",
+    "@types/react-dom": "16.0.9",
+    "@types/styled-components": "^4.1.0",
+    "ava": "^0.25.0",
+    "babel-plugin-styled-components": "^1.8.0",
+    "babel-preset-minify": "^0.5.0",
+    "bundlesize": "^0.17.0",
+    "cross-env": "5.2.0",
+    "imhotep": "^1.0.1",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "styled-components": "^4.1.1",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.5.0"
+  },
+  "peerDependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "optionalDependencies": {
+    "styled-components": "^4.1.1"
+  },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Safari versions",
+    "last 2 Edge versions"
+  ],
+  "bundlesize": [
+    {
+      "path": "./lib/src/context.js",
+      "maxSize": "250B"
+    },
+    {
+      "path": "./lib/src/index.js",
+      "maxSize": "500B"
+    },
+    {
+      "path": "./lib/src/progressable.js",
+      "maxSize": "500B"
+    },
+    {
+      "path": "./lib/src/tracker.js",
+      "maxSize": "500B"
+    },
+    {
+      "path": "./lib/src/overscroll.js",
+      "maxSize": "2KB"
+    }
+  ],
+  "sideEffects": false,
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  }
 }
