@@ -42,7 +42,7 @@
     "build": "cross-env NODE_ENV=production imhotep build",
     "clean": "imhotep clean",
     "dev": "imhotep dev",
-    "docs": "typedoc --out docs/api src",
+    "docs": "typedoc --out docs/api src && touch docs/.nojekyll",
     "format": "imhotep format",
     "lint": "imhotep lint",
     "prerelease": "yarn test && yarn package",
