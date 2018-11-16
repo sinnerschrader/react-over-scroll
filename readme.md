@@ -85,7 +85,7 @@ export const Example = () => (
 						// Add links to for each page
 						return (
 							<li key={i}>
-								<a href={`${anchors}/i + 1`}>Go to Page {i + 1}</a>
+								<a href={`#${anchors}/i + 1`}>Go to Page {i + 1}</a>
 							</li>
 						)
 					})}
