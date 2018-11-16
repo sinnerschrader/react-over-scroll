@@ -1,18 +1,12 @@
 # react over-scroll
 
-A scroll based slide-show with wings.
-
-[Demo](https://pixelass.github.io/react-over-scroll/)
+<center>[DEMO](https://pixelass.github.io/react-over-scroll/) | [DOCUMENTATION](https://pixelass.github.io/react-over-scroll/api)</center>
 
 [![npm](https://img.shields.io/npm/v/react-over-scroll.svg)](https://www.npmjs.com/package/react-over-scroll)
-[![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/conventional-changelog/standard-version)
-[![Travis](https://img.shields.io/travis/pixelass/react-over-scroll.svg)](https://travis-ci.org/pixelass/react-over-scroll)
-[![David](https://img.shields.io/david/pixelass/react-over-scroll.svg)](https://david-dm.org/pixelass/react-over-scroll)
-[![David](https://img.shields.io/david/dev/pixelass/react-over-scroll.svg)](https://david-dm.org/pixelass/react-over-scroll#info=devDependencies&view=table)  
 [![GitHub license](https://img.shields.io/github/license/pixelass/react-over-scroll.svg)](https://github.com/pixelass/react-over-scroll/blob/master/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/pixelass/react-over-scroll.svg)](https://github.com/pixelass/react-over-scroll/issues)
-[![GitHub forks](https://img.shields.io/github/forks/pixelass/react-over-scroll.svg)](https://github.com/pixelass/react-over-scroll/network)
-[![GitHub stars](https://img.shields.io/github/stars/pixelass/react-over-scroll.svg)](https://github.com/pixelass/react-over-scroll/stargazers)
+[![Travis](https://img.shields.io/travis/pixelass/react-over-scroll.svg)](https://travis-ci.org/pixelass/react-over-scroll)  
+[![David](https://img.shields.io/david/pixelass/react-over-scroll.svg)](https://david-dm.org/pixelass/react-over-scroll)  
+[![David](https://img.shields.io/david/dev/pixelass/react-over-scroll.svg)](https://david-dm.org/pixelass/react-over-scroll#info=devDependencies&view=table)
 
 ```
 yarn add react-over-scroll
@@ -120,7 +114,7 @@ export const MyPlugin = () => (
 );
 
 export const Example = () => (
-	<OverScroll pages={5} anchors="!/example" factor{2}>
+	<OverScroll pages={2}>
 		{() => (
 			<MyPlugin />
 		)}
@@ -128,6 +122,49 @@ export const Example = () => (
 );
 ```
 
+### progressable
+
+Overscroll provides a helper to add a progress variable to your component.
+
+```jsx
+import React from "react";
+import OverScroll, {progressable, Listener} from "react-over-scroll";
+import styled from "styled-components";
+
+const Box = styled.div`
+  height: 1rem;
+  width: calc(var(--progress, 0) * 100%;
+  background: currentColor; 
+`
+
+// Using Listener
+const ProgressBar = () => (
+	<Listener>{
+		({progress}) => progressable(<Box/>, progress))
+	}</Listener>
+);
+// Usage
+// <ProgressBar/>
+
+// Using properties
+// const ProgressBar = ({progress}) => progressable(<Box/>, progress));
+// Usage
+// <ProgressBar progress={progress}/>
+
+export const Example = () => (
+	<OverScroll pages={5}>
+		{({page, progress}) => (
+			<div>
+				<ul>
+					<li>progress: {progress}</li>
+					<li>page: {page}</li>
+					<ProgressBar/>
+				</ul>
+			</div>
+		)}
+	</OverScroll>
+);
+```
 ### Styled elements
 
 Overscroll provides a wrapper and pagers.
@@ -139,7 +176,7 @@ import OverScroll, {Listener} from "react-over-scroll";
 import {Inner, Pagers, themes} from "react-over-scroll/lib/src/styled";
 
 export const Example = () => (
-	<OverScroll slides={5} anchors="!/device-support">
+	<OverScroll slides={5} anchors="!/example">
 		{context => (
 			<ThemeProvider theme={themes.color.blue}>
 				<Inner withPagers={true}>
