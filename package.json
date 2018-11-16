@@ -44,12 +44,12 @@
     "dev": "imhotep dev",
     "format": "imhotep format",
     "lint": "imhotep lint",
-    "prerelease": "yarn package; yarn test",
+    "prerelease": "yarn test && yarn package",
     "release": "imhotep release",
     "package": "cross-env NODE_ENV=production imhotep pack",
     "pretest": "cross-env BABEL_ENV=test imhotep pack",
     "test": "imhotep test",
-    "posttest": "imhotep lint; bundlesize"
+    "posttest": "imhotep lint"
   },
   "dependencies": {
     "lodash.throttle": "^4.1.1",
