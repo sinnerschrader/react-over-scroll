@@ -17,5 +17,5 @@
 		"strict": false,
 		"target": "esnext"
 	},
-	"include": ["src/*.ts", "src/*.tsx"]
+	"include": ["src/*.ts", "src/*.tsx", "src/styled/*.ts", "src/styled/*.tsx"]
 }

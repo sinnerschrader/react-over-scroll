@@ -46,7 +46,7 @@
     "lint": "imhotep lint",
     "prerelease": "yarn package; yarn test",
     "release": "imhotep release",
-    "package": "imhotep pack",
+    "package": "cross-env NODE_ENV=production imhotep pack",
     "pretest": "cross-env BABEL_ENV=test imhotep pack",
     "test": "imhotep test",
     "posttest": "imhotep lint; bundlesize"
