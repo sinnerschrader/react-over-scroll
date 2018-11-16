@@ -46,7 +46,6 @@
     "release": "imhotep release",
     "refresh": "yarn package && yarn pack && tar -zxvf react-over-scroll-v*.*.*.tgz && rimraf react-over-scroll-v*.*.*.tgz && yarn add file:./package --dev",
     "package": "imhotep pack",
-    "prebuild": "yarn refresh",
     "pretest": "cross-env BABEL_ENV=test imhotep package",
     "test": "imhotep test",
     "posttest": "imhotep lint; bundlesize"
@@ -68,7 +67,7 @@
     "imhotep": "^0.1.5",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-over-scroll": "file:./package",
+    "react-over-scroll": "latest",
     "styled-components": "^4.1.1",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.5.0"
