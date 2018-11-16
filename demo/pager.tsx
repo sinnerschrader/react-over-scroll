@@ -1,6 +1,6 @@
 import React from "react";
 import {Listener} from "react-over-scroll";
-import styled, {css, StyledComponent} from "styled-components";
+import styled, {css, StyledComponentClass} from "styled-components";
 import {Icon} from "./elements";
 
 const assert = (value: any, type: string): void => {
@@ -10,7 +10,7 @@ const assert = (value: any, type: string): void => {
 	}
 };
 
-const Pager: StyledComponent<any, any> = styled.a`
+const Pager: StyledComponentClass<any, any> = styled.a`
 	position: relative;
 	z-index: 2;
 	height: var(--pager-size);
@@ -44,7 +44,7 @@ const Pager: StyledComponent<any, any> = styled.a`
 		}
 	`};
 `;
-const StyledPagers: StyledComponent<any, any> = styled.div`
+const StyledPagers: StyledComponentClass<any, any> = styled.div`
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -53,7 +53,7 @@ const StyledPagers: StyledComponent<any, any> = styled.div`
 	justify-content: center;
 	margin: -0.5rem;
 `;
-const PagerWrapper: StyledComponent<any, any> = styled.div`
+const PagerWrapper: StyledComponentClass<any, any> = styled.div`
 	position: absolute;
 	z-index: 2;
 	top: 50%;
@@ -69,7 +69,7 @@ interface IMarkerProps {
 	progress: number;
 }
 
-const StyledMarker: StyledComponent<any, any> = styled.div`
+const StyledMarker: StyledComponentClass<any, any> = styled.div`
 	--marker-width: var(--pager-size);
 	position: absolute;
 	z-index: 1;
@@ -121,15 +121,14 @@ interface IPagerBaseProps {
 }
 
 export const PagerBase: React.SFC<IPagerBaseProps> = props => {
-	const scrollTo = (hash: string, target: HTMLElement): void => {
+	const scrollTo = (hash: string): void => {
 		window.location.hash = hash;
 		const el = document.getElementById(hash);
-		target.focus();
 
 		// Attempted to implement smooth scrolling if the page changes by one position.
 		// The page jumps in several state changes
 		// @todo Fix unless a browser bug exists.
-		// const index = parseInt(hash.split("/").reverse()[0], 10) - 1;
+		// const index = parseInt(id.split("/").reverse()[0], 10) - 1;
 		// const diff = Math.abs(index - props.page);
 		// document.documentElement.style["scroll-behavior"] = diff > 1 ? "auto" : "smooth";
 
@@ -144,7 +143,8 @@ export const PagerBase: React.SFC<IPagerBaseProps> = props => {
 
 	const skip = (e: MouseEvent): void => {
 		e.preventDefault();
-		scrollTo(`${props.prefix}/${props.pages + 1}`, e.target as HTMLElement);
+		(e.target as HTMLElement).focus();
+		scrollTo(`${props.prefix}/${props.pages + 1}`);
 	};
 
 	return (
@@ -157,7 +157,8 @@ export const PagerBase: React.SFC<IPagerBaseProps> = props => {
 						const id = `${props.prefix}/${i + 1}`;
 						const handleClick = (e: MouseEvent): void => {
 							e.preventDefault();
-							scrollTo(id, e.target as HTMLElement);
+							(e.target as HTMLElement).focus();
+							scrollTo(id);
 						};
 						return (
 							<Pager

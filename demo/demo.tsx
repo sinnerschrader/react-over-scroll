@@ -1,30 +1,30 @@
 import {easeIn, easeInOut} from "@popmotion/easing";
 import React from "react";
 import OverScroll, {progressable} from "react-over-scroll";
-import styled, {StyledComponent} from "styled-components";
+import styled, {StyledComponentClass} from "styled-components";
 import {Inner} from "./elements";
 import {Pagers} from "./pager";
 
-const Headline: StyledComponent<any, any> = styled.h3`
+const Headline: StyledComponentClass<any, any> = styled.h3`
 	font-size: 2rem;
 	font-weight: lighter;
 	opacity: var(--progress);
 	transform: translate3d(calc(100% - 100% * var(--progress)), 0, 0);
 `;
 
-const Copy: StyledComponent<any, any> = styled.p`
+const Copy: StyledComponentClass<any, any> = styled.p`
 	font-size: 1.5rem;
 	opacity: var(--progress);
 	transform: translate3d(0, calc(100% - 100% * var(--progress)), 0);
 `;
 
-const Svg: StyledComponent<any, any> = styled.svg`
+const Svg: StyledComponentClass<any, any> = styled.svg`
 	display: block;
 	margin: 2rem auto;
 	max-width: 50rem;
 `;
 
-const Figure: StyledComponent<any, any> = styled.figure`
+const Figure: StyledComponentClass<any, any> = styled.figure`
 	display: block;
 	margin: 0;
 `;

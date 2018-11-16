@@ -19,6 +19,7 @@ yarn add react-over-scroll
 ```
 
 ## Description
+
 OverScroll is a slide-show or content-slider, call it what you want. It is a full-screen/viewport element that snaps into fixed mode when it reaches the viewports top edge. Scrolling is now translated to paging, switching the content each time a predefined scroll amount has been reached. During an active slide two values are available. (See [Render](https://github.com/pixelass/react-over-scroll/#render) for more information). Take a look at the [Demo](https://pixelass.github.io/react-over-scroll/) to get a better understanding of the behavior.
 
 ## Render
@@ -28,43 +29,39 @@ OverScroll allows the usage of a child function or a render property.
 ### Example 1
 
 ```jsx
-const renderSlide = (slide, progress) => (
-  <div>
-    <div>You are on Slide {slide + 1}</div>
-    <div>{progress * 100}% of this slide has been scrolled</div>
-  </div>
-)
-// Usage
-// <OverScroll slides={10} children={renderSlide} />
+import OverScroll from "react-over-scroll";
+import React from "react";
+
+export const Example = () => (
+	<OverScroll pages={5}>
+		{({page, progress}) => (
+			<div>
+				<ul>
+					<li>progress: {progress}</li>
+					<li>page: {page}</li>
+				</ul>
+			</div>
+		)}
+	</OverScroll>
+);
 ```
 
 ### Example 2
 
 ```jsx
-const pages = [<div>Hello</div>,<div>World</div>]
-const slider = (
-  <OverScroll slides={pages.length}>
-    {(page, progress) => (
-      <div>
-        <section>
-          {pages[page]}
-        </section>
-        <footer>
-          <div>Page {page + 1}</div>
-          <div>
-            <span style={{
-              width: `${progress * 100}%`,
-              height: 10,
-              background: 'currentcolor'
-            }}/>
-          </div>
-        </footer>
-      </div>
-    )}
-  </OverScroll>
-)
-// Usage
-// {slider}
+import OverScroll from "react-over-scroll";
+import React from "react";
+
+const renderPages = ({page, progress}) => (
+	<div>
+		<ul>
+			<li>progress: {progress}</li>
+			<li>page: {page}</li>
+		</ul>
+	</div>
+);
+
+export const Example = () => <OverScroll pages={5} render={renderPages} />;
 ```
 
 ## Configuration
