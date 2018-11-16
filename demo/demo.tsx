@@ -1,9 +1,8 @@
 import {easeIn, easeInOut} from "@popmotion/easing";
 import React from "react";
-import OverScroll, {progressable} from "react-over-scroll";
-import styled, {StyledComponent} from "styled-components";
-import {Inner} from "./elements";
-import {Pagers} from "./pager";
+import styled, {StyledComponent, ThemeProvider} from "styled-components";
+import OverScroll, {progressable} from "../";
+import {Inner, Pagers, themes} from "../lib/src/styled";
 
 const Headline: StyledComponent<any, any> = styled.h3`
 	font-size: 1.5rem;
@@ -55,9 +54,9 @@ const ProgressDevices = (props: any) =>
 							props.page < 2
 								? 1043.0570068359375
 								: props.page > 2
-									? 0
-									: 1043.0570068359375 +
-									  1043.0570068359375 * easeInOut(props.progress)
+								? 0
+								: 1043.0570068359375 +
+								  1043.0570068359375 * easeInOut(props.progress)
 						}`}
 						strokeDasharray="1043.0570068359375"
 						fill={`hsla(0, 0%, 0%, ${
@@ -71,9 +70,8 @@ const ProgressDevices = (props: any) =>
 							props.page < 2
 								? 869.8319702148438
 								: props.page > 2
-									? 0
-									: 869.8319702148438 +
-									  869.8319702148438 * easeInOut(props.progress)
+								? 0
+								: 869.8319702148438 + 869.8319702148438 * easeInOut(props.progress)
 						}`}
 						strokeDasharray="869.8319702148438"
 						fill={`hsla(0, 0%, 20%, ${
@@ -86,8 +84,8 @@ const ProgressDevices = (props: any) =>
 							props.page < 2
 								? 50.072696685791016
 								: props.page > 2
-									? 0
-									: 50.072696685791016 + 50.072696685791016 * props.progress
+								? 0
+								: 50.072696685791016 + 50.072696685791016 * props.progress
 						}`}
 						strokeDasharray="50.072696685791016"
 						fill={`hsla(0, 0%, 10%, ${
@@ -102,8 +100,8 @@ const ProgressDevices = (props: any) =>
 							props.page < 2
 								? 18.307579040527344
 								: props.page > 2
-									? 0
-									: 18.307579040527344 + 18.307579040527344 * props.progress
+								? 0
+								: 18.307579040527344 + 18.307579040527344 * props.progress
 						}`}
 						strokeDasharray="18.307579040527344"
 						fill={`hsla(0, 0%, 10%, ${
@@ -120,9 +118,8 @@ const ProgressDevices = (props: any) =>
 							props.page < 3
 								? 1772.58349609375
 								: props.page > 3
-									? 0
-									: 1772.58349609375 +
-									  1772.58349609375 * easeInOut(props.progress)
+								? 0
+								: 1772.58349609375 + 1772.58349609375 * easeInOut(props.progress)
 						}`}
 						strokeDasharray="1772.58349609375"
 						fill={`hsla(0, 0%, 0%, ${
@@ -136,9 +133,9 @@ const ProgressDevices = (props: any) =>
 							props.page < 3
 								? 24.491750717163086
 								: props.page > 3
-									? 0
-									: 24.491750717163086 +
-									  24.491750717163086 * easeInOut(props.progress)
+								? 0
+								: 24.491750717163086 +
+								  24.491750717163086 * easeInOut(props.progress)
 						}`}
 						strokeDasharray="24.491750717163086"
 						fill={`hsla(0, 0%, 10%, ${
@@ -154,8 +151,8 @@ const ProgressDevices = (props: any) =>
 							props.page < 3
 								? 1422.086181640625
 								: props.page > 3
-									? 0
-									: 1422.086181640625 + 1422.086181640625 * props.progress
+								? 0
+								: 1422.086181640625 + 1422.086181640625 * props.progress
 						}`}
 						strokeDasharray="1422.086181640625"
 						fill={`hsla(0, 0%, 0%, ${
@@ -169,8 +166,8 @@ const ProgressDevices = (props: any) =>
 							props.page < 3
 								? 689.7429809570312
 								: props.page > 3
-									? 0
-									: 689.7429809570312 + 689.7429809570312 * props.progress
+								? 0
+								: 689.7429809570312 + 689.7429809570312 * props.progress
 						}`}
 						strokeDasharray="689.7429809570312"
 						strokeLinecap="square"
@@ -181,8 +178,8 @@ const ProgressDevices = (props: any) =>
 							props.page < 3
 								? 1744.6329345703125
 								: props.page > 3
-									? 0
-									: 1744.6329345703125 + 1744.6329345703125 * props.progress
+								? 0
+								: 1744.6329345703125 + 1744.6329345703125 * props.progress
 						}`}
 						strokeDasharray="1744.6329345703125"
 						fill={`hsla(0, 0%, 20%, ${
@@ -284,13 +281,17 @@ export const Devices = (props: any) => {
 		</Figure>
 	);
 };
+
 export const Demo = () => (
 	<OverScroll slides={5} anchors="!/device-support">
 		{context => (
-			<Inner hue={231} withPagers={true} pagerSize="1.5rem">
-				<Pagers useContext={true} />
-				<Devices progress={context.progress} page={context.page} />
-			</Inner>
+			<ThemeProvider
+				theme={{...themes.color.blue, ...themes.pagers.minimal, ...themes.stroke.bold}}>
+				<Inner withPagers={true}>
+					<Pagers useContext={true} />
+					<Devices progress={context.progress} page={context.page} />
+				</Inner>
+			</ThemeProvider>
 		)}
 	</OverScroll>
 );

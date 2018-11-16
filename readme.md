@@ -29,8 +29,8 @@ OverScroll allows the usage of a child function or a render property.
 ### Example 1
 
 ```jsx
-import OverScroll from "react-over-scroll";
 import React from "react";
+import OverScroll from "react-over-scroll";
 
 export const Example = () => (
 	<OverScroll pages={5}>
@@ -49,8 +49,8 @@ export const Example = () => (
 ### Example 2
 
 ```jsx
-import OverScroll from "react-over-scroll";
 import React from "react";
+import OverScroll from "react-over-scroll";
 
 const renderPages = ({page, progress}) => (
 	<div>
@@ -66,13 +66,13 @@ export const Example = () => <OverScroll pages={5} render={renderPages} />;
 
 ## Configuration
 
-* `anchors: ?string`: Use anchors to allow deep-links and browser history.
-* `factor: ?number`: Change the factor that translates scroll offset to progress.
-* `pages: number`: The number of pages. Each page has its own progress scope.
+-   `anchors: ?string`: Use anchors to allow deep-links and browser history.
+-   `factor: ?number`: Change the factor that translates scroll offset to progress.
+-   `pages: number`: The number of pages. Each page has its own progress scope.
 
 ```jsx
-import OverScroll from "react-over-scroll";
 import React from "react";
+import OverScroll from "react-over-scroll";
 
 export const Example = () => (
 	<OverScroll pages={5} anchors="!/example" factor{2}>
@@ -85,7 +85,7 @@ export const Example = () => (
 						// Add links to for each page
 						return (
 							<li key={i}>
-								<a href={`#${anchors}/i + 1`}>Go to Page {i + 1}</a>
+								<a href={`#${anchors}/${i + 1}`}>Go to Page {i + 1}</a>
 							</li>
 						)
 					})}
@@ -95,6 +95,66 @@ export const Example = () => (
 	</OverScroll>
 );
 ```
+
+## Advanced
+
+### Listener
+
+You can import a listener to build plugins. `Listener` is only active if a child function is used.
+
+```jsx
+import React from "react";
+import OverScroll, {Listener} from "react-over-scroll";
+
+export const MyPlugin = () => (
+	<Listener>
+	{({page, progress}) => (
+		<div>
+			<ul>
+				<li>progress: {progress}</li>
+				<li>page: {page}</li>
+			</ul>
+		</div>
+	)}
+	</Listener>
+);
+
+export const Example = () => (
+	<OverScroll pages={5} anchors="!/example" factor{2}>
+		{() => (
+			<MyPlugin />
+		)}
+	</OverScroll>
+);
+```
+
+### Styled elements
+
+Overscroll provides a wrapper and pagers.
+
+```jsx
+import React from "react";
+import {ThemeProvider} from "styled-components";
+import OverScroll, {Listener} from "react-over-scroll";
+import {Inner, Pagers, themes} from "react-over-scroll/lib/src/styled";
+
+export const Example = () => (
+	<OverScroll slides={5} anchors="!/device-support">
+		{context => (
+			<ThemeProvider theme={themes.color.blue}>
+				<Inner withPagers={true}>
+					<Pagers useContext={true} />
+					<ul>
+						<li>progress: {context.progress}</li>
+						<li>page: {context.page}</li>
+					</ul>
+				</Inner>
+			</ThemeProvider>
+		)}
+	</OverScroll>
+);
+```
+
 ## Development
 
 If you want to build this module from source or contribute to this project you
@@ -109,8 +169,9 @@ yarn
 ### Run dev server
 
 ```bash
-## builds package and adds itself as dev dependency
-yarn refresh
-## start dev server
-yarn dev
+yarn dev --hot
 ```
+
+For more options take a look at the `package.json` for this project.
+
+Copyright © 2018 - [Gregor Adams](mailto:greg@pixelass.com)

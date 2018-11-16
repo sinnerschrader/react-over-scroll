@@ -1,16 +1,21 @@
 import React from "react";
-import {Listener} from "react-over-scroll";
 import styled, {css, StyledComponent} from "styled-components";
-import {Icon} from "./elements";
+import {ScrollConsumer} from "../context";
 
-const assert = (value: any, type: string): void => {
+export const assert = (value: any, type: string): void => {
 	const valueType = typeof value;
 	if (valueType !== type) {
 		throw new TypeError(`Expected "${type}" but "${valueType}" was received`);
 	}
 };
 
-const Pager: StyledComponent<any, any> = styled.a`
+export interface IPagerProps<T> extends React.HTMLAttributes<HTMLAnchorElement> {
+	active?: boolean;
+}
+
+export type PagerProps = IPagerProps<{}>;
+
+export const Pager: StyledComponent<"a", {}, PagerProps> = styled.a`
 	position: relative;
 	z-index: 2;
 	height: var(--pager-size);
@@ -26,7 +31,7 @@ const Pager: StyledComponent<any, any> = styled.a`
 	color: currentColor;
 	text-decoration: none;
 
-	${(props: any) => css`
+	${(props: PagerProps) => css`
 		color: ${props.active ? "var(--font-default)" : "var(--font-default)"};
 		background-color: ${props.active
 			? "hsla(var(--background-h), var(--background-s), calc(var(--background-l) - 5%), 1)"
@@ -44,7 +49,7 @@ const Pager: StyledComponent<any, any> = styled.a`
 		}
 	`};
 `;
-const StyledPagers: StyledComponent<any, any> = styled.div`
+const StyledPagers: StyledComponent<"nav", {}> = styled.nav`
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -53,7 +58,8 @@ const StyledPagers: StyledComponent<any, any> = styled.div`
 	justify-content: center;
 	margin: -0.5rem;
 `;
-const PagerWrapper: StyledComponent<any, any> = styled.div`
+
+const PagerWrapper: StyledComponent<"div", {}> = styled.div`
 	position: absolute;
 	z-index: 2;
 	top: 50%;
@@ -64,19 +70,14 @@ const PagerWrapper: StyledComponent<any, any> = styled.div`
 	border-radius: calc(var(--pager-size) / 2);
 `;
 
-interface IMarkerProps {
-	page: number;
-	progress: number;
-}
-
-const StyledMarker: StyledComponent<any, any> = styled.div`
-	--marker-width: var(--pager-size);
+export const StyledMarker: StyledComponent<"div", {}> = styled.div`
+	--marker-width: var(--marker-size);
 	position: absolute;
 	z-index: 1;
 	top: calc((var(--pager-size) / 2) + 0.5rem);
 	left: calc(0.5rem + (var(--pager-size) - var(--marker-width)) / 2);
 	width: var(--marker-width);
-	background: hsla(var(--background-h), var(--background-s), calc(var(--background-l) - 10%), 1);
+	background: hsla(var(--background-h), var(--background-s), calc(var(--background-l) + 10%), 1);
 	visibility: visible;
 
 	&::before,
@@ -100,7 +101,13 @@ const StyledMarker: StyledComponent<any, any> = styled.div`
 		border-radius: 0 0 calc(var(--marker-width) / 2) calc(var(--marker-width) / 2);
 	}
 `;
-const Marker: React.SFC<IMarkerProps> = props => {
+
+export interface IMarkerProps {
+	page: number;
+	progress: number;
+}
+
+export const Marker: React.FunctionComponent<IMarkerProps> = props => {
 	return (
 		<StyledMarker
 			style={{
@@ -112,7 +119,7 @@ const Marker: React.SFC<IMarkerProps> = props => {
 	);
 };
 
-interface IPagerBaseProps {
+export interface IPagerBaseProps {
 	pages: number;
 	page: number;
 	prefix: string;
@@ -120,7 +127,15 @@ interface IPagerBaseProps {
 	showLabels?: boolean;
 }
 
-export const PagerBase: React.SFC<IPagerBaseProps> = props => {
+export const Icon: StyledComponent<"svg", {}> = styled.svg.attrs({
+	viewBox: "0 0 24 24"
+})`
+	width: 1.5rem;
+	height: 1.5rem;
+	fill: currentColor;
+`;
+
+export const PagerBase: React.FunctionComponent<IPagerBaseProps> = props => {
 	const scrollTo = (hash: string, target: HTMLElement): void => {
 		window.location.hash = hash;
 		const el = document.getElementById(hash);
@@ -142,7 +157,7 @@ export const PagerBase: React.SFC<IPagerBaseProps> = props => {
 		// window.scrollTo(0, offset);
 	};
 
-	const skip = (e: MouseEvent): void => {
+	const skip = (e: React.MouseEvent<HTMLAnchorElement>): void => {
 		e.preventDefault();
 		scrollTo(`${props.prefix}/${props.pages + 1}`, e.target as HTMLElement);
 	};
@@ -155,7 +170,7 @@ export const PagerBase: React.SFC<IPagerBaseProps> = props => {
 					.fill(Boolean)
 					.map((x, i) => {
 						const id = `${props.prefix}/${i + 1}`;
-						const handleClick = (e: MouseEvent): void => {
+						const handleClick = (e: React.MouseEvent<HTMLAnchorElement>): void => {
 							e.preventDefault();
 							scrollTo(id, e.target as HTMLElement);
 						};
@@ -184,7 +199,7 @@ export const PagerBase: React.SFC<IPagerBaseProps> = props => {
 	);
 };
 
-interface IPagersProps {
+export interface IPagersProps {
 	useContext?: boolean;
 	showLabels?: boolean;
 	pages?: number;
@@ -193,10 +208,10 @@ interface IPagersProps {
 	progress?: number;
 }
 
-export const Pagers: React.SFC<IPagersProps> = props => {
+export const Pagers: React.FunctionComponent<IPagersProps> = props => {
 	if (props.useContext) {
 		return (
-			<Listener>
+			<ScrollConsumer>
 				{context => (
 					<PagerBase
 						showLabels={props.showLabels}
@@ -206,7 +221,7 @@ export const Pagers: React.SFC<IPagersProps> = props => {
 						progress={context.progress}
 					/>
 				)}
-			</Listener>
+			</ScrollConsumer>
 		);
 	}
 	assert(props.page, "number");

@@ -8081,13 +8081,6 @@ react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
-react-over-scroll@latest:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/react-over-scroll/-/react-over-scroll-3.0.2.tgz#12680f880db14c297fafb1dc3027018492f995dc"
-  dependencies:
-    lodash.throttle "^4.1.1"
-    tslib "1.9.3"
-
 react-perf-devtool@^3.1.8:
   version "3.1.8"
   resolved "https://registry.yarnpkg.com/react-perf-devtool/-/react-perf-devtool-3.1.8.tgz#ae5c369b3b73f5c71de8afb5257ae6f90c953440"

@@ -1,9 +1,9 @@
 import {circInOut} from "@popmotion/easing";
 import React from "react";
-import OverScroll, {progressable, TRenderer} from "react-over-scroll";
-import styled, {StyledComponent} from "styled-components";
-import {Column, Content, Copy, Dd, Dl, Dt, Headline, Inner, Link, Row} from "./elements";
-import {Pagers} from "./pager";
+import styled, {StyledComponent, ThemeProvider} from "styled-components";
+import OverScroll, {progressable, TRenderer} from "../";
+import {Inner, Pagers, themes} from "../lib/src/styled";
+import {Column, Content, Copy, Dd, Dl, Dt, Headline, Link, Row} from "./elements";
 
 const DebugBox: StyledComponent<any, any> = styled.p`
 	height: 1rem;
@@ -40,65 +40,77 @@ const Debugger = (props: any) => (
 );
 
 const renderDefault: TRenderer = props => (
-	<Inner hue={0}>
-		<Headline>Example with default settings</Headline>
-		<Debugger {...props} />
-	</Inner>
+	<ThemeProvider theme={{...themes.color.green}}>
+		<Inner>
+			<Headline>Example with default settings</Headline>
+			<Debugger {...props} />
+		</Inner>
+	</ThemeProvider>
 );
 
 const renderEasing: TRenderer = props => (
-	<Inner hue={300}>
-		<Headline>Example with easing</Headline>
-		<Debugger {...props} progress={circInOut(props.progress)} />
-		<Copy>
-			Each element can use an easing function do change the dynamics.
-			<br />
-			To keep Overscroll simple easing is not part of the options but should instead be used
-			where needed.
-		</Copy>
-	</Inner>
+	<ThemeProvider theme={{...themes.color.yellow}}>
+		<Inner>
+			<Headline>Example with easing</Headline>
+			<Debugger {...props} progress={circInOut(props.progress)} />
+			<Copy>
+				Each element can use an easing function do change the dynamics.
+				<br />
+				To keep Overscroll simple easing is not part of the options but should instead be
+				used where needed.
+			</Copy>
+		</Inner>
+	</ThemeProvider>
 );
 
 const renderThrottled2: TRenderer = props => (
-	<Inner hue={240}>
-		<Headline>Example with throttle</Headline>
-		<Debugger {...props} throttle={250} />
-	</Inner>
+	<ThemeProvider theme={{...themes.color.orange}}>
+		<Inner>
+			<Headline>Example with throttle</Headline>
+			<Debugger {...props} throttle={250} />
+		</Inner>
+	</ThemeProvider>
 );
 
 const renderAnchors: TRenderer = props => (
-	<Inner hue={180}>
-		<Headline>Example with anchors</Headline>
-		<Debugger {...props} />
-		<ul>
-			{Array(props.pages)
-				.fill(Boolean)
-				.map((x, i) => (
-					<li key={i}>
-						<Link href={`#${props.anchors}/${i + 1}`}>Page {i + 1}</Link>
-					</li>
-				))}
-			<li>
-				<Link href={`#${props.anchors}/${props.pages + 1}`}>End / Skip</Link>
-			</li>
-		</ul>
-	</Inner>
+	<ThemeProvider theme={{...themes.color.red}}>
+		<Inner>
+			<Headline>Example with anchors</Headline>
+			<Debugger {...props} />
+			<ul>
+				{Array(props.pages)
+					.fill(Boolean)
+					.map((x, i) => (
+						<li key={i}>
+							<Link href={`#${props.anchors}/${i + 1}`}>Page {i + 1}</Link>
+						</li>
+					))}
+				<li>
+					<Link href={`#${props.anchors}/${props.pages + 1}`}>End / Skip</Link>
+				</li>
+			</ul>
+		</Inner>
+	</ThemeProvider>
 );
 
 const renderPagers: TRenderer = props => (
-	<Inner hue={120} withPagers={true}>
-		<Pagers {...props} prefix={props.anchors} showLabels={true} />
-		<Headline>Example with pagers</Headline>
-		<Debugger {...props} />
-	</Inner>
+	<ThemeProvider theme={{...themes.color.purple, ...themes.pagers.big}}>
+		<Inner withPagers={true}>
+			<Pagers {...props} prefix={props.anchors} showLabels={true} />
+			<Headline>Example with pagers</Headline>
+			<Debugger {...props} />
+		</Inner>
+	</ThemeProvider>
 );
 
 const renderFactor: TRenderer = props => (
-	<Inner hue={60} withPagers={true} pagerSize="2rem">
-		<Pagers {...props} prefix={props.anchors} />
-		<Headline>Example with factor</Headline>
-		<Debugger {...props} factor={0.5} />
-	</Inner>
+	<ThemeProvider theme={{...themes.color.blue, ...themes.pagers.small, ...themes.stroke.bold}}>
+		<Inner withPagers={true}>
+			<Pagers {...props} prefix={props.anchors} />
+			<Headline>Example with factor</Headline>
+			<Debugger {...props} factor={0.5} />
+		</Inner>
+	</ThemeProvider>
 );
 
 export const Examples = () => (
