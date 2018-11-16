@@ -37,15 +37,15 @@
   "main": "./lib/src/index.js",
   "types": "./lib/src/index.d.ts",
   "scripts": {
-    "build": "imhotep pack",
+    "build": "imhotep build",
     "clean": "imhotep clean",
     "dev": "imhotep dev",
     "format": "imhotep format",
-    "gh-pages": "imhotep build",
     "lint": "imhotep lint",
     "prerelease": "yarn build; yarn test",
     "release": "imhotep release",
     "refresh": "yarn build && yarn pack && tar -zxvf react-over-scroll-v*.*.*.tgz && rimraf react-over-scroll-v*.*.*.tgz && yarn add file:./package --dev",
+    "pack": "imhotep pack",
     "pretest": "cross-env BABEL_ENV=test imhotep pack",
     "test": "imhotep test",
     "posttest": "imhotep lint; bundlesize"
