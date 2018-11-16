@@ -41,10 +41,16 @@ spec
 
 # source
 src
-.bithoundrc
+.travis.yml
 .babelrc
-.eslintignore
-.eslintrc.js
-.istanbul.yml
+.stylelintrc
+.prettierrc
+.editorconfig
+webpack.*.js
+tsconfig.json
+tslint.json
+*.zip
+*.tgz
+.idea
 docs
 demo

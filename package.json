@@ -1,111 +1,113 @@
 {
   "name": "react-over-scroll",
-  "version": "1.1.1",
+  "version": "3.0.2",
   "description": "A scroll based slideshow with wings",
-  "main": "lib/index.js",
-  "scripts": {
-    "babel": "NODE_ENV=production babel src --out-dir lib",
-    "build": "node ./scripts/build",
-    "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "docs": "rm -rf docs/api && mkdir docs/api && jsdoc -c jsdoc.json",
-    "lint": "eslint .",
-    "prebuild": "NODE_ENV=production",
-    "prepush": "jest --no-cache",
-    "prerelease": "npm run babel; npm test",
-    "posttest": "npm run lint",
-    "release": "standard-version --no-verify",
-    "server": "cd docs && http-server",
-    "start": "npm run build && npm run server",
-    "test": "jest --no-cache --coverage",
-    "watch": "NODE_ENV=development node ./scripts/watch"
+  "keywords": [
+    "accessible",
+    "android",
+    "animation",
+    "content scroller",
+    "fullscreen",
+    "ios",
+    "parallax",
+    "react",
+    "responsive",
+    "scroll",
+    "scroll-snap",
+    "slides",
+    "slideshow",
+    "snap",
+    "sticky",
+    "timeline",
+    "tracking"
+  ],
+  "homepage": "https://github.com/pixelass/react-over-scroll#readme",
+  "bugs": {
+    "url": "https://github.com/pixelass/react-over-scroll/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pixelass/react-over-scroll.git"
   },
-  "keywords": [
-    "scroll",
-    "slideshow",
-    "snap",
-    "scroll-snap",
-    "react",
-    "slides",
-    "tracking"
-  ],
-  "author": "Gregor Adams <greg@pixelass.com> (http://pixelass.com)",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/pixelass/react-over-scroll/issues"
+  "author": "Gregor Adams <greg@pixelass.com> (http://pixelass.com)",
+  "files": [
+    "lib/*"
+  ],
+  "main": "./lib/src/index.js",
+  "types": "./lib/src/index.d.ts",
+  "scripts": {
+    "build": "NODE_ENV=production imhotep build",
+    "clean": "imhotep clean",
+    "dev": "imhotep dev",
+    "format": "imhotep format",
+    "lint": "imhotep lint",
+    "prerelease": "yarn build; yarn test",
+    "release": "imhotep release",
+    "refresh": "yarn package && yarn pack && tar -zxvf react-over-scroll-v*.*.*.tgz && rimraf react-over-scroll-v*.*.*.tgz && yarn add file:./package --dev",
+    "package": "imhotep pack",
+    "pretest": "cross-env BABEL_ENV=test imhotep pack",
+    "test": "imhotep test",
+    "posttest": "imhotep lint; bundlesize"
   },
-  "homepage": "https://github.com/pixelass/react-over-scroll#readme",
   "dependencies": {
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "lodash.throttle": "^4.1.1",
+    "tslib": "1.9.3"
   },
   "devDependencies": {
-    "abcq": "^0.2.2",
-    "babel-cli": "^6.18.0",
-    "babel-jest": "^18.0.0",
-    "babel-plugin-react-transform": "^2.0.2",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
-    "babel-preset-stage-0": "^6.16.0",
-    "babelify": "^7.3.0",
-    "browserify": "^13.3.0",
-    "coveralls": "^2.11.15",
-    "css-modulesify": "^0.27.1",
-    "cz-conventional-changelog": "^1.2.0",
-    "enzyme": "^2.7.0",
-    "errorify": "^0.3.1",
-    "eslint": "^3.13.1",
-    "eslint-config-standard": "^6.2.1",
-    "eslint-plugin-jsx-a11y": "^3.0.2",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-react": "^6.9.0",
-    "eslint-plugin-standard": "^2.0.1",
-    "glob": "^7.1.1",
-    "hopsdoc": "^0.1.7",
-    "http-server": "^0.9.0",
-    "husky": "^0.12.0",
-    "jest": "^18.1.0",
-    "jest-css-modules": "^1.1.0",
-    "jsdoc": "^3.4.3",
-    "livereactload": "^3.2.0",
-    "lodash.debounce": "^4.0.8",
-    "log": "^1.4.0",
-    "postcss-cssnext": "^2.9.0",
-    "react-addons-test-utils": "^15.4.2",
-    "react-proxy": "^1.1.8",
-    "react-scroll": "^1.4.4",
-    "sinon": "^1.17.7",
-    "standard-version": "^4.0.0",
-    "uglifyify": "^3.0.4",
-    "watchify": "^3.8.0"
+    "@popmotion/easing": "^1.0.1",
+    "@types/react": "16.7.6",
+    "@types/react-dom": "16.0.9",
+    "@types/styled-components": "^4.1.0",
+    "ava": "^0.25.0",
+    "babel-plugin-styled-components": "^1.8.0",
+    "babel-preset-minify": "^0.5.0",
+    "bundlesize": "^0.17.0",
+    "cross-env": "5.2.0",
+    "imhotep": "^0.1.5",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-over-scroll": "latest",
+    "styled-components": "^4.1.1",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.5.0"
   },
-  "browserify": {
-    "transform": [
-      "babelify",
-      [
-        "babelify",
-        {
-          "presets": [
-            "react",
-            "es2015",
-            "stage-0"
-          ]
-        }
-      ]
-    ]
+  "peerDependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "jest": {
-    "transform": {
-      ".*": "<rootDir>/node_modules/jest-css-modules"
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Safari versions",
+    "last 2 Edge versions"
+  ],
+  "bundlesize": [
+    {
+      "path": "./lib/src/context.js",
+      "maxSize": "250B"
     },
-    "testRegex": ".*/src/(.*/)?spec/.*\\.js$"
+    {
+      "path": "./lib/src/index.js",
+      "maxSize": "500B"
+    },
+    {
+      "path": "./lib/src/progressable.js",
+      "maxSize": "500B"
+    },
+    {
+      "path": "./lib/src/tracker.js",
+      "maxSize": "500B"
+    },
+    {
+      "path": "./lib/src/overscroll.js",
+      "maxSize": "2KB"
+    }
+  ],
+  "sideEffects": false,
+  "directories": {
+    "doc": "docs",
+    "lib": "lib",
+    "test": "test"
   }
 }
