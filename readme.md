@@ -1,6 +1,6 @@
 # react over-scroll
 
-<center>[DEMO](https://pixelass.github.io/react-over-scroll/) | [DOCUMENTATION](https://pixelass.github.io/react-over-scroll/api)</center>
+[DEMO](https://pixelass.github.io/react-over-scroll/) | [DOCUMENTATION](https://pixelass.github.io/react-over-scroll/api)
 
 [![npm](https://img.shields.io/npm/v/react-over-scroll.svg)](https://www.npmjs.com/package/react-over-scroll)
 [![GitHub license](https://img.shields.io/github/license/pixelass/react-over-scroll.svg)](https://github.com/pixelass/react-over-scroll/blob/master/LICENSE)
