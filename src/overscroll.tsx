@@ -1,9 +1,9 @@
 import React from "react";
-import {ScrollConsumer, ScrollProvider} from "./context";
+import {IContext, ScrollConsumer, ScrollProvider} from "./context";
 import Tracker from "./tracker";
 
-export type TRenderer = (IContext) => any;
-export type TChild = (IContext) => any;
+export type TRenderer = (context: IContext) => any;
+export type TChild = (context: IContext) => any;
 
 export interface IOverScrollProps {
 	anchors?: string;
