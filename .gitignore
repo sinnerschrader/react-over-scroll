@@ -38,6 +38,6 @@ jspm_packages
 
 #generated
 lib
-types
+package
 *.zip
 *.tgz
