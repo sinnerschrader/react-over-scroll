@@ -17,6 +17,5 @@
 		"strict": false,
 		"target": "esnext"
 	},
-	"files": ["src/index.tsx"],
-	"exclude": ["node_modules", "demo", "src/tracker.tsx"]
+	"include": ["src/*.ts", "src/*.tsx"]
 }
