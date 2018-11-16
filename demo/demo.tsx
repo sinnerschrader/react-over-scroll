@@ -6,27 +6,43 @@ import {Inner} from "./elements";
 import {Pagers} from "./pager";
 
 const Headline: StyledComponent<any, any> = styled.h3`
-	font-size: 2rem;
+	font-size: 1.5rem;
 	font-weight: lighter;
 	opacity: var(--progress);
 	transform: translate3d(calc(100% - 100% * var(--progress)), 0, 0);
 `;
 
 const Copy: StyledComponent<any, any> = styled.p`
-	font-size: 1.5rem;
+	font-size: 1rem;
 	opacity: var(--progress);
 	transform: translate3d(0, calc(100% - 100% * var(--progress)), 0);
 `;
 
 const Svg: StyledComponent<any, any> = styled.svg`
 	display: block;
-	margin: 2rem auto;
-	max-width: 50rem;
+	margin: 0 auto;
+	width: 100%;
 `;
 
 const Figure: StyledComponent<any, any> = styled.figure`
-	display: block;
+	height: 100%;
+	width: 100%;
 	margin: 0;
+	padding: 0;
+	display: grid;
+	align-items: center;
+	justify-items: center;
+
+	@media (orientation: landscape) {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr;
+		grid-gap: 3rem;
+	}
+	@media (orientation: portrait) {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 1fr;
+		grid-gap: 1rem;
+	}
 `;
 
 const ProgressDevices = (props: any) =>

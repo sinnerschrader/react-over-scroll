@@ -863,9 +863,9 @@
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@types/pify/-/pify-3.0.2.tgz#1bc75dac43e31dba981c37e0a08edddc1b49cd39"
 
-"@types/prettier@^1.13.2":
-  version "1.13.2"
-  resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-1.13.2.tgz#ffe96278e712a8d4e467e367a338b05e22872646"
+"@types/prettier@^1.15.0":
+  version "1.15.0"
+  resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-1.15.0.tgz#1c3e97298dec7614a6ff35b705815391630adfaa"
 
 "@types/prop-types@*":
   version "15.5.6"
@@ -5132,9 +5132,9 @@ image-size@^0.5.0:
   version "0.5.5"
   resolved "https://registry.yarnpkg.com/image-size/-/image-size-0.5.5.tgz#09dfd4ab9d20e29eb1c3e80b8990378df9e3cb9c"
 
-imhotep@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/imhotep/-/imhotep-0.1.5.tgz#5397d255ed9aed11f7d6b78bfd1883b937cb7347"
+imhotep@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/imhotep/-/imhotep-1.0.1.tgz#09ec9189807163641bfdc1b2a2cf9fdda3baf7e7"
   dependencies:
     "@babel/cli" "7.1.5"
     "@babel/core" "7.1.6"
@@ -5154,7 +5154,7 @@ imhotep@^0.1.5:
     "@types/meow" "^5.0.0"
     "@types/node" "^10.12.9"
     "@types/pify" "^3.0.2"
-    "@types/prettier" "^1.13.2"
+    "@types/prettier" "^1.15.0"
     "@types/react" "16.7.6"
     "@types/react-dom" "16.0.9"
     "@types/stylelint" "^9.4.1"
@@ -8081,8 +8081,9 @@ react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
-"react-over-scroll@file:./package":
+react-over-scroll@latest:
   version "3.0.2"
+  resolved "https://registry.yarnpkg.com/react-over-scroll/-/react-over-scroll-3.0.2.tgz#12680f880db14c297fafb1dc3027018492f995dc"
   dependencies:
     lodash.throttle "^4.1.1"
     tslib "1.9.3"

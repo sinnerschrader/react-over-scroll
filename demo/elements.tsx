@@ -15,8 +15,8 @@ export const Title: StyledComponent<any, any> = styled.h1`
 `;
 
 export const Headline: StyledComponent<any, any> = styled.h2`
-	font-size: 2rem;
-	margin: 1rem auto;
+	font-size: 1.5rem;
+	margin: 0.5rem auto;
 	font-weight: lighter;
 `;
 
@@ -50,19 +50,21 @@ export const Dl: StyledComponent<any, any> = styled.dl`
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
-	margin: 1rem auto;
+	margin: 0 auto;
 	overflow: hidden;
 `;
 
 export const Dd: StyledComponent<any, any> = styled.dd`
 	font-weight: normal;
-	flex: 0 0 calc(100% - 3rem);
-	margin: 0.5rem 0 0.5rem 3rem;
+	flex: 0 0 calc(80% - 1rem);
+	margin: 0 0 0 1rem;
+	overflow: hidden;
 `;
 
 export const Dt: StyledComponent<any, any> = styled.dt`
 	font-weight: bolder;
-	flex: 0 0 100%;
+	flex: 0 0 20%;
+	overflow: hidden;
 `;
 
 export const Code: StyledComponent<any, any> = styled.code`

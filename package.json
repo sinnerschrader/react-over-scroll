@@ -64,7 +64,7 @@
     "babel-preset-minify": "^0.5.0",
     "bundlesize": "^0.17.0",
     "cross-env": "5.2.0",
-    "imhotep": "^0.1.5",
+    "imhotep": "^1.0.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-over-scroll": "latest",

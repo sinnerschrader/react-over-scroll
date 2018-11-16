@@ -6,12 +6,11 @@ import {Column, Content, Copy, Dd, Dl, Dt, Headline, Inner, Link, Row} from "./e
 import {Pagers} from "./pager";
 
 const DebugBox: StyledComponent<any, any> = styled.p`
-	height: 2rem;
-	width: 100%;
-	margin: 1rem auto;
-	transform: scale3d(var(--progress), 1, 1);
-	transform-origin: 0% 50%;
+	height: 1rem;
+	width: calc(100% * var(--progress));
+	margin: 0.5rem 0;
 	background: white;
+	box-shadow: inset 0 0 0 2px black;
 `;
 
 const Debugger = (props: any) => (
