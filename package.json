@@ -1,6 +1,6 @@
 {
   "name": "react-over-scroll",
-  "version": "3.1.3",
+  "version": "3.1.4",
   "description": "A scroll based slideshow with wings",
   "keywords": [
     "accessible",
@@ -42,6 +42,7 @@
     "build": "cross-env NODE_ENV=production imhotep build",
     "clean": "imhotep clean",
     "dev": "imhotep dev",
+    "docs": "typedoc --out docs/api src",
     "format": "imhotep format",
     "lint": "imhotep lint",
     "prerelease": "yarn test && yarn package",
@@ -70,7 +71,8 @@
     "react-dom": "^16.6.3",
     "styled-components": "^4.1.1",
     "stylelint-config-styled-components": "^0.1.1",
-    "stylelint-processor-styled-components": "^1.5.0"
+    "stylelint-processor-styled-components": "^1.5.0",
+    "typedoc": "^0.13.0"
   },
   "peerDependencies": {
     "react": "^16.6.3",
