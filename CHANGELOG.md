@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/pixelass/react-over-scroll/compare/v2.0.0...v3.0.0) (2018-11-16)
+
+
+### Chores
+
+* content based logic ([8374a43](https://github.com/pixelass/react-over-scroll/commit/8374a43))
+
+
+### BREAKING CHANGES
+
+* API changes
+
+
+
 <a name="2.0.0"></a>
 
 # [2.0.0](https://github.com/pixelass/react-over-scroll/compare/v1.1.1...v2.0.0) (2018-10-25)
