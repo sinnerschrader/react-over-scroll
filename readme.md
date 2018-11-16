@@ -85,7 +85,7 @@ export const Example = () => (
 						// Add links to for each page
 						return (
 							<li key={i}>
-								<a href={`#${anchors}/i + 1`}>Go to Page {i + 1}</a>
+								<a href={`${anchors}/i + 1`}>Go to Page {i + 1}</a>
 							</li>
 						)
 					})}
@@ -102,12 +102,15 @@ should follow the steps listed below.
 
 ### Setup
 
-```shell
+```bash
 yarn
 ```
 
 ### Run dev server
 
-```shell
+```bash
+## builds package and adds itself as dev dependency
+yarn refresh
+## start dev server
 yarn dev
 ```
