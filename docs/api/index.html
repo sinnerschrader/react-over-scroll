@@ -78,7 +78,7 @@
 <span class="hljs-keyword">import</span> OverScroll <span class="hljs-keyword">from</span> <span class="hljs-string">"react-over-scroll"</span>;
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> Example = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">OverScroll</span> <span class="hljs-attr">pages</span>=<span class="hljs-string">{5}</span>&gt;</span>
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">OverScroll</span> <span class="hljs-attr">slides</span>=<span class="hljs-string">{5}</span>&gt;</span>
         {({page, progress}) =&gt; (
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
@@ -102,18 +102,18 @@
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
 );
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> Example = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &lt;OverScroll pages={<span class="hljs-number">5</span>} render={renderPages} /&gt;;</code></pre>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> Example = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &lt;OverScroll slides={<span class="hljs-number">5</span>} render={renderPages} /&gt;;</code></pre>
 				<h2 id="configuration">Configuration</h2>
 				<ul>
 					<li><code>anchors: ?string</code>: Use anchors to allow deep-links and browser history.</li>
 					<li><code>factor: ?number</code>: Change the factor that translates scroll offset to progress.</li>
-					<li><code>pages: number</code>: The number of pages. Each page has its own progress scope.</li>
+					<li><code>slides: number</code>: The number of pages. Each page has its own progress scope.</li>
 				</ul>
 				<pre><code class="language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
 <span class="hljs-keyword">import</span> OverScroll <span class="hljs-keyword">from</span> <span class="hljs-string">"react-over-scroll"</span>;
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> Example = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">OverScroll</span> <span class="hljs-attr">pages</span>=<span class="hljs-string">{5}</span> <span class="hljs-attr">anchors</span>=<span class="hljs-string">"!/example"</span> <span class="hljs-attr">factor</span>{<span class="hljs-attr">2</span>}&gt;</span>
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">OverScroll</span> <span class="hljs-attr">slides</span>=<span class="hljs-string">{5}</span> <span class="hljs-attr">anchors</span>=<span class="hljs-string">"!/example"</span> <span class="hljs-attr">factor</span>{<span class="hljs-attr">2</span>}&gt;</span>
         {({page, progress, anchors}) =&gt; (
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
@@ -140,24 +140,18 @@
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> MyPlugin = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
     <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Listener</span>&gt;</span>
-    {({page, progress}) =&gt; (
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>progress: {progress}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>page: {page}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    )}
+        {({page, progress}) =&gt; (
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>progress: {progress}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>page: {page}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        )}
     <span class="hljs-tag">&lt;/<span class="hljs-name">Listener</span>&gt;</span></span>
 );
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> Example = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">OverScroll</span> <span class="hljs-attr">pages</span>=<span class="hljs-string">{2}</span>&gt;</span>
-        {() =&gt; (
-            <span class="hljs-tag">&lt;<span class="hljs-name">MyPlugin</span> /&gt;</span>
-        )}
-    <span class="hljs-tag">&lt;/<span class="hljs-name">OverScroll</span>&gt;</span></span>
-);</code></pre>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> Example = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &lt;OverScroll slides={<span class="hljs-number">2</span>}&gt;{() =&gt; <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">MyPlugin</span> /&gt;</span>}<span class="hljs-tag">&lt;/<span class="hljs-name">OverScroll</span>&gt;</span></span>;</code></pre>
 				<h3 id="progressable">progressable</h3>
 				<p>Overscroll provides a helper to add a progress variable to your component.</p>
 				<pre><code class="language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
@@ -167,7 +161,7 @@
 <span class="hljs-keyword">const</span> Box = styled.div<span class="hljs-string">`
   height: 1rem;
   width: calc(var(--progress, 0) * 100%;
-  background: currentColor; 
+  background: currentColor;
 `</span>
 
 <span class="hljs-comment">// Using Listener</span>
@@ -185,7 +179,7 @@
 <span class="hljs-comment">// &lt;ProgressBar progress={progress}/&gt;</span>
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> Example = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">OverScroll</span> <span class="hljs-attr">pages</span>=<span class="hljs-string">{5}</span>&gt;</span>
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">OverScroll</span> <span class="hljs-attr">slides</span>=<span class="hljs-string">{5}</span>&gt;</span>
         {({page, progress}) =&gt; (
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
