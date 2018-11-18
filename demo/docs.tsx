@@ -51,7 +51,7 @@ export const Docs = () => (
 					from <Code>0</Code> to <Code>1</Code>
 				</Dd>
 				<Dt>
-					<Code>pages: number</Code>
+					<Code>slides: number</Code>
 				</Dt>
 				<Dd>
 					<strong>required</strong>

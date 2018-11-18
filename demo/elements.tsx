@@ -70,8 +70,8 @@ export const Dt: StyledComponent<any, any> = styled.dt`
 export const Code: StyledComponent<any, any> = styled.code`
 	padding: 0.125em 0.25rem;
 	margin: -0.125em 0;
-	background: hsla(231, 64%, 50%, 1);
-	color: hsla(0, 0%, 100%, 1);
+	background: hsla(0, 0%, 90%, 1);
+	color: black;
 	border-radius: 2px;
 `;
 

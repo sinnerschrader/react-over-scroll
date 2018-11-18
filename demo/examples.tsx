@@ -4,6 +4,18 @@ import styled, {StyledComponent, ThemeProvider} from "styled-components";
 import OverScroll, {progressable, TRenderer} from "../";
 import {Inner, Pagers, themes} from "../lib/src/styled";
 import {Column, Content, Copy, Dd, Dl, Dt, Headline, Link, Row} from "./elements";
+// @ts-ignore
+import slideshow_0 from "./images/slideshow_0.jpg";
+// @ts-ignore
+import slideshow_1 from "./images/slideshow_1.jpg";
+// @ts-ignore
+import slideshow_2 from "./images/slideshow_2.jpg";
+// @ts-ignore
+import slideshow_3 from "./images/slideshow_3.jpg";
+// @ts-ignore
+import slideshow_4 from "./images/slideshow_4.jpg";
+// @ts-ignore
+import slideshow_5 from "./images/slideshow_5.jpg";
 
 const DebugBox: StyledComponent<any, any> = styled.p`
 	height: 1rem;
@@ -112,6 +124,50 @@ const renderFactor: TRenderer = props => (
 		</Inner>
 	</ThemeProvider>
 );
+const slideshow = [slideshow_0, slideshow_1, slideshow_2, slideshow_3, slideshow_4, slideshow_5];
+
+const StyledSlide = styled.div`
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	background-color: white;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+`;
+
+const Slide = ({backgroundImage, opacity, ...rest}: any) => (
+	<StyledSlide {...rest} style={{backgroundImage: `url(${backgroundImage})`, opacity}} />
+);
+
+const theme = {
+	color: "#000",
+	hue: 0,
+	lightness: "100%",
+	markerSize: "2px",
+	pagerGap: "2vh",
+	pagerSize: "1.5rem",
+	saturation: "0%",
+	strokeWidth: "2px"
+};
+
+const renderSlideshow: TRenderer = props => (
+	<ThemeProvider theme={theme}>
+		<Inner withPagers={true}>
+			<Pagers {...props} prefix={props.anchors} dark={true} />
+			<Slide backgroundImage={slideshow[props.page]} opacity={1 - props.progress} />
+			<Slide backgroundImage={slideshow[props.page + 1]} opacity={props.progress}>
+				{props.page === props.pages - 1 ? <Headline>Fin!</Headline> : ""}
+			</Slide>
+		</Inner>
+	</ThemeProvider>
+);
 
 export const Examples = () => (
 	<React.Fragment>
@@ -152,6 +208,15 @@ export const Examples = () => (
 					factor={0.5}
 					render={renderFactor}
 					anchors={"examples/factor"}
+				/>
+			</Column>
+		</Row>
+		<Row>
+			<Column>
+				<OverScroll
+					slides={slideshow.length}
+					render={renderSlideshow}
+					anchors={"!/examples/slideshow"}
 				/>
 			</Column>
 		</Row>
