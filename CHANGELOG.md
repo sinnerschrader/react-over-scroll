@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.2.0"></a>
+# [3.2.0](https://github.com/pixelass/react-over-scroll/compare/v3.1.4...v3.2.0) (2018-11-18)
+
+
+### Bug Fixes
+
+* fix orientationchange and resize offsets ([9b487fc](https://github.com/pixelass/react-over-scroll/commit/9b487fc))
+
+
+### Features
+
+* dark pagers (better colors) ([3f7cd1d](https://github.com/pixelass/react-over-scroll/commit/3f7cd1d))
+
+
+
 <a name="3.1.4"></a>
 ## [3.1.4](https://github.com/pixelass/react-over-scroll/compare/v3.1.3...v3.1.4) (2018-11-16)
 
