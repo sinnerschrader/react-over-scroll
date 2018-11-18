@@ -11,6 +11,7 @@ export const assert = (value: any, type: string): void => {
 
 export interface IPagerProps<T> extends React.HTMLAttributes<HTMLAnchorElement> {
 	active?: boolean;
+	selected?: boolean;
 }
 
 export type PagerProps = IPagerProps<{}>;
@@ -20,7 +21,7 @@ export const Pager: StyledComponent<"a", {}, PagerProps> = styled.a`
 	z-index: 2;
 	height: var(--pager-size);
 	width: var(--pager-size);
-	margin: 0.5rem;
+	margin: var(--pager-gap) 0.5rem;
 	visibility: visible;
 	border-radius: 50%;
 	display: flex;
@@ -30,22 +31,15 @@ export const Pager: StyledComponent<"a", {}, PagerProps> = styled.a`
 	text-align: center;
 	color: currentColor;
 	text-decoration: none;
+	background-clip: content-box;
 
 	${(props: PagerProps) => css`
-		color: ${props.active ? "var(--font-default)" : "var(--font-default)"};
-		background-color: ${props.active
-			? "hsla(var(--background-h), var(--background-s), calc(var(--background-l) - 5%), 1)"
-			: "hsla(var(--background-h), var(--background-s), calc(var(--background-l) + 5%), 1)"};
-		box-shadow: inset 0 0 0 ${props.active ? "var(--stroke-width)" : 0}
-			hsla(var(--background-h), var(--background-s), calc(var(--background-l) + 10%), 1);
+		color: var(--color);
+		background-color: ${props.selected ? "var(--pager-color-active)" : "var(--pager-color)"};
+		border: var(--stroke-width) solid ${props.active ? "var(--marker-color)" : "transparent"};
 
 		&:hover {
-			background-color: hsla(
-				var(--background-h),
-				var(--background-s),
-				calc(var(--background-l) - 5%),
-				1
-			);
+			background-color: var(--pager-color-active);
 		}
 	`};
 `;
@@ -56,28 +50,59 @@ const StyledPagers: StyledComponent<"nav", {}> = styled.nav`
 	align-items: center;
 	align-content: center;
 	justify-content: center;
-	margin: -0.5rem;
+	margin: calc(var(--pager-gap) * -1) -0.5rem;
 `;
 
-const PagerWrapper: StyledComponent<"div", {}> = styled.div`
+export interface IPagerWrapperProps {
+	dark?: boolean;
+}
+
+const PagerWrapper: StyledComponent<"div", {}, IPagerWrapperProps> = styled.div`
+	${(props: IPagerWrapperProps) => css`
+		--marker-width: var(--marker-size);
+		--marker-color: hsla(
+			var(--background-h),
+			var(--background-s),
+			calc(var(--background-l) ${props.dark ? "-" : "+"} 30%),
+			1
+		);
+		--pager-color: hsla(
+			var(--background-h),
+			var(--background-s),
+			calc(var(--background-l) ${props.dark ? "-" : "+"} 20%),
+			1
+		);
+		--pager-background-color: hsla(
+			var(--background-h),
+			var(--background-s),
+			calc(var(--background-l) ${props.dark ? "+" : "-"} 5%),
+			1
+		);
+		--pager-color-active: hsla(
+			var(--background-h),
+			var(--background-s),
+			calc(var(--background-l) ${props.dark ? "-" : "+"} 10%),
+			1
+		);
+	`};
+
 	position: absolute;
 	z-index: 2;
 	top: 50%;
 	margin: 0 0.5rem;
 	left: 0;
 	transform: translateY(-50%);
-	background: var(--background-color);
+	background-color: var(--pager-background-color);
 	border-radius: calc(var(--pager-size) / 2);
 `;
 
 export const StyledMarker: StyledComponent<"div", {}> = styled.div`
-	--marker-width: var(--marker-size);
 	position: absolute;
 	z-index: 1;
-	top: calc((var(--pager-size) / 2) + 0.5rem);
+	top: calc((var(--pager-size) / 2) + var(--pager-gap));
 	left: calc(0.5rem + (var(--pager-size) - var(--marker-width)) / 2);
 	width: var(--marker-width);
-	background: hsla(var(--background-h), var(--background-s), calc(var(--background-l) + 10%), 1);
+	background: var(--marker-color);
 	visibility: visible;
 
 	&::before,
@@ -111,15 +136,15 @@ export const Marker: React.FunctionComponent<IMarkerProps> = props => {
 	return (
 		<StyledMarker
 			style={{
-				height: `calc(${props.progress} * (1rem + var(--pager-size)) + ${
+				height: `calc(${props.progress} * (var(--pager-gap) * 2 + var(--pager-size)) + ${
 					props.page
-				} * (1rem + var(--pager-size)))`
+				} * (var(--pager-gap) * 2 + var(--pager-size)))`
 			}}
 		/>
 	);
 };
 
-export interface IPagerBaseProps {
+export interface IPagerBaseProps extends IPagerWrapperProps {
 	pages: number;
 	page: number;
 	prefix: string;
@@ -163,7 +188,7 @@ export const PagerBase: React.FunctionComponent<IPagerBaseProps> = props => {
 	};
 
 	return (
-		<PagerWrapper>
+		<PagerWrapper dark={props.dark}>
 			<StyledPagers>
 				<Marker progress={props.progress} page={props.page} />
 				{Array(props.pages)
@@ -177,7 +202,8 @@ export const PagerBase: React.FunctionComponent<IPagerBaseProps> = props => {
 						return (
 							<Pager
 								key={id}
-								active={i === props.page && props.progress < 1}
+								active={i <= props.page}
+								selected={i === props.page && props.progress < 1}
 								href={`#${id}`}
 								onClick={handleClick}>
 								{props.showLabels && i + 1}
@@ -186,6 +212,7 @@ export const PagerBase: React.FunctionComponent<IPagerBaseProps> = props => {
 					})}
 				<Pager
 					href={`#${props.prefix}/${props.pages + 1}`}
+					selected={props.page === props.pages - 1 && props.progress === 1}
 					active={props.page === props.pages - 1 && props.progress === 1}
 					onClick={skip}>
 					{props.showLabels && (
@@ -199,7 +226,7 @@ export const PagerBase: React.FunctionComponent<IPagerBaseProps> = props => {
 	);
 };
 
-export interface IPagersProps {
+export interface IPagersProps extends IPagerWrapperProps {
 	useContext?: boolean;
 	showLabels?: boolean;
 	pages?: number;
@@ -214,11 +241,12 @@ export const Pagers: React.FunctionComponent<IPagersProps> = props => {
 			<ScrollConsumer>
 				{context => (
 					<PagerBase
-						showLabels={props.showLabels}
+						dark={props.dark}
 						page={context.page}
 						pages={context.pages}
 						prefix={context.anchors}
 						progress={context.progress}
+						showLabels={props.showLabels}
 					/>
 				)}
 			</ScrollConsumer>
@@ -230,11 +258,12 @@ export const Pagers: React.FunctionComponent<IPagersProps> = props => {
 	assert(props.prefix, "string");
 	return (
 		<PagerBase
-			showLabels={props.showLabels}
+			dark={props.dark}
 			page={props.page}
 			pages={props.pages}
 			prefix={props.prefix}
 			progress={props.progress}
+			showLabels={props.showLabels}
 		/>
 	);
 };

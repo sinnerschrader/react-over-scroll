@@ -5,6 +5,7 @@ export interface IInnerTheme {
 	hue?: number;
 	lightness?: string;
 	markerSize?: string;
+	pagerGap?: string;
 	pagerSize?: string;
 	saturation?: string;
 	strokeWidth?: string;
@@ -18,6 +19,7 @@ export interface IInnerProps {
 export const Inner: StyledComponent<"section", IInnerTheme, IInnerProps> = styled.section`
 	${(props: IInnerProps) => css`
 		--pager-size: ${props.theme.pagerSize};
+		--pager-gap: ${props.theme.pagerGap};
 		--marker-size: ${props.theme.markerSize};
 		--background-h: ${props.theme.hue};
 		--background-s: ${props.theme.saturation};
@@ -44,11 +46,12 @@ Inner.defaultProps = {
 	theme: {
 		color: "white",
 		hue: 0,
-		lightness: "48%",
-		markerSize: "3rem",
-		pagerSize: "3rem",
-		saturation: "48%",
-		strokeWidth: "1px"
+		lightness: "30%",
+		markerSize: "2px",
+		pagerGap: "2rem",
+		pagerSize: "1.5rem",
+		saturation: "0%",
+		strokeWidth: "2px"
 	}
 };
 
@@ -94,28 +97,33 @@ export const themes = {
 	default: {
 		color: "white",
 		hue: 0,
-		lightness: "48%",
-		markerSize: "3rem",
-		pagerSize: "3rem",
-		saturation: "48%",
-		strokeWidth: "1px"
+		lightness: "30%",
+		markerSize: "2px",
+		pagerGap: "5vh",
+		pagerSize: "1.5rem",
+		saturation: "0%",
+		strokeWidth: "2px"
 	},
 	pagers: {
 		big: {
 			markerSize: "3rem",
+			pagerGap: "0.5rem",
 			pagerSize: "3rem"
 		},
 		medium: {
 			markerSize: "1.5rem",
+			pagerGap: "0.5rem",
 			pagerSize: "1.5rem"
 		},
 		minimal: {
 			markerSize: "2px",
-			pagerSize: "1rem"
+			pagerGap: "5vh",
+			pagerSize: "1.5rem"
 		},
 		small: {
-			markerSize: "1.5rem",
-			pagerSize: "1.5rem"
+			markerSize: "1rem",
+			pagerGap: "0.5rem",
+			pagerSize: "1rem"
 		}
 	},
 	stroke: {
