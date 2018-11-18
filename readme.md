@@ -27,7 +27,7 @@ import React from "react";
 import OverScroll from "react-over-scroll";
 
 export const Example = () => (
-	<OverScroll pages={5}>
+	<OverScroll slides={5}>
 		{({page, progress}) => (
 			<div>
 				<ul>
@@ -55,21 +55,21 @@ const renderPages = ({page, progress}) => (
 	</div>
 );
 
-export const Example = () => <OverScroll pages={5} render={renderPages} />;
+export const Example = () => <OverScroll slides={5} render={renderPages} />;
 ```
 
 ## Configuration
 
 -   `anchors: ?string`: Use anchors to allow deep-links and browser history.
 -   `factor: ?number`: Change the factor that translates scroll offset to progress.
--   `pages: number`: The number of pages. Each page has its own progress scope.
+-   `slides: number`: The number of pages. Each page has its own progress scope.
 
 ```jsx
 import React from "react";
 import OverScroll from "react-over-scroll";
 
 export const Example = () => (
-	<OverScroll pages={5} anchors="!/example" factor{2}>
+	<OverScroll slides={5} anchors="!/example" factor{2}>
 		{({page, progress, anchors}) => (
 			<div>
 				<ul>
@@ -102,24 +102,18 @@ import OverScroll, {Listener} from "react-over-scroll";
 
 export const MyPlugin = () => (
 	<Listener>
-	{({page, progress}) => (
-		<div>
-			<ul>
-				<li>progress: {progress}</li>
-				<li>page: {page}</li>
-			</ul>
-		</div>
-	)}
+		{({page, progress}) => (
+			<div>
+				<ul>
+					<li>progress: {progress}</li>
+					<li>page: {page}</li>
+				</ul>
+			</div>
+		)}
 	</Listener>
 );
 
-export const Example = () => (
-	<OverScroll pages={2}>
-		{() => (
-			<MyPlugin />
-		)}
-	</OverScroll>
-);
+export const Example = () => <OverScroll slides={2}>{() => <MyPlugin />}</OverScroll>;
 ```
 
 ### progressable
@@ -134,7 +128,7 @@ import styled from "styled-components";
 const Box = styled.div`
   height: 1rem;
   width: calc(var(--progress, 0) * 100%;
-  background: currentColor; 
+  background: currentColor;
 `
 
 // Using Listener
@@ -152,7 +146,7 @@ const ProgressBar = () => (
 // <ProgressBar progress={progress}/>
 
 export const Example = () => (
-	<OverScroll pages={5}>
+	<OverScroll slides={5}>
 		{({page, progress}) => (
 			<div>
 				<ul>
@@ -165,6 +159,7 @@ export const Example = () => (
 	</OverScroll>
 );
 ```
+
 ### Styled elements
 
 Overscroll provides a wrapper and pagers.
