@@ -11,6 +11,5 @@ module.exports = {
 	},
 	types: {
 		path: "lib"
-	},
-	ignore: []
+	}
 };
