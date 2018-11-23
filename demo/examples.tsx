@@ -66,7 +66,7 @@ const renderEasing: TRenderer = props => (
 			<Headline>Example with easing</Headline>
 			<Debugger {...props} progress={circInOut(props.progress)} />
 			<Copy>
-				Each element can use an easing function do change the dynamics.
+				Each element can use an easing function to change the dynamics.
 				<br />
 				To keep Overscroll simple easing is not part of the options but should instead be
 				used where needed.
@@ -178,7 +178,7 @@ export const Examples = () => (
 				behavior of the OverScroll instance.
 			</Copy>
 			<Copy>
-				Some examples have pages or links to allow skipping or jumping to specific pages.
+				Some examples have pagers or links to allow skipping or jumping to specific pages.
 			</Copy>
 		</Content>
 		<Row>

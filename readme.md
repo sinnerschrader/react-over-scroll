@@ -118,9 +118,11 @@ export const Example = () => <OverScroll slides={2}>{() => <MyPlugin />}</OverSc
 
 ### progressable
 
-Overscroll provides a helper to add a progress variable to your component.
+Overscroll provides a helper to add a progress variable to your component.  
+This is a great way to add easing too (see example: "Using properties").
 
 ```jsx
+import {sineInOut} from "eases"
 import React from "react";
 import OverScroll, {progressable, Listener} from "react-over-scroll";
 import styled from "styled-components";
@@ -140,8 +142,8 @@ const ProgressBar = () => (
 // Usage
 // <ProgressBar/>
 
-// Using properties
-// const ProgressBar = ({progress}) => progressable(<Box/>, progress));
+// Using properties (and easing)
+// const ProgressBar = ({progress}) => progressable(<Box/>, sineInOut(progress)));
 // Usage
 // <ProgressBar progress={progress}/>
 
@@ -173,7 +175,7 @@ import {Inner, Pagers, themes} from "react-over-scroll/lib/src/styled";
 export const Example = () => (
 	<OverScroll slides={5} anchors="!/example">
 		{context => (
-			<ThemeProvider theme={themes.color.blue}>
+			<ThemeProvider theme={themes.default}>
 				<Inner withPagers={true}>
 					<Pagers useContext={true} />
 					<ul>
