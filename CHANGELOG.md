@@ -3,64 +3,52 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 <a name="3.2.0"></a>
+
 # [3.2.0](https://github.com/pixelass/react-over-scroll/compare/v3.1.4...v3.2.0) (2018-11-18)
 
-
 ### Bug Fixes
 
-* fix orientationchange and resize offsets ([9b487fc](https://github.com/pixelass/react-over-scroll/commit/9b487fc))
-
+-   fix orientationchange and resize offsets ([9b487fc](https://github.com/pixelass/react-over-scroll/commit/9b487fc))
 
 ### Features
 
-* dark pagers (better colors) ([3f7cd1d](https://github.com/pixelass/react-over-scroll/commit/3f7cd1d))
-
-
+-   dark pagers (better colors) ([3f7cd1d](https://github.com/pixelass/react-over-scroll/commit/3f7cd1d))
 
 <a name="3.1.4"></a>
+
 ## [3.1.4](https://github.com/pixelass/react-over-scroll/compare/v3.1.3...v3.1.4) (2018-11-16)
 
-
 ### Bug Fixes
 
-* types for child and render functions were wrong ([69ff355](https://github.com/pixelass/react-over-scroll/commit/69ff355))
-
-
+-   types for child and render functions were wrong ([69ff355](https://github.com/pixelass/react-over-scroll/commit/69ff355))
 
 <a name="3.1.3"></a>
+
 ## [3.1.3](https://github.com/pixelass/react-over-scroll/compare/v3.1.2...v3.1.3) (2018-11-16)
 
-
-
 <a name="3.1.2"></a>
+
 ## [3.1.2](https://github.com/pixelass/react-over-scroll/compare/v3.1.1...v3.1.2) (2018-11-16)
 
-
 ### Bug Fixes
 
-* add missng types, use production build for releases ([c39a9e4](https://github.com/pixelass/react-over-scroll/commit/c39a9e4))
-
-
+-   add missng types, use production build for releases ([c39a9e4](https://github.com/pixelass/react-over-scroll/commit/c39a9e4))
 
 <a name="3.1.1"></a>
+
 ## [3.1.1](https://github.com/pixelass/react-over-scroll/compare/v3.1.0...v3.1.1) (2018-11-16)
 
-
-
 <a name="3.1.0"></a>
-# [3.1.0](https://github.com/pixelass/react-over-scroll/compare/v3.0.2...v3.1.0) (2018-11-16)
 
+# [3.1.0](https://github.com/pixelass/react-over-scroll/compare/v3.0.2...v3.1.0) (2018-11-16)
 
 ### Bug Fixes
 
-* fixes build + related demo changes ([5666473](https://github.com/pixelass/react-over-scroll/commit/5666473))
-
+-   fixes build + related demo changes ([5666473](https://github.com/pixelass/react-over-scroll/commit/5666473))
 
 ### Features
 
-* styled components ([9380a84](https://github.com/pixelass/react-over-scroll/commit/9380a84))
-
-
+-   styled components ([9380a84](https://github.com/pixelass/react-over-scroll/commit/9380a84))
 
 <a name="3.0.2"></a>
 

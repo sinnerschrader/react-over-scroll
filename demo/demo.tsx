@@ -1,8 +1,8 @@
 import {easeIn, easeInOut, easeOut} from "@popmotion/easing";
 import React, {CSSProperties} from "react";
 import styled, {StyledComponent, ThemeProvider} from "styled-components";
-import OverScroll, {progressable} from "../";
-import {Inner, Pagers} from "../lib/src/styled";
+import OverScroll, {progressable} from "../src";
+import {Inner, Pagers} from "../src/styled";
 
 const Headline: StyledComponent<any, any> = styled.h3`
 	font-size: 2em;

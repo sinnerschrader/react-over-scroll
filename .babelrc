@@ -1,24 +1,11 @@
 {
-	"presets": ["@babel/react", "@babel/typescript", "@babel/env"],
-	"plugins": [
-		["@babel/plugin-proposal-decorators", {"legacy": true}],
-		["@babel/proposal-class-properties", {"loose": true}],
-		"@babel/proposal-object-rest-spread",
-		[
-			"styled-components",
-			{
-				"ssr": true,
-				"displayName": false
-			}
-		]
-	],
+	"extends": "imhotep/config/.babelrc",
 	"env": {
 		"test": {
 			"presets": ["minify"]
 		},
 		"development": {
 			"plugins": [
-				"react-hot-loader/babel",
 				[
 					"styled-components",
 					{

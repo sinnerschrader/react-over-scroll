@@ -1,8 +1,8 @@
 import {circInOut} from "@popmotion/easing";
 import React from "react";
 import styled, {StyledComponent, ThemeProvider} from "styled-components";
-import OverScroll, {progressable, TRenderer} from "../";
-import {Inner, Pagers, themes} from "../lib/src/styled";
+import OverScroll, {progressable, TRenderer} from "../src";
+import {Inner, Pagers, themes} from "../src/styled";
 import {Column, Content, Copy, Dd, Dl, Dt, Headline, Link, Row} from "./elements";
 // @ts-ignore
 import slideshow_0 from "./images/slideshow_0.jpg";
