@@ -26,9 +26,7 @@ const fitTop: React.CSSProperties = {
 	right: 0,
 	top: 0
 };
-/**
- * @return {Object} returns a position sticky polyfill
- */
+
 const overlayStyle: React.CSSProperties = {
 	...fitTop,
 	height: "100vh",
@@ -94,7 +92,7 @@ class OverScroll extends React.Component<IOverScrollProps, IOverScrollState> {
 	}
 
 	/**
-	 * THis function provides a frame to allow OverScroll to work.
+	 * A frame to allow Overscroll to work correctly.
 	 * @param {{children: any}} props
 	 * @constructor
 	 */
@@ -113,14 +111,14 @@ class OverScroll extends React.Component<IOverScrollProps, IOverScrollState> {
 	 * @param {number} scrollY - window.scrollY
 	 */
 	private handleScroll = (scrollY: number): void => {
-		// make sure the tracker element exists
+		// Make sure the tracker element exists
 		if (!this.tracker || !this.tracker.current) {
 			return;
 		}
 		let counter: number = 0;
 		let scrollOffset: number = 0;
 
-		// get the offset and check if the top or bottom have been reached
+		// Get the offset and check if the top or bottom have been reached
 		// top activates the snap mode
 		// bottom deactivates the snap mode
 		const {top, bottom}: ClientRect = this.tracker.current.getBoundingClientRect();
@@ -149,7 +147,7 @@ class OverScroll extends React.Component<IOverScrollProps, IOverScrollState> {
 	};
 
 	/**
-	 * the frame is used to define the scrollable height.
+	 * The frame is used to define the scrollable height.
 	 * It works as a `position: sticky` wrapper
 	 * @return {Object} returns a style object
 	 */

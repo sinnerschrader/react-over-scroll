@@ -150,7 +150,6 @@ export interface IPagerBaseProps extends IPagerWrapperProps {
 	prefix: string;
 	progress: number;
 	showLabels?: boolean;
-	showSkip?: boolean;
 }
 
 export const Icon: StyledComponent<"svg", {}> = styled.svg.attrs({
@@ -173,42 +172,60 @@ export const SkipLink: StyledComponent<"a", {}> = styled.a`
 	}
 `;
 
-export const PagerBase: React.FunctionComponent<IPagerBaseProps> = props => {
-	const scrollTo = (hash: string, target: HTMLElement): void => {
+export interface IScrollToOptions {
+	noHash?: boolean;
+	noFocus?: boolean;
+}
+
+const scrollTo = (hash: string, target: HTMLElement, options: IScrollToOptions = {}): void => {
+	if (!options.noHash) {
 		window.location.hash = hash;
-		const el = document.getElementById(hash);
+	}
+	const el = document.getElementById(hash);
+	if (!options.noFocus) {
 		target.focus();
+	}
 
-		// Attempted to implement smooth scrolling if the page changes by one position.
-		// The page jumps in several state changes
-		// @todo Fix unless a browser bug exists.
-		// const index = parseInt(hash.split("/").reverse()[0], 10) - 1;
-		// const diff = Math.abs(index - props.page);
-		// document.documentElement.style["scroll-behavior"] = diff > 1 ? "auto" : "smooth";
+	// Attempted to implement smooth scrolling if the page changes by one position.
+	// The page jumps in several state changes
+	// @todo Fix unless a browser bug exists.
+	// const index = parseInt(hash.split("/").reverse()[0], 10) - 1;
+	// const diff = Math.abs(index - props.page);
+	// document.documentElement.style["scroll-behavior"] = diff > 1 ? "auto" : "smooth";
 
-		el.scrollIntoView(true);
+	el.scrollIntoView(true);
 
-		// Optionally if Element.scrollIntoView does not return the expected result.
-		// const {top: tEl} = el.getBoundingClientRect();
-		// const {top: tBody} = document.body.getBoundingClientRect();
-		// const offset = tEl - tBody;
-		// window.scrollTo(0, offset);
-	};
+	// Optionally if Element.scrollIntoView does not return the expected result.
+	// const {top: tEl} = el.getBoundingClientRect();
+	// const {top: tBody} = document.body.getBoundingClientRect();
+	// const offset = tEl - tBody;
+	// window.scrollTo(0, offset);
+};
 
-	const skip = (e: React.MouseEvent<HTMLAnchorElement>): void => {
+export interface ISkipBaseProps {
+	prefix: string;
+}
+
+export const SkipBase: React.FunctionComponent<ISkipBaseProps> = props => {
+
+	const handleClick = (e: React.MouseEvent<HTMLAnchorElement>): void => {
 		e.preventDefault();
-		scrollTo(`${props.prefix}/skip`, e.target as HTMLElement);
+		scrollTo(`${props.prefix}/skip`, e.target as HTMLElement, {noFocus: true, noHash: true});
 	};
 
+	return <SkipLink
+		href={`#${props.prefix}/skip`}
+		onClick={handleClick}>
+		Skip
+	</SkipLink>
+}
+
+export const PagerBase: React.FunctionComponent<IPagerBaseProps> = props => {
 	const handleClick = (e: React.MouseEvent<HTMLAnchorElement>): void => {
 		e.preventDefault();
 		const target = e.target as HTMLElement;
 		const id = target.getAttribute("href").replace(/^#/, "");
 		scrollTo(id, target);
-	};
-
-	const handleFocus = (e: React.FocusEvent<HTMLAnchorElement>): void => {
-		scrollTo(`${props.prefix}/1`, e.target as HTMLElement);
 	};
 
 	return (
@@ -226,8 +243,7 @@ export const PagerBase: React.FunctionComponent<IPagerBaseProps> = props => {
 									active={i <= props.page}
 									selected={i === props.page && props.progress < 1}
 									href={`#${id}`}
-									onClick={handleClick}
-									onFocus={i === 0 ? handleFocus : undefined}>
+									onClick={handleClick}>
 									{props.showLabels && i + 1}
 								</Pager>
 							);
@@ -245,13 +261,6 @@ export const PagerBase: React.FunctionComponent<IPagerBaseProps> = props => {
 					</Pager>
 				</StyledPagers>
 			</PagerWrapper>
-			{props.showSkip && (
-				<SkipLink
-					href={`#${props.prefix}/skip`}
-					onClick={skip}>
-					Skip
-				</SkipLink>
-			)}
 		</React.Fragment>
 	);
 };
@@ -259,7 +268,6 @@ export const PagerBase: React.FunctionComponent<IPagerBaseProps> = props => {
 export interface IPagersProps extends IPagerWrapperProps {
 	useContext?: boolean;
 	showLabels?: boolean;
-	showSkip?: boolean;
 	pages?: number;
 	page?: number;
 	prefix?: string;
@@ -278,7 +286,6 @@ export const Pagers: React.FunctionComponent<IPagersProps> = props => {
 						prefix={context.anchors}
 						progress={context.progress}
 						showLabels={props.showLabels}
-						showSkip={props.showSkip}
 					/>
 				)}
 			</ScrollConsumer>
@@ -296,7 +303,31 @@ export const Pagers: React.FunctionComponent<IPagersProps> = props => {
 			prefix={props.prefix}
 			progress={props.progress}
 			showLabels={props.showLabels}
-			showSkip={props.showSkip}
+		/>
+	);
+};
+
+export interface ISkipProps extends IPagerWrapperProps {
+	useContext?: boolean;
+	prefix?: string;
+}
+
+export const Skip: React.FunctionComponent<ISkipProps> = props => {
+	if (props.useContext) {
+		return (
+			<ScrollConsumer>
+				{context => (
+					<SkipBase
+						prefix={context.anchors}
+					/>
+				)}
+			</ScrollConsumer>
+		);
+	}
+	assert(props.prefix, "string");
+	return (
+		<SkipBase
+			prefix={props.prefix}
 		/>
 	);
 };
