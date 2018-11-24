@@ -39,7 +39,7 @@
 	"scripts": {
 		"build": "cross-env NODE_ENV=production imhotep build",
 		"clean": "imhotep clean",
-		"dev": "imhotep dev",
+		"dev": "imhotep dev --hot",
 		"docs": "typedoc --out docs/api src && touch docs/.nojekyll",
 		"format": "imhotep format",
 		"lint": "imhotep lint",
