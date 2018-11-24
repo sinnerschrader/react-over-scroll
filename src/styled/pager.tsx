@@ -150,6 +150,7 @@ export interface IPagerBaseProps extends IPagerWrapperProps {
 	prefix: string;
 	progress: number;
 	showLabels?: boolean;
+	showSkip?: boolean;
 }
 
 export const Icon: StyledComponent<"svg", {}> = styled.svg.attrs({
@@ -158,6 +159,18 @@ export const Icon: StyledComponent<"svg", {}> = styled.svg.attrs({
 	width: 1.5rem;
 	height: 1.5rem;
 	fill: currentColor;
+`;
+
+export const SkipLink: StyledComponent<"a", {}> = styled.a`
+	position: absolute;
+	bottom: 0.5rem;
+	right: 0.5rem;
+	color: currentColor;
+	font-size: 1rem;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
 `;
 
 export const PagerBase: React.FunctionComponent<IPagerBaseProps> = props => {
@@ -184,51 +197,69 @@ export const PagerBase: React.FunctionComponent<IPagerBaseProps> = props => {
 
 	const skip = (e: React.MouseEvent<HTMLAnchorElement>): void => {
 		e.preventDefault();
-		scrollTo(`${props.prefix}/${props.pages + 1}`, e.target as HTMLElement);
+		scrollTo(`${props.prefix}/skip`, e.target as HTMLElement);
+	};
+
+	const handleClick = (e: React.MouseEvent<HTMLAnchorElement>): void => {
+		e.preventDefault();
+		const target = e.target as HTMLElement;
+		const id = target.getAttribute("href").replace(/^#/, "");
+		scrollTo(id, target);
+	};
+
+	const handleFocus = (e: React.FocusEvent<HTMLAnchorElement>): void => {
+		scrollTo(`${props.prefix}/1`, e.target as HTMLElement);
 	};
 
 	return (
-		<PagerWrapper dark={props.dark}>
-			<StyledPagers>
-				<Marker progress={props.progress} page={props.page} />
-				{Array(props.pages)
-					.fill(Boolean)
-					.map((x, i) => {
-						const id = `${props.prefix}/${i + 1}`;
-						const handleClick = (e: React.MouseEvent<HTMLAnchorElement>): void => {
-							e.preventDefault();
-							scrollTo(id, e.target as HTMLElement);
-						};
-						return (
-							<Pager
-								key={id}
-								active={i <= props.page}
-								selected={i === props.page && props.progress < 1}
-								href={`#${id}`}
-								onClick={handleClick}>
-								{props.showLabels && i + 1}
-							</Pager>
-						);
-					})}
-				<Pager
-					href={`#${props.prefix}/${props.pages + 1}`}
-					selected={props.page === props.pages - 1 && props.progress === 1}
-					active={props.page === props.pages - 1 && props.progress === 1}
+		<React.Fragment>
+			<PagerWrapper dark={props.dark}>
+				<StyledPagers>
+					<Marker progress={props.progress} page={props.page} />
+					{Array(props.pages)
+						.fill(Boolean)
+						.map((x, i) => {
+							const id = `${props.prefix}/${i + 1}`;
+							return (
+								<Pager
+									key={id}
+									active={i <= props.page}
+									selected={i === props.page && props.progress < 1}
+									href={`#${id}`}
+									onClick={handleClick}
+									onFocus={i === 0 ? handleFocus : undefined}>
+									{props.showLabels && i + 1}
+								</Pager>
+							);
+						})}
+					<Pager
+						href={`#${props.prefix}/${props.pages + 1}`}
+						selected={props.page === props.pages - 1 && props.progress === 1}
+						active={props.page === props.pages - 1 && props.progress === 1}
+						onClick={handleClick}>
+						{props.showLabels && (
+							<Icon>
+								<path d="M4,5V19L11,12M18,5V19H20V5M11,5V19L18,12" />
+							</Icon>
+						)}
+					</Pager>
+				</StyledPagers>
+			</PagerWrapper>
+			{props.showSkip && (
+				<SkipLink
+					href={`#${props.prefix}/skip`}
 					onClick={skip}>
-					{props.showLabels && (
-						<Icon>
-							<path d="M4,5V19L11,12M18,5V19H20V5M11,5V19L18,12" />
-						</Icon>
-					)}
-				</Pager>
-			</StyledPagers>
-		</PagerWrapper>
+					Skip
+				</SkipLink>
+			)}
+		</React.Fragment>
 	);
 };
 
 export interface IPagersProps extends IPagerWrapperProps {
 	useContext?: boolean;
 	showLabels?: boolean;
+	showSkip?: boolean;
 	pages?: number;
 	page?: number;
 	prefix?: string;
@@ -247,6 +278,7 @@ export const Pagers: React.FunctionComponent<IPagersProps> = props => {
 						prefix={context.anchors}
 						progress={context.progress}
 						showLabels={props.showLabels}
+						showSkip={props.showSkip}
 					/>
 				)}
 			</ScrollConsumer>
@@ -264,6 +296,7 @@ export const Pagers: React.FunctionComponent<IPagersProps> = props => {
 			prefix={props.prefix}
 			progress={props.progress}
 			showLabels={props.showLabels}
+			showSkip={props.showSkip}
 		/>
 	);
 };

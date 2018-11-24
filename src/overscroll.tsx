@@ -188,7 +188,16 @@ class OverScroll extends React.Component<IOverScrollProps, IOverScrollState> {
 				/>
 			));
 
-		return <div style={anchorStyle}>{triggers}</div>;
+		return <div style={anchorStyle}>
+			{triggers}
+			<span
+				id={`${anchors}/skip`}
+				style={{
+					position: "absolute",
+					top: "100%"
+				}}
+			/>
+		</div>;
 	}
 }
 
