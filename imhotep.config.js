@@ -1,5 +1,8 @@
 module.exports = {
-	entry: "demo/index.tsx",
+	app: {
+		path: "demo"
+	},
+	entry: "index.tsx",
 	output: {
 		path: "docs"
 	},
@@ -11,6 +14,5 @@ module.exports = {
 	},
 	types: {
 		path: "lib"
-	},
-	ignore: []
+	}
 };

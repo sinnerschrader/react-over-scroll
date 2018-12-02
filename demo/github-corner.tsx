@@ -1,7 +1,7 @@
 import React from "react";
-import styled, {StyledComponentClass} from "styled-components";
+import styled, {StyledComponent} from "styled-components";
 
-const StyledCorner: StyledComponentClass<any, any> = styled.svg.attrs({
+const StyledCorner: StyledComponent<"svg", any> = styled.svg.attrs({
 	"aria-hidden": "true",
 	viewBox: "0 0 250 250"
 })`

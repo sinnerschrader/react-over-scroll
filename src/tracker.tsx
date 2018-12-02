@@ -9,20 +9,22 @@ export interface IEventTrackerProps {
 }
 
 class Tracker extends React.PureComponent<IEventTrackerProps> {
-	private eventHandler;
+	private resizeHandler;
+	private orientationHandler;
+	private scrollHandler;
 
 	public componentDidMount(): void {
-		this.addHandler();
+		this.addHandlers();
 	}
 
 	public componentDidUpdate(oldProps): void {
 		if (oldProps.throttle !== this.props.throttle) {
-			this.updateHandler();
+			this.updateHandlers();
 		}
 	}
 
 	public componentWillUnmount(): void {
-		this.removeHandler();
+		this.removeHandlers();
 	}
 
 	public render(): null {
@@ -33,22 +35,32 @@ class Tracker extends React.PureComponent<IEventTrackerProps> {
 		this.props.onScroll(window.scrollY);
 	};
 
-	private addHandler() {
+	private addHandlers() {
 		const eventHandler = this.props.throttle
 			? throttle(this.trackScroll, this.props.throttle)
 			: this.trackScroll;
-		this.eventHandler = document.addEventListener("scroll", eventHandler, {
+		const forceThrottle = throttle(this.trackScroll, 250);
+
+		this.scrollHandler = document.addEventListener("scroll", eventHandler, {
+			passive: true
+		});
+		this.resizeHandler = window.addEventListener("resize", forceThrottle, {
+			passive: true
+		});
+		this.orientationHandler = window.addEventListener("orientationchange", forceThrottle, {
 			passive: true
 		});
 	}
 
-	private removeHandler() {
-		document.removeEventListener("scroll", this.eventHandler);
+	private removeHandlers() {
+		document.removeEventListener("scroll", this.scrollHandler);
+		window.removeEventListener("resize", this.resizeHandler);
+		window.removeEventListener("resize", this.orientationHandler);
 	}
 
-	private updateHandler() {
-		this.removeHandler();
-		this.addHandler();
+	private updateHandlers() {
+		this.removeHandlers();
+		this.addHandlers();
 	}
 }
 
